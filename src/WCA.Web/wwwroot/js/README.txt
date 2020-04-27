@@ -1,0 +1,1 @@
+﻿This folder contains scripts used by the MVC application, not the SPA.

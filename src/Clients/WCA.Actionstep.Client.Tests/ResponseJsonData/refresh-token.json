@@ -1,0 +1,8 @@
+﻿{
+    "access_token": "updatedAccessToken",
+    "token_type": "bearer",
+    "expires_in": 3600,
+    "api_endpoint": "https://test-endpoint/api/",
+    "orgkey": "testOrg",
+    "refresh_token": "updatedRefreshToken"
+}

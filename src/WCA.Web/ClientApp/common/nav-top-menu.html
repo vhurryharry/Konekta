@@ -1,0 +1,11 @@
+﻿<template>
+    <ul class="nav navbar-nav">
+        <li class="active">
+            <a aria-expanded="false" role="button" href.bind="actionstepurl"> Back to Actionstep</a>
+            <strong if.bind="matterInfo"> - ${matterInfo.orgName} (${matterInfo.orgKey})</strong>
+        </li>
+        <li repeat.for="row of navigation" class="${currenttitle == row.title ? '' : 'hide'}">
+            <a aria-expanded="false" role="button" href.bind="row.href"> ${row.title}</a>
+        </li>
+    </ul>
+</template>

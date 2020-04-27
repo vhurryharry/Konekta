@@ -1,0 +1,61 @@
+﻿@page
+@model WCA.Web.Areas.Admin.Pages.Integrations.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Integration</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Integration.Title" class="control-label"></label>
+                <input asp-for="Integration.Title" class="form-control" />
+                <span asp-validation-for="Integration.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Integration.LogoSrc" class="control-label"></label>
+                <input asp-for="Integration.LogoSrc" class="form-control" />
+                <span asp-validation-for="Integration.LogoSrc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Integration.LogoAlt" class="control-label"></label>
+                <input asp-for="Integration.LogoAlt" class="form-control" />
+                <span asp-validation-for="Integration.LogoAlt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Integration.LogoHref" class="control-label"></label>
+                <input asp-for="Integration.LogoHref" class="form-control" />
+                <span asp-validation-for="Integration.LogoHref" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Integration.LogoWidth" class="control-label"></label>
+                <input asp-for="Integration.LogoWidth" class="form-control" />
+                <span asp-validation-for="Integration.LogoWidth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Integration.ComingSoon" /> @Html.DisplayNameFor(model => model.Integration.ComingSoon)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

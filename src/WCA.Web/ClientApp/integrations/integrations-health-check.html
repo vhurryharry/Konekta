@@ -1,0 +1,57 @@
+<template>
+    <require from="../components/ibox"></require>
+    <require from="./integrations-health-check.css"></require>
+
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>Integrations Health Check</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="/">${appInfoService.appName}</a>
+                </li>
+                <li class="active">
+                    <strong>Integrations Healthcheck</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content animated fadeInUp vertical-container">
+        <ibox id="integrationsOverview" ibox.ref="iboxIntegrationsOverview">
+            <h5 slot="title">Integrations Health Check</h5>
+            <div slot="content">
+
+                <div if.bind="!pageLoaded" style="text-align:center;margin-top: 30px;">
+                    <img width="50" src="${appInfoService.appLoadingImage}">
+                    <br />
+                    <p>Loading integration status details</p>
+                </div>
+
+                <table class="health-check-table">
+                    <tr repeat.for="actionType of actionTypeStatusObjects">
+                        <td>
+                            <span if.bind="actionType.needsUpdate == false" class="label label-success">Updated</span>
+                            <span if.bind="actionType.needsUpdate == null" class="label label-error">Unknown</span>
+                            <span if.bind="actionType.needsUpdate" class="label label-error">Needs Update</span>
+                        </td>
+                        <td>
+                            <span if.bind="!actionType.authorized">It seems you do not have enough Authority to perform
+                                this integration for <b>${actionType.orgKey}</b>, please share this link to your
+                                colleague with sufficient authority.</span>
+                            <span if.bind="actionType.authorized">${actionType.actionTypeName}
+                                (${actionType.orgKey})</span>
+                        </td>
+                        <td>
+                            <button if.bind="actionType.needsUpdate" type="button"
+                                click.trigger="updateActionType(actionType)"
+                                class="btn btn-primary btn-sm">Update</button>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </ibox>
+    </div>
+</template>

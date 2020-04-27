@@ -1,0 +1,72 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GlobalXMatterMapping[0].ActionstepOrg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GlobalXMatterMapping[0].GlobalXMatterId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GlobalXMatterMapping[0].ActionstepMatterId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GlobalXMatterMapping[0].CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GlobalXMatterMapping[0].DateCreatedUtc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GlobalXMatterMapping[0].UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GlobalXMatterMapping[0].LastUpdatedUtc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.GlobalXMatterMapping) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionstepOrgKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GlobalXMatterId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionstepMatterId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreatedUtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdatedUtc)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-actionstepOrgKey="@item.ActionstepOrgKey" asp-route-globalxMatterId="@item.GlobalXMatterId">Edit</a> |
+                <a asp-page="./Details" asp-route-actionstepOrgKey="@item.ActionstepOrgKey" asp-route-globalxMatterId="@item.GlobalXMatterId">Details</a> |
+                <a asp-page="./Delete" asp-route-actionstepOrgKey="@item.ActionstepOrgKey" asp-route-globalxMatterId="@item.GlobalXMatterId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

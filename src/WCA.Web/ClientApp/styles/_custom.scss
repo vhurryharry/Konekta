@@ -1,0 +1,72 @@
+@media (max-width: 1000px) {
+  .welcome-message {
+    display: none;
+  }
+}
+
+/* Loading splash page */
+.splash {
+  text-align: center;
+  margin: 10% 0 0 0;
+  box-sizing: border-box;
+}
+
+.splash .message {
+  font-size: 72px;
+  line-height: 72px;
+  text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+  text-transform: uppercase;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.splash .fa-spinner {
+  text-align: center;
+  display: inline-block;
+  font-size: 72px;
+  margin-top: 50px;
+}
+
+/* Top navigation area */
+.navbar-static-top a span.home-link-text {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 60px;
+  margin-left: 80px;
+}
+
+/* Ensures that the top navbar is underneath dialog boxes */
+.navbar-static-top {
+  z-index: 990;
+}
+
+/* Footer - integrations */
+.footer-logo-bg {
+  padding: 4em;
+}
+
+.integration-partner-logos a {
+  /* Needed to ensure images are vertically aligned. */
+  line-height: 80px;
+}
+
+.integration-partner-logos a img {
+  width: 120px;
+  margin: 1em;
+  filter: gray;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+
+.integration-partner-logos a img:hover {
+  filter: none;
+  -moz-filter: none;
+  -webkit-filter: none;
+  cursor: pointer;
+}
+
+/* Add some shadows to make things look nicer */
+.ibox,
+.page-heading {
+  -webkit-box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
+  box-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
+}

@@ -1,0 +1,1 @@
+﻿This project is configured to reference the appsettings.json file from WCA.Web, as they should both use the same configuration.

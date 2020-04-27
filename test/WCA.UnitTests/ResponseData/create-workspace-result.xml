@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<WorkspaceCreationRequest xmlns="http://api.pexa.net.au/schema/2/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <LandTitleDetails>
+    <LandTitle>
+      <LandTitleReference>test-title-ref</LandTitleReference>
+      <UnregisteredLotReference>test-lotno</UnregisteredLotReference>
+    </LandTitle>
+    <ParentTitle>No</ParentTitle>
+  </LandTitleDetails>
+  <RequestLandTitleData>Yes</RequestLandTitleData>
+  <Jurisdiction>QLD</Jurisdiction>
+  <Role>Incoming Proprietor</Role>
+  <SubscriberReference>1</SubscriberReference>
+  <FinancialSettlement>Yes</FinancialSettlement>
+  <SettlementDate>2019-06-14</SettlementDate>
+  <ParticipantSettlementAcceptanceStatus>Accepted</ParticipantSettlementAcceptanceStatus>
+  <PartyDetails>
+    <Party>
+      <RepresentingParty>Yes</RepresentingParty>
+      <PartyType>Organisation</PartyType>
+      <PartyRole>Incoming Proprietor</PartyRole>
+      <Business>
+        <LegalEntityName>ABC Test Company</LegalEntityName>
+        <BusinessName>ABC Test Company</BusinessName>
+      </Business>
+      <CurrentAddress>
+        <CorrespondenceAddress>
+          <PostalDelivery>
+            <PostalDeliveryTypeCode></PostalDeliveryTypeCode>
+            <PostalDeliveryNumber>1234</PostalDeliveryNumber>
+          </PostalDelivery>
+          <Road>
+            <LotNumber />
+            <RoadNumber>NA</RoadNumber>
+            <RoadName>Test 1 Test Line 2</RoadName>
+            <RoadTypeCode>LINE</RoadTypeCode>
+            <RoadSuffixCode />
+          </Road>
+          <LocalityName>Test City</LocalityName>
+          <Postcode>1234</Postcode>
+          <State>QLD</State>
+        </CorrespondenceAddress>
+        <StreetAddress>
+          <SubDwellingUnitType />
+          <Road>
+            <LotNumber />
+            <RoadNumber>NA</RoadNumber>
+            <RoadName>Test 1 Test Line 2</RoadName>
+            <RoadTypeCode>LINE</RoadTypeCode>
+            <RoadSuffixCode />
+          </Road>
+          <LocalityName>Test City</LocalityName>
+          <Postcode>1234</Postcode>
+          <State>QLD</State>
+          <AddressSiteName />
+        </StreetAddress>
+      </CurrentAddress>
+    </Party>
+    <Party>
+      <RepresentingParty>Yes</RepresentingParty>
+      <PartyType>Individual</PartyType>
+      <PartyRole>Incoming Proprietor</PartyRole>
+      <FullName>
+        <GivenName order="1">FirstTest1</GivenName>
+        <GivenName order="2">MiddleTest1</GivenName>
+        <FamilyName>LastTest1</FamilyName>
+        <DateOfBirth>1989-06-26</DateOfBirth>
+      </FullName>
+      <Business>
+        <LegalEntityName>EmployerTest1</LegalEntityName>
+        <BusinessName>EmployerTest1</BusinessName>
+      </Business>
+      <CurrentAddress>
+        <CorrespondenceAddress>
+          <PostalDelivery>
+            <PostalDeliveryTypeCode></PostalDeliveryTypeCode>
+            <PostalDeliveryNumber>1234</PostalDeliveryNumber>
+          </PostalDelivery>
+          <Road>
+            <LotNumber />
+            <RoadNumber>NA</RoadNumber>
+            <RoadName>1 Line 2</RoadName>
+            <RoadTypeCode>LINE</RoadTypeCode>
+            <RoadSuffixCode />
+          </Road>
+          <LocalityName>Test City</LocalityName>
+          <Postcode>1234</Postcode>
+          <State>StateTest</State>
+        </CorrespondenceAddress>
+        <StreetAddress>
+          <SubDwellingUnitType />
+          <Road>
+            <LotNumber />
+            <RoadNumber>NA</RoadNumber>
+            <RoadName>1 Line 2</RoadName>
+            <RoadTypeCode>LINE</RoadTypeCode>
+            <RoadSuffixCode />
+          </Road>
+          <LocalityName>Test City</LocalityName>
+          <Postcode>1234</Postcode>
+          <State>StateTest</State>
+          <AddressSiteName />
+        </StreetAddress>
+      </CurrentAddress>
+    </Party>
+  </PartyDetails>
+</WorkspaceCreationRequest>

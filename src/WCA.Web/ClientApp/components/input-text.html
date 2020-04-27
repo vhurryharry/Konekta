@@ -1,0 +1,13 @@
+<template bindable="inputId, value, label, placeholder, cols">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for.one-time="inputId">${label}</label>
+    <div class="col-sm-${cols || 7}">
+      <input type="text"
+              value.two-way="value"
+              class="form-control"
+              id.one-time="inputId"
+              placeholder.one-time="placeholder">
+    </div>
+    <slot></slot>
+  </div>
+</template>

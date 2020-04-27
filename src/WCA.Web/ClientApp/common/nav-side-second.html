@@ -1,0 +1,5 @@
+﻿<template bindable="navigation">
+    <ul class="nav nav-second-level">
+        <li repeat.for="row of navigation" class="${row.isActive ? 'active' : ''}"><a href="${row.href}">${row.title}</a></li>
+    </ul>
+</template>

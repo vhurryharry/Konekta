@@ -1,0 +1,131 @@
+<template>
+    <require from="../components/ibox"></require>
+    <require from="../converters/date-format"></require>
+
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>Integrations</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="/">${appInfoService.appName}</a>
+                </li>
+                <li class="active">
+                    <strong>Integrations</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content animated fadeInUp vertical-container">
+        <ibox id="integrationsOverview" ibox.ref="iboxIntegrationsOverview">
+            <h5 slot="title">Integrations with other systems</h5>
+            <div slot="content">
+                <p>Below you can connect your WCA account to your Actionstep organisation. You will need at least one
+                    valid connection to an Actionstep org for WCA integrations to work properly.</p>
+                <p><a slot="iboxbutton" href="#" class="btn btn-primary btn-xs"
+                        click.trigger="connectToActionstepOrg()"><i class="fa fa-plus"></i> Connect to Actionstep
+                        Organisation</a></p>
+                <p><a slot="iboxbutton" href="#" class="btn btn-primary btn-xs" click.trigger="connectToInfoTrack()"><i
+                            class="fa fa-plus"></i> Connect to InfoTrack Account</a></p>
+            </div>
+        </ibox>
+
+        <ibox collapsable.bind="true" id="actionstepConnectionInfo" ibox.ref="ibox1">
+            <h5 slot="title">Connected Systems</h5>
+            <div slot="content">
+                <div class="project-list" data-cy="connected-items">
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr if.bind="actionstepOrgs.length < 1">
+                                <td class="project-status">
+                                    <span class="label label-error">Not Connected</span>
+                                </td>
+                                <td class="project-title">
+                                    <a href="#">No Actionstep Organisations are connected</a>
+                                    <br>
+                                    <small>Click the "Connect to Actionstep Organisation" button to create a new
+                                        connection.</small>
+                                </td>
+                                <td class="project-actions">
+                                    <button type="button" disabled class="btn btn-sm" title="Refresh">
+                                        <i class="fa fa-retweet"></i>
+                                    </button>
+                                    <button type="button" disabled class="btn btn-error btn-sm" title="Disconnect">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr repeat.for="actionstepOrg of actionstepOrgs">
+                                <td class="project-status">
+                                    <img width="150" src="/images/actionstep-logo128x25.png">
+                                </td>
+                                <td class="project-title">
+                                    <p>
+                                        ${actionstepOrg.actionstepOrgKey}
+                                        <span if.bind="!actionstepOrg.isValid" class="label label-danger">Needs attention</span>
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <small>Last refreshed ${actionstepOrg.lastRefreshedUtc | dateTimeFormat}</small>
+                                        </li>
+                                        <li if.bind="actionstepOrg.expiredAtUtc != null">
+                                            <small><strong>Expired on ${actionstepOrg.expiredAtUtc | dateTimeFormat}</strong></small>
+                                        </li>
+                                        <li if.bind="actionstepOrg.revokedAtUtc != null">
+                                            <small><strong>Revoked on ${actionstepOrg.revokedAtUtc | dateTimeFormat}</strong></small>
+                                        </li>
+                                    </ul>
+                                    <p if.bind="!actionstepOrg.isValid">
+                                        This Actionstep connection is not currently working. Click the refresh button to fix it.
+                                    </p>
+                                </td>
+                                <td class="project-actions">
+                                    <button type="button" class="btn btn-sm"
+                                        data-cy="refresh-${actionstepOrg.actionstepOrgKey}"
+                                        disabled.bind="actionstepOrg.refreshInProgress"
+                                        click.trigger="refreshOrg(actionstepOrg)"
+                                        title="Refresh">
+
+                                        <i class="fa fa-retweet"></i>
+                                    </button>
+                                    <button type="button" data-cy="disconnect-${actionstepOrg.actionstepOrgKey}"
+                                        class="btn btn-danger btn-sm"
+                                        disabled.bind="actionstepOrg.disconnectInProgress"
+                                        click.trigger="disconnectFromOrg(actionstepOrg)"
+                                        title="Disconnect">
+
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr show.bind="!infoTrackConnectionsLoaded">
+                                <td class="project-status">
+                                </td>
+                                <td class="project-title">
+                                    <img width="50" src=${appInfoService.appLoadingImage} style="margin-right: 10px;">
+                                    Loading InfoTrack Connections
+                                </td>
+                                <td></td>
+                            </tr>
+
+                            <tr show.bind="infoTrackConnectionsLoaded"
+                                repeat.for="infoTrackConnection of infoTrackConnections">
+                                <td class="project-status">
+                                    <img width="150" src="/images/InfoTrackLogo_216x80.png">
+                                </td>
+                                <td class="project-title">
+                                    ${infoTrackConnection.username} (${infoTrackConnection.orgKey})
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </ibox>
+    </div>
+</template>

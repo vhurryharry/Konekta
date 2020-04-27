@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns="http://api.pexa.net.au/schema/1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.pexa.net.au/schema/1/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.30">
+	<xs:include schemaLocation="api_simple_types.xsd"/>
+	<xs:include schemaLocation="api_categories.xsd"/>
+	<xs:include schemaLocation="api_common_structures.xsd"/>
+	<xs:complexType name="workspaceUpdateRequestType">
+		<xs:sequence>
+			<xs:element name="SubscriberId" type="identifierType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="WorkspaceId" type="identifierType"/>
+			<xs:element name="Role" type="roleCategoryType"/>
+			<xs:element name="SubscriberReference" type="textType"/>
+			<xs:element name="LandTitleDetails" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="LandTitle" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="LandTitleActionType" type="actionTypeCategoryType"/>
+									<xs:element name="LandTitleReference" type="textType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="NewSubscriberReference" type="textMandatoryType" minOccurs="0"/>
+			<xs:element name="AdditionalRoleDetails" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="OtherRole" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="RoleActionType" type="actionTypeCategoryType"/>
+									<xs:element name="Role" type="roleCategoryType"/>
+									<xs:element name="SubscriberReference" type="textType"/>
+									<xs:element name="IsDefaultRole" type="yesNoCategoryType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PartyDetails" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Party" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="PartyActionType" type="actionTypeCategoryType"/>
+									<xs:element name="PartyId" type="identifierType" minOccurs="0"/>
+									<xs:element name="RepresentingParty" type="yesCategoryType"/>
+									<xs:element name="PartyType" type="partyCategoryType" minOccurs="0"/>
+									<xs:element name="PartyRole" type="partyRoleCategoryType" minOccurs="0"/>
+									<xs:element name="FullName" type="fullNameType" minOccurs="0"/>
+									<xs:element name="Business" type="businessType" minOccurs="0"/>
+									<xs:element name="CurrentAddress" type="address2Type" minOccurs="0"/>
+									<xs:element name="FutureAddress" type="address2Type" minOccurs="0"/>
+									<xs:element name="PartyCapacityDetails" type="partyCapacityDetailsType" minOccurs="0"/>
+									<xs:element name="TrustDetails" type="trustDetailsType" minOccurs="0"/>
+									<xs:element name="ForeignPartyDetails" type="foreignPartyDetailsType" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceUpdateResponseType">
+		<xs:sequence>
+			<xs:element name="WorkspaceId" type="identifierType"/>
+			<xs:element name="LandTitleDetails" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="LandTitle" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ObsoleteLandTitleReference" type="textType"/>
+									<xs:element name="NewLandTitleReference" type="textType"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="WorkspaceStatus" type="workspaceStatusCategoryType"/>
+			<xs:element name="PartyDetails" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Party" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="PartyId" type="identifierType"/>
+									<xs:element name="PartyType" type="partyCategoryType"/>
+									<xs:element name="PartyRole" type="partyRoleCategoryType"/>
+									<xs:element name="FullName" type="fullNameType" minOccurs="0"/>
+									<xs:element name="Business" type="businessType" minOccurs="0"/>
+									<xs:element name="CurrentAddress" type="address2Type" minOccurs="0"/>
+									<xs:element name="FutureAddress" type="address2Type" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

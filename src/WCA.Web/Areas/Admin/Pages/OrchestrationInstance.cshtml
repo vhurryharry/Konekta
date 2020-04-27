@@ -1,0 +1,159 @@
+﻿@page "{id}"
+@using Newtonsoft.Json;
+@using WCA.Core.Services.DurableFunctions;
+@model OrchestrationInstanceModel
+@{
+    ViewData["Title"] = "Orchestration Instance";
+}
+
+<div class="row">
+    <div class="col-md-12">
+
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <div class="alert alert-warning" role="alert">@Model.ErrorMessage</div>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+        {
+            <div class="alert alert-success" role="alert">@Model.SuccessMessage</div>
+        }
+
+        <h1>Actions</h1>
+        @if (Model.OrchestratorInstance.Name == "GlobalXTransactionSyncOrchestrator" ||
+       Model.OrchestratorInstance.Name == "GlobalXDocumentSyncOrchestrator")
+        {
+            <form class="form-horizontal" method="post">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Update Matter ID</label>
+                    <div class="col-sm-10">
+                        <input asp-for="@Model.NewMatterId" class="form-control" />
+                        <button class="btn btn-warning" type="submit" asp-page-handler="RaiseUpdateMatterIdEvent" asp-route-instanceId="@Model.OrchestratorInstance.InstanceId">Update Matter ID</button>
+                    </div>
+                </div>
+            </form>
+        }
+
+        <form class="form-horizontal" method="post">
+            @if (Model.OrchestratorInstance.RuntimeStatus == RuntimeStatus.Running)
+            {
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Retry</label>
+                    <div class="col-sm-10">
+                        <button class="btn btn-warning" type="submit" asp-page-handler="RaiseRetryEvent" asp-route-instanceId="@Model.OrchestratorInstance.InstanceId">Retry</button>
+                    </div>
+                </div>
+            }
+            @if (Model.OrchestratorInstance.RuntimeStatus == RuntimeStatus.Failed)
+            {
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Rewind</label>
+                    <div class="col-sm-10">
+                        <button class="btn btn-warning" type="submit" asp-page-handler="RaiseRewindEvent" asp-route-instanceId="@Model.OrchestratorInstance.InstanceId">Rewind</button>
+                    </div>
+                </div>
+            }
+            @if (Model.OrchestratorInstance.RuntimeStatus == RuntimeStatus.Running || Model.OrchestratorInstance.RuntimeStatus == RuntimeStatus.Failed)
+            {
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Terminate</label>
+                    <div class="col-sm-10">
+                        <button class="btn btn-danger" type="submit" asp-page-handler="Terminate" asp-route-instanceId="@Model.OrchestratorInstance.InstanceId">Terminate (No Confirmation!)</button>
+                    </div>
+                </div>
+            }
+        </form>
+
+        <h1>Orchestration Details</h1>
+
+        <form class="form-horizontal">
+
+            <div class="form-group">
+                <label asp-for="OrchestratorInstance.CreatedTime" class="col-sm-2 control-label">Created (UTC)</label>
+                <div class="col-sm-10"><input asp-for="OrchestratorInstance.CreatedTime" disabled class="form-control" /></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="OrchestratorInstance.LastUpdatedTime" class="col-sm-2 control-label">Last Updated (UTC)</label>
+                <div class="col-sm-10"><input asp-for="OrchestratorInstance.LastUpdatedTime" disabled class="form-control" /></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="OrchestratorInstance.CustomStatus" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10"><input asp-for="OrchestratorInstance.CustomStatus" disabled class="form-control" /></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="OrchestratorInstance.InstanceId" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10"><input asp-for="OrchestratorInstance.InstanceId" disabled class="form-control" /></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="OrchestratorInstance.Name" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10"><input asp-for="OrchestratorInstance.Name" disabled class="form-control" /></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="OrchestratorInstance.RuntimeStatus" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10"><input asp-for="OrchestratorInstance.RuntimeStatus" disabled class="form-control" /></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="OrchestratorInstance.Input" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10"><pre>@JsonConvert.SerializeObject(Model.OrchestratorInstance.Input, Formatting.Indented)</pre></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="OrchestratorInstance.Output" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    @if (!(Model.OrchestratorInstance.Output is null))
+                    {
+                        <pre>@JsonConvert.SerializeObject(Model.OrchestratorInstance.Output, Formatting.Indented)</pre>
+                    }
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">
+                    History
+                    <span class="badge">@Model.OrchestratorInstance.HistoryEvents.Length</span>
+                </label>
+                <div class="col-sm-10">
+                    @for (int i = 0; i < Model.OrchestratorInstance.HistoryEvents.Length; i++)
+                    {
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                @Model.OrchestratorInstance.HistoryEvents[i].Timestamp
+                                @Model.OrchestratorInstance.HistoryEvents[i].EventType
+                                @if (!string.IsNullOrEmpty(Model.OrchestratorInstance.HistoryEvents[i].FunctionName))
+                                    @("(" + Model.OrchestratorInstance.HistoryEvents[i].FunctionName + ")")
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    @if (Model.OrchestratorInstance.HistoryEvents[i].FireAt.HasValue)
+                                    {
+                                        <span class="label label-primary">Fire At: @Model.OrchestratorInstance.HistoryEvents[i].FireAt</span>
+                                    }
+
+                                    @if (Model.OrchestratorInstance.HistoryEvents[i].ScheduledTime.HasValue)
+                                    {
+                                        <span class="label label-primary">Scheduled Time: @Model.OrchestratorInstance.HistoryEvents[i].ScheduledTime</span>
+                                    }
+                                </div>
+
+                                <div>
+                                    @if (!string.IsNullOrEmpty(Model.OrchestratorInstance.HistoryEvents[i].Details))
+                                    {
+                                        var historyDetails = JsonConvert.DeserializeObject(Model.OrchestratorInstance.HistoryEvents[i].Details);
+                                        <pre>@JsonConvert.SerializeObject(historyDetails, Formatting.Indented)</pre>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+[
+  {
+    "outputFileName": "wwwroot/libman/twitter-bootstrap/css/bootstrap.min.css",
+    "inputFiles": [
+      "wwwroot/libman/twitter-bootstrap/css/bootstrap.css"
+    ]
+  }
+]

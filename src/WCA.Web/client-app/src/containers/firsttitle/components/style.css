@@ -1,0 +1,52 @@
+﻿.confirm_btn {
+    margin-left: 30px;
+}
+
+.ms-Grid-row.first-title-question-wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.first-title-button-section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.divider {
+    border: 1px solid lightgray;
+    height: 0;
+    width: 100%;
+}
+
+.ft-section {
+    margin: 10px 0;
+}
+
+.ft-section,
+fieldset {
+    margin: 10px 0;
+}
+
+.known-risk-policies {
+    margin: 20px;
+}
+
+.ft-data-field {
+    margin: 10px 0;
+}
+
+.ft-party {
+    margin: 10px 0;
+}
+
+.ft-attachment-link {
+    text-decoration: none;
+    color: black;
+}
+
+.ft-attachment-link:hover {
+    font-weight: bold;
+}

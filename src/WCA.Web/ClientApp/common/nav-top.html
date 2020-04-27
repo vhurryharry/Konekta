@@ -1,0 +1,37 @@
+<template>
+    <require from="./nav-top-menu"></require>
+    <nav class="navbar navbar-static-top navy-bg" role="navigation">
+        <div id="navbar">
+            <nav-top-menu navigation.bind="navigation" currenttitle.bind="currenttitle"></nav-top-menu>
+            <ul class="nav navbar-top-links navbar-right">
+
+                <li class="dropdown" if.bind="showAllPages">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-shield"></i>All
+                        Pages <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li repeat.for="row of navigation" class="${currenttitle == row.title ? 'active' : ''}">
+                            <a aria-expanded="false" role="button" href.bind="row.href"> ${row.title}</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li if.bind="accountService.userIsLoggedIn">
+                    <a href="#">${accountService.loggedInUserDisplayName}</a>
+                </li>
+
+                <li if.bind="accountService.userIsLoggedIn">
+                    <form action="/Identity/Account/Logout" method="POST" id="logoutForm"></form>
+                    <a onClick="document.getElementById('logoutForm').submit();return false;">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
+                </li>
+
+                <li if.bind="!accountService.userIsLoggedIn">
+                    <a click.delegate="loginClick()">
+                        <i class="fa fa-sign-in"></i> Log in
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</template>

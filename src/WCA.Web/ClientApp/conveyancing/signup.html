@@ -1,0 +1,250 @@
+<template>
+    <require from="./signup.css"></require>
+    <require from="../components/ibox"></require>
+
+    <div class="wrapper wrapper-content animated fadeInRight vertical-container">
+        <ibox collapsable.bind="true" imagesource.bind="actionsteplogo" id="actionstepMatterInfo" ibox.ref="ibox1">
+            <div class="row" slot="content" style="min-height:500px;">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <form class="signup">
+
+                            <h1 slot="title">Sign up for ${appInfoService.appName} Conveyancing ${isTrial ? 'Trial' : ''}</h1>
+
+                            <hr />
+
+                            <div>
+                                <div class="row">
+                                    <div class="col-sm-1 signup-section">
+                                        1
+                                    </div>
+                                    <div class="col-sm-11">
+                                        <div>
+                                            <input type="radio" model.bind="true" checked.bind="infoTrackEnabled" name="infoTrackEnabled" id="infoTrackEnabledTrue">
+                                            <label for="infoTrackEnabledTrue">I would like to install Conveyancing with InfoTrack Integration.</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" model.bind="false" checked.bind="infoTrackEnabled" name="infoTrackEnabled" id="infoTrackEnabledFalse">
+                                            <label for="infoTrackEnabledFalse">I'd just like to install the Conveyancing add-on without InfoTrack Integration right now.</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" show.bind="infoTrackEnabled">
+                                    <hr />
+                                    <div class="col-sm-1 signup-section">
+                                        2
+                                    </div>
+                                    <div class="col-sm-11">
+                                        <input type="radio" model.bind="true" checked.bind="infoTrackCredReady" name="infoTrackCredReady" id="infoTrackCredReadyTrue">
+                                        <label for="infoTrackCredReadyTrue">I have my InfoTrack Username and Password ready.</label> <br />
+
+                                        <input type="radio" model.bind="false" checked.bind="infoTrackCredReady" name="infoTrackCredReady" id="infoTrackCredReadyFalse">
+                                        <label for="infoTrackCredReadyFalse">I will need to find my InfoTrack details.</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <div show.bind="(infoTrackEnabled && infoTrackCredReady) || (infoTrackEnabled == false)">
+                                <div class="row">
+                                    <div class="col-sm-1 signup-section">
+                                        <span show.bind="infoTrackEnabled == false">2</span>
+                                        <span show.bind="infoTrackEnabled && infoTrackCredReady">3</span>
+                                    </div>
+                                    <div class="col-sm-11">
+                                        <p>Please complete the fields below to sign-up for our conveyancing add-on.</p>
+                                        <p>
+                                            Once you've signed up, you will receive instructions to enable us to seamlessly integrate our
+                                            add-on with your Actionstep system.
+                                        </p>
+
+                                        <div class="group">
+                                            <label>
+                                                <span><span class="mandatory">*</span>Actionstep Organisation</span>
+                                                <select value.bind="orgKey" class="field">
+                                                    <option value="">-- Please Select --</option>
+                                                    <option repeat.for="org of userOrgs" value="${org.actionstepOrgKey}">${org.actionstepOrgTitle}</option>
+                                                </select>
+                                            </label>
+                                        </div>
+
+                                        <p style="float:right;">
+                                            <i>
+                                                Can't see the Actionstep organisation you're looking for?
+                                                <a click.trigger="connectToActionstepOrg()">Click here to connect to another organisation.</a><br />
+                                            </i>
+                                        </p>
+
+                                        <br /><br /><br />
+
+                                        <div class="group">
+                                            <label>
+                                                <span><span class="mandatory">*</span> First name</span>
+                                                <input id="firstname" value.bind="firstname" class="field" type="text" />
+                                            </label>
+                                        </div>
+                                        <div class="group">
+                                            <label>
+                                                <span><span class="mandatory">*</span> Last name</span>
+                                                <input id="lastname" value.bind="lastname" class="field" type="text" />
+                                            </label>
+                                        </div>
+                                        <div class="group">
+                                            <label>
+                                                <span><span class="mandatory">*</span> Conveyancing App</span>
+                                                <select value.bind="conveyancingApp" class="field">
+                                                    <option value="">-- Please Select --</option>
+                                                    <option value="QLD">Queensland</option>
+                                                    <option value="NSW">New South Wales</option>
+                                                    <option value="VIC">Victoria</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                        <div class="group">
+                                            <label>
+                                                <span><span class="mandatory">*</span> Company</span>
+                                                <input id="company" value.bind="company" class="field" type="text" />
+                                            </label>
+                                        </div>
+                                        <div class="group">
+                                            <label>
+                                                <span>ABN</span>
+                                                <input id="abn" value.bind="abn" class="field" type="text" placeholder="12 345 678 901" />
+                                            </label>
+                                        </div>
+                                        <div class="group">
+                                            <label>
+                                                <span><span class="mandatory">*</span> Phone</span>
+                                                <input class="field" value.bind="phone" placeholder="(02) 9999 1111" type="tel" />
+                                            </label>
+                                        </div>
+                                        <div class="group">
+                                            <label>
+                                                <span><span class="mandatory">*</span> Email</span>
+                                                <input id="email" value.bind="email" class="field" type="email" placeholder="your.name@yourcompany.com.au" />
+                                            </label>
+                                        </div>
+                                        <div class="group">
+                                            <label>
+                                                <span>Address line 1</span>
+                                                <input id="addressLine1" value.bind="addressLine1" class="field" placeholder="1 New Street" />
+                                            </label>
+                                        </div>
+                                        <div class="group">
+                                            <label>
+                                                <span>Address line 2</span>
+                                                <input id="addressLine2" value.bind="addressLine2" class="field" placeholder="" />
+                                            </label>
+                                        </div>
+                                        <div class="group">
+                                            <label>
+                                                <span>City</span>
+                                                <input id="addressCity" value.bind="addressCity" class="field" placeholder="Brisbane" />
+                                            </label>
+                                        </div>
+                                        <div class="group">
+                                            <label>
+                                                <span>State</span>
+                                                <input id="addressState" value.bind="addressState" class="field" placeholder="QLD" />
+                                            </label>
+                                        </div>
+                                        <div class="group">
+                                            <label>
+                                                <span>Postcode</span>
+                                                <input id="addressPostcode" value.bind="addressPostcode" class="field" placeholder="4000" />
+                                            </label>
+                                        </div>
+                                        <div class="group">
+                                            <label>
+                                                <span>Promo Code</span>
+                                                <input id="promoCode" value.bind="promoCode" class="field" placeholder="If you received a code, enter it here" />
+                                            </label>
+                                        </div>
+
+                                        <div>
+                                            <h3 show.bind="isTrial">Trial Installation</h3>
+                                            <p>&nbsp;</p>
+                                            <div show.bind="isTrial">
+                                                <label>
+                                                    You are installing the Conveyancing add-on to a trial Actionstep
+                                                    organisation. Trial installations do not receive product or
+                                                    precedent updates.
+                                                </label>
+                                            </div>
+
+                                            <h3 show.bind="!isTrial">Precedent Updates, Product Updates, and Support</h3>
+                                            <p>&nbsp;</p>
+                                            <div show.bind="!isTrial">
+                                                <div>
+                                                    <label>
+                                                        Please enter your payment information below
+                                                        to receive automatic precedent updates and
+                                                        new features as they are added. You will be
+                                                        charged AUD $49 (inc. GST) per month, per firm.
+                                                    </label>
+                                                </div>
+
+                                                <div class="group">
+                                                    <label>
+                                                        <span>Cardholder name</span>
+                                                        <input id="cardholderName" value.bind="cardholderName" class="field" placeholder="Cardholder name" />
+                                                    </label>
+                                                </div>
+                                                <div class="group">
+                                                    <label>
+                                                        <span>
+                                                            <span class="mandatory">*</span> Card
+                                                        </span>
+                                                        <div id="card-element" class="field"></div>
+                                                    </label>
+                                                </div>
+                                                <p class="pull-right">
+                                                    Payments
+                                                    <a href="https://www.stripe.com">
+                                                        <img src="/images/powered_by_stripe.png" alt="Powered by stripe logo">
+                                                    </a>
+                                                </p>
+                                                <p>&nbsp;</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <input id="acceptedTermsAndConditions" checked.bind="acceptedTermsAndConditions" class="" type="checkbox" />
+                                                <label for="acceptedTermsAndConditions" class="checkboxlabel">
+                                                    <span class="mandatory">*</span> I accept the
+                                                    <a href="https://support.konekta.com.au/support/solutions/articles/6000229543-terms-conditions" target="_blank">${appInfoService.appName} Terms &amp; Conditions</a>.
+                                                </label>
+                                            </div>
+
+                                            <p>&nbsp;</p>
+                                            <button class="btn btn-primary" disabled.bind="loading" type="submit" click.delegate="signup()">${loading ? "Loading" : "Signup"}</button>
+                                            <p>&nbsp;</p>
+
+                                            <div class="outcome">
+                                                <div class="error" role="alert">
+                                                    <ul>
+                                                        <li class="error" repeat.for="error of errors">${error}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div show.bind="infoTrackEnabled && infoTrackCredReady == false">
+                                <p>
+                                    Thank you for your interest in the <b>Conveyancing add-on with InfoTrack integration</b>.
+                                    Please come back to this sign-up page once you have your InfoTrack Username and Password to allow us to set up your InfoTrack integration,
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </ibox>
+    </div>
+</template>

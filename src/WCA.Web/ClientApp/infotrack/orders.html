@@ -1,0 +1,194 @@
+﻿<template>
+    <require from="../components/ibox"></require>
+    <require from="../converters/currency-format"></require>
+    <require from="../converters/date-format"></require>
+    <require from="../components/tag"></require>
+
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>InfoTrack Orders</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="/">${appInfoService.appName}</a>
+                </li>
+                <li class="active">
+                    <strong>InfoTrack Orders</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <div class="col-lg-4 input-daterange input-group" id="datepicker" style="float: left;">
+                                    <abp-datetime-picker style="width: 200px;" with-date-icon="true" element.bind="picker" model.bind="filterFromDatePickerValue" options.bind="{ showClear: true, showTodayButton: true, format: 'DD-MM-YYYY' }"></abp-datetime-picker>
+                                    <span class="input-group-addon">to</span>
+                                    <abp-datetime-picker with-date-icon="true" element.bind="picker" model.bind="filterToDatePickerValue" options.bind="{ showClear: true, showTodayButton: true, format: 'DD-MM-YYYY' }"></abp-datetime-picker>
+                                </div>
+                                <button class="btn btn-primary" type="submit" click.delegate="GetOrderHistory()">Fetch Orders</button>
+                                <button class="btn btn-primary" type="submit" click.delegate="SaveAsCSV()" disabled.bind="infoTrackOrders.length <= 0">Save as CSV</button>
+
+                                <div if.bind="pageFilters.length > 0" class="panel panel-default">
+                                    <div class="panel-heading" style="padding:5px;">Filters</div>
+                                    <div class="panel-body" style="padding:5px;">
+                                        <span repeat.for="filter of pageFilters">
+                                            <tag message="${filter.display}: ${filter.value}" click.delegate="RemoveFilter(filter)" data-toggle="tooltip" title="Remove this filter">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table id="infotrack-orders-table" class="footable table table-stripped toggle-arrow-tiny" data-filter="#filter" data-page-size="10000" data-paging="true">
+                            <thead>
+                                <tr>
+                                    <th data-toggle="true">Description</th>
+                                    <th>Matter</th>
+                                    <th>Order ID</th>
+                                    <th>Date Ordered</th>
+                                    <th>Total Fee</th>
+                                    <th>Total Fee GST</th>
+                                    <th>Total Fee Total</th>
+                                    <th>Status</th>
+                                    <th>Is Billable</th>
+                                    <th>Reconciled</th>
+                                    <th data-hide="all"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr repeat.for="i of itemsPerPage - numberOfItemsMissingToMakeAFullPage">
+                                    <td>${infoTrackOrders[i + currentPageOffset].infoTrackDescription}</td>
+                                    <td>${infoTrackOrders[i + currentPageOffset].infoTrackClientReference}</td>
+                                    <td>${infoTrackOrders[i + currentPageOffset].infoTrackOrderId}</td>
+                                    <td>${infoTrackOrders[i + currentPageOffset].infoTrackDateOrderedUtc | dateTimeFormat}</td>
+                                    <td>${infoTrackOrders[i + currentPageOffset].infoTrackTotalFee | currencyFormat}</td>
+                                    <td>${infoTrackOrders[i + currentPageOffset].infoTrackTotalFeeGST | currencyFormat}</td>
+                                    <td>${infoTrackOrders[i + currentPageOffset].infoTrackTotalFeeTotal | currencyFormat}</td>
+                                    <td>${infoTrackOrders[i + currentPageOffset].infoTrackStatus}</td>
+                                    <td>${infoTrackOrders[i + currentPageOffset].infoTrackIsBillable == true ? "Yes" : "No" }</td>
+                                    <td>
+                                        <aup-switch
+                                            checked.bind="infoTrackOrders[i + currentPageOffset].reconciled"
+                                            id="infoTrackOrders[i + currentPageOffset].infoTrackOrderId"
+                                            click.delegate="onReconcileChange(infoTrackOrders[i + currentPageOffset])"></aup-switch>
+                                    </td>
+                                    <td>
+                                        <table class="table">
+                                            <tr>
+                                                <td>Billing Type Name</td>
+                                                <td>${infoTrackOrders[i + currentPageOffset].infoTrackBillingTypeName}</td>
+                                                <td>Retailer Fee</td>
+                                                <td>${infoTrackOrders[i + currentPageOffset].infoTrackRetailerFee | currencyFormat}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ordered By</td>
+                                                <td>
+                                                    <a href.bind="'mailto://' + infoTrackOrders[i + currentPageOffset].orderedByWCAUserEmail">
+                                                        ${infoTrackOrders[i + currentPageOffset].orderedByWCAUserName}
+                                                    </a>
+                                                </td>
+                                                <td>Retailer Fee GST</td>
+                                                <td>${infoTrackOrders[i + currentPageOffset].infoTrackRetailerFeeGST | currencyFormat}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Actionstep Org</td>
+                                                <td>${infoTrackOrders[i + currentPageOffset].actionstepOrgKey}</td>
+                                                <td>Retailer Fee Total</td>
+                                                <td>${infoTrackOrders[i + currentPageOffset].infoTrackRetailerFeeTotal | currencyFormat}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Date Completed</td>
+                                                <td>${infoTrackOrders[i + currentPageOffset].infoTrackDateCompletedUtc | dateTimeFormat:'Not yet completed'}</td>
+                                                <td>Supplier Fee</td>
+                                                <td>${infoTrackOrders[i + currentPageOffset].infoTrackSupplierFee | currencyFormat}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ParentOrderId</td>
+                                                <td>${infoTrackOrders[i + currentPageOffset].infoTrackParentOrderId}</td>
+                                                <td>Supplier Fee GST</td>
+                                                <td>${infoTrackOrders[i + currentPageOffset].infoTrackSupplierFeeGST | currencyFormat}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ServiceName</td>
+                                                <td>${infoTrackOrders[i + currentPageOffset].infoTrackServiceName}</td>
+                                                <td>Supplier Fee Total</td>
+                                                <td>${infoTrackOrders[i + currentPageOffset].infoTrackSupplierFeeTotal | currencyFormat}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Reference</td>
+                                                <td>${infoTrackOrders[i + currentPageOffset].infoTrackReference}</td>
+                                                <td>Status reported by InfoTrack</td>
+                                                <td>${infoTrackOrders[i + currentPageOffset].infoTrackStatusMessage}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Actionstep Document Upload Status</td>
+                                                <td>
+                                                    ${infoTrackOrders[i + currentPageOffset].actionstepDocumentUploadStatus}
+                                                    <em>at</em>
+                                                    ${infoTrackOrders[i + currentPageOffset].actionstepDocumentUploadStatusUpdatedUtc | dateTimeFormat}
+                                                </td>
+                                                <td>Actionstep Disbursement Status</td>
+                                                <td>
+                                                    ${infoTrackOrders[i + currentPageOffset].actionstepDisbursementStatus}
+                                                    <em>at</em>
+                                                    ${infoTrackOrders[i + currentPageOffset].actionstepDisbursementStatusUpdatedUtc | dateTimeFormat}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>This status was last updated</td>
+                                                <td>
+                                                    ${infoTrackOrders[i + currentPageOffset].lastUpdatedUtc | dateTimeFormat}
+                                                    <em>by</em>
+                                                    <a href.bind="'mailto://' + infoTrackOrders[i + currentPageOffset].updatedByEmail">
+                                                        ${infoTrackOrders[i + currentPageOffset].updatedByName}
+                                                    </a>
+                                                </td>
+                                                <td>Links</td>
+                                                <td>
+                                                    <a if.bind="infoTrackOrders[i + currentPageOffset].infoTrackDownloadUrl.length > 0"
+                                                       href.bind="infoTrackOrders[i + currentPageOffset].infoTrackDownloadUrl"
+                                                       target="_blank">
+                                                           <i class="fa fa-download"></i> Download Document
+                                                    </a>
+                                                    <a if.bind="infoTrackOrders[i + currentPageOffset].infoTrackOnlineUrl.length > 0"
+                                                       href.bind="infoTrackOrders[i + currentPageOffset].infoTrackOnlineUrl"
+                                                       target="_blank">
+                                                       <i class="fa fa-external-link-square"></i> View Online
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-lg-12 form-group input-group" style="text-align: center;">
+                            Page ${currentPage} of ${totalPages}.
+                            Showing items ${i + currentPageOffset + 1}
+                            to ${currentPageOffset + itemsPerPage - numberOfItemsMissingToMakeAFullPage}
+                            of ${infoTrackOrders.length}.
+                            <button disabled.bind="currentPage <= 1" class="btn" type="submit" click.delegate="pageNavFirst()">First</button>
+                            <button disabled.bind="currentPage <= 1" class="btn" type="submit" click.delegate="pageNavPrevious()">Previous</button>
+                            <button disabled.bind="currentPage >= totalPages" class="btn" type="submit" click.delegate="pageNavNext()">Next</button>
+                            <button disabled.bind="currentPage >= totalPages" class="btn" type="submit" click.delegate="pageNavLast()">Last</button>
+                            <span>Show me</span>
+                            <select class="input" value.bind="itemsPerPage" change.delegate="itemsPerPageChanged()">
+                                <option model.bind="10">10</option>
+                                <option model.bind="25">25</option>
+                                <option model.bind="50">50</option>
+                                <option model.bind="100">100</option>
+                            </select>
+                            <span>items per page.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

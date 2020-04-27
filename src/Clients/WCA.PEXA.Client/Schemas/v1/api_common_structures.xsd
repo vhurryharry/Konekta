@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns="http://api.pexa.net.au/schema/1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.pexa.net.au/schema/1/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.30">
+	<xs:include schemaLocation="api_simple_types.xsd"/>
+	<xs:include schemaLocation="api_categories.xsd"/>
+	<xs:complexType name="address1Type">
+		<xs:choice>
+			<xs:element name="StreetAddress" type="address1StreetAddressDetailsType"/>
+			<xs:element name="OverseasAddress" type="address1OverseasAddressDetailsType"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="address1StreetAddressDetailsType">
+		<xs:sequence>
+			<xs:element name="SubDwellingUnitType" type="address1StreetAddressSubDwellingUnitTypeDetailsType" minOccurs="0"/>
+			<xs:element name="Level" type="address1StreetAddressLevelDetailsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ComplexRoad" type="address1StreetAddressComplexRoadDetailsType" minOccurs="0" maxOccurs="2"/>
+			<xs:element name="SecondaryComplex" type="textType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="AddressSiteName" type="textType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Road" type="address1StreetAddressRoadDetailsType" minOccurs="0"/>
+			<xs:element name="LocalityName" type="textType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Postcode" type="domesticPostalCodeType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="State" type="stateCategoryType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="address1StreetAddressSubDwellingUnitTypeDetailsType">
+		<xs:sequence>
+			<xs:element name="UnitTypeCode" type="unitTypeCodeCategoryType" minOccurs="0"/>
+			<xs:element name="UnitNumber" type="textType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="address1StreetAddressLevelDetailsType">
+		<xs:sequence>
+			<xs:element name="LevelTypeCode" type="levelTypeCodeCategoryType" minOccurs="0"/>
+			<xs:element name="LevelNumber" type="textType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="address1StreetAddressComplexRoadDetailsType">
+		<xs:sequence>
+			<xs:element name="RoadNumber" type="address1StreetAddressComplexRoadNumberType" minOccurs="0" maxOccurs="2"/>
+			<xs:element name="RoadName" type="textType" minOccurs="0"/>
+			<xs:element name="RoadTypeCode" type="roadTypeCodeCategoryType" minOccurs="0"/>
+			<xs:element name="RoadSuffixCode" type="roadSuffixCodeCategoryType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="order" type="ordinalType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="address1StreetAddressComplexRoadNumberType">
+		<xs:simpleContent>
+			<xs:extension base="roadNumberType">
+				<xs:attribute name="order" type="ordinalType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="address1StreetAddressRoadDetailsType">
+		<xs:sequence>
+			<xs:element name="LotNumber" type="textType" minOccurs="0"/>
+			<xs:element name="RoadNumber" type="roadNumberType" minOccurs="0"/>
+			<xs:element name="RoadName" type="textType" minOccurs="0"/>
+			<xs:element name="RoadTypeCode" type="roadTypeCodeCategoryType" minOccurs="0"/>
+			<xs:element name="RoadSuffixCode" type="roadSuffixCodeCategoryType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="address1OverseasAddressDetailsType">
+		<xs:sequence>
+			<xs:element name="AddressLine" type="address1OverseasAddress1AddressLineDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PostalCode" type="textType" minOccurs="0"/>
+			<xs:element name="CountryCode" type="countryCodeCategoryType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="address1OverseasAddress1AddressLineDetailsType">
+		<xs:simpleContent>
+			<xs:extension base="textType">
+				<xs:attribute name="order" type="ordinalType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="address2Type">
+		<xs:choice>
+			<xs:element name="StreetAddress" type="address2StreetAddressDetailsType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="OverseasAddress" type="address2OverseasAddressDetailsType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="CorrespondenceAddress" type="address2CorrespondenceAddressDetailsType" minOccurs="1" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="address2CorrespondenceAddressDetailsType">
+		<xs:sequence>
+			<xs:element name="PostalDelivery" type="address2PostalDeliveryDetailsType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Road" type="address2StreetAddressRoadDetailsType" minOccurs="0"/>
+			<xs:element name="LocalityName" type="textMandatoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Postcode" type="domesticPostalCodeType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="State" type="stateCategoryType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="address2StreetAddressDetailsType">
+		<xs:sequence>
+			<xs:element name="SubDwellingUnitType" type="address2StreetAddressSubDwellingUnitTypeDetailsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Level" type="address2StreetAddressLevelDetailsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ComplexRoad" type="address2StreetAddressComplexRoadDetailsType" minOccurs="0" maxOccurs="2"/>
+			<xs:element name="SecondaryComplex" type="textType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="AddressSiteName" type="textType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Road" type="address2StreetAddressRoadDetailsType" minOccurs="0"/>
+			<xs:element name="LocalityName" type="textMandatoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Postcode" type="domesticPostalCodeType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="State" type="stateCategoryType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="address2PostalDeliveryDetailsType">
+		<xs:sequence>
+			<xs:element name="PostalDeliveryTypeCode" type="postalDeliveryTypeCodeCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="PostalDeliveryNumber" type="textType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="address2StreetAddressSubDwellingUnitTypeDetailsType">
+		<xs:sequence>
+			<xs:element name="UnitTypeCode" type="unitTypeCodeCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="UnitNumber" type="textMandatoryType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="address2StreetAddressLevelDetailsType">
+		<xs:sequence>
+			<xs:element name="LevelTypeCode" type="levelTypeCodeCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="LevelNumber" type="textType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="address2StreetAddressComplexRoadDetailsType">
+		<xs:sequence>
+			<xs:element name="RoadNumber" type="address2StreetAddressComplexRoadNumberType" minOccurs="0" maxOccurs="2"/>
+			<xs:element name="RoadName" type="textType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RoadTypeCode" type="roadTypeCodeCategoryType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RoadSuffixCode" type="roadSuffixCodeCategoryType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="order" type="ordinalType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="address2StreetAddressRoadDetailsType">
+		<xs:sequence>
+			<xs:element name="LotNumber" type="textType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RoadNumber" type="roadNumberType" minOccurs="0"/>
+			<xs:element name="RoadName" type="textMandatoryType" maxOccurs="1"/>
+			<xs:element name="RoadTypeCode" type="roadTypeCodeCategoryType" maxOccurs="1"/>
+			<xs:element name="RoadSuffixCode" type="roadSuffixCodeCategoryType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="address2StreetAddressComplexRoadNumberType">
+		<xs:simpleContent>
+			<xs:extension base="roadNumberType">
+				<xs:attribute name="order" type="ordinalType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="address2OverseasAddressDetailsType">
+		<xs:sequence>
+			<xs:element name="AddressLine" type="address2OverseasAddressAddressLineDetailsType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="PostalCode" type="textType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="CountryCode" type="countryCodeCategoryType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="address2OverseasAddressAddressLineDetailsType">
+		<xs:simpleContent>
+			<xs:extension base="textMandatoryType">
+				<xs:attribute name="order" type="ordinalType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="overseasAddress1Type">
+		<xs:sequence>
+			<xs:element name="AddressLine" type="overseasAddress1AddressLineDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="PostalCode" type="textType" minOccurs="0"/>
+			<xs:element name="CountryCode" type="countryCodeCategoryType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="overseasAddress2Type">
+		<xs:sequence>
+			<xs:element name="AddressLine" type="overseasAddress2AddressLineDetailsType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="PostalCode" type="textType" minOccurs="0"/>
+			<xs:element name="CountryCode" type="countryCodeCategoryType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="overseasAddress1AddressLineDetailsType">
+		<xs:simpleContent>
+			<xs:extension base="textType">
+				<xs:attribute name="order" type="ordinalType" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="overseasAddress2AddressLineDetailsType">
+		<xs:simpleContent>
+			<xs:extension base="textMandatoryType">
+				<xs:attribute name="order" type="ordinalType" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="businessType">
+		<xs:sequence>
+			<xs:element name="LegalEntityName" type="textMandatoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="BusinessName" type="textType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="BusinessUnit" type="textType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="OrganisationType" type="organisationTypeCategoryType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="AdministrationStatus" type="administrationStatusDetailsType" minOccurs="0" maxOccurs="2"/>
+			<xs:element name="Identification" type="identificationDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="administrationStatusDetailsType">
+		<xs:simpleContent>
+			<xs:extension base="administrationStatusCategoryType"/>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="identificationDetailsType">
+		<xs:sequence>
+			<xs:element name="Identifier" type="partyIdentificationIdentifierCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Value" type="textMandatoryType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="exceptionResponseType">
+		<xs:sequence>
+			<xs:element name="ExceptionList" type="exceptionResponseDetailsType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="exceptionResponseDetailsType">
+		<xs:sequence>
+			<xs:element name="Code" type="statusCodeCategoryType"/>
+			<xs:element name="Message" type="textType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="fullNameType">
+		<xs:sequence>
+			<xs:element name="NameTitle" type="nameTitleCategoryType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="GivenName" type="givenNameOrderType" maxOccurs="unbounded"/>
+			<xs:element name="FamilyName" type="textType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="FamilyNameOrder" type="familyNameOrderCategoryType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="NameSuffix" type="textType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DateOfBirth" type="dateType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="givenNameOrderType">
+		<xs:simpleContent>
+			<xs:extension base="textMandatoryType">
+				<xs:attribute name="order" type="numericType" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="foreignPartyDetailsType">
+		<xs:sequence>
+			<xs:element name="ForeignPartyIndicator" type="yesNoCategoryType"/>
+			<xs:element name="ForeignPartyType" type="foreignPartyTypeCategoryType" minOccurs="0"/>
+			<xs:element name="ForeignCountry" type="countryCodeCategoryType" minOccurs="0"/>
+			<xs:element name="ResidentPartyIndicator" type="yesNoCategoryType" minOccurs="0"/>
+			<xs:element name="ForeignCountryShare" type="foreignCountryShareDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="foreignCountryShareDetailsType">
+		<xs:sequence>
+			<xs:element name="ForeignShareholderCountry" type="countryCodeCategoryType"/>
+			<xs:element name="ForeignPercent" type="percentageType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="trustDetailsType">
+		<xs:sequence>
+			<xs:element name="TrustIndicator" type="yesNoCategoryType"/>
+			<xs:element name="TrustName" type="textType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="partyCapacityDetailsType">
+		<xs:sequence>
+			<xs:element name="PartyCapacityType" type="partyCapacityTypeCategoryType" minOccurs="0"/>
+			<xs:element name="PartyCapacityDetail" type="textType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="warningResponseType">
+		<xs:sequence>
+			<xs:element name="Code" type="textType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Message" type="textType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="businessAddressType">
+		<xs:sequence>
+			<xs:element name="StreetAddress" type="textType"/>
+			<xs:element name="Suburb" type="localityNameType"/>
+			<xs:element name="State" type="textType"/>
+			<xs:element name="Postcode" type="textType" minOccurs="0"/>
+			<xs:element name="Country" type="countryCodeCategoryType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="availableSettlementTimeType">
+		<xs:sequence>
+			<xs:element name="Time" type="timestampType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="userDetailsType">
+		<xs:sequence>
+			<xs:element name="FirstName" type="textType"/>
+			<xs:element name="MiddleName" type="textType" minOccurs="0"/>
+			<xs:element name="LastName" type="textType"/>
+			<xs:element name="JobTitle" type="textType"/>
+			<xs:element name="Phone" type="telephoneNumberType"/>
+			<xs:element name="BusinessAddress" type="businessAddressType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="keyValueType">
+		<xs:sequence>
+			<xs:element name="Key" type="xs:string"/>
+			<xs:element name="Value" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="primaryLandUseDetailType">
+		<xs:sequence>
+			<xs:element name="Key" type="textMandatoryType"/>
+			<xs:element name="Value" type="textMandatoryType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="currentLandUseDetailType">
+		<xs:sequence>
+			<xs:element name="VacantLandUse" type="yesNoCategoryType"/>
+			<xs:element name="Dwelling" type="yesNoCategoryType"/>
+			<xs:element name="MultiUnit" type="yesNoCategoryType"/>
+			<xs:element name="Flats" type="yesNoCategoryType"/>
+			<xs:element name="GuestHousePrivateHotel" type="yesNoCategoryType"/>
+			<xs:element name="Farming" type="yesNoCategoryType"/>
+			<xs:element name="Industrial" type="yesNoCategoryType"/>
+			<xs:element name="Commercial" type="yesNoCategoryType"/>
+			<xs:element name="Other" type="textMandatoryType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="constructionTypeDetailType">
+		<xs:sequence>
+			<xs:element name="Key" type="textMandatoryType"/>
+			<xs:element name="Value" type="textMandatoryType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="areaOfLandDetailType">
+		<xs:sequence>
+			<xs:element name="Area" type="amountType"/>
+			<xs:element name="Measurement" type="measurementCategoryType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="safetySwitchDetailType">
+		<xs:sequence>
+			<xs:element name="SafetySwitchInstalled" type="yesNoCategoryType"/>
+			<xs:element name="SafetySwitchInformed" type="yesNoCategoryType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="smokeAlarmDetailType">
+		<xs:sequence>
+			<xs:element name="SmokeAlarmInstalled" type="yesNoCategoryType"/>
+			<xs:element name="SmokeAlarmInformed" type="yesNoCategoryType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

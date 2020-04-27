@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="60" >
+<defs>
+  <marker id='arrowhead' orient='auto' markerWidth='2' markerHeight='4'
+            refX='2' refY='2'>
+    <path d='M0,0 V4 L2,2 Z' fill='black' />
+  </marker>
+</defs>    
+<path id="path" d="M5 60a160 60 0 0 1 290 0" stroke="black" fill="none" stroke-width="3" stroke-dasharray="60,240"><!--  marker-end='url(#arrowhead)' -->
+  <animate attributeName="stroke-dashoffset" from="360" to="55" dur="3s" repeatCount="indefinite" />
+</path>
+<path id="arrow" d='M0,-6v12l6,-6Z' fill='black'>
+  <animateMotion dur="3s" repeatCount="indefinite" rotate="auto">
+    <mpath xlink:href="#path" />
+  </animateMotion>
+</path>
+</svg>

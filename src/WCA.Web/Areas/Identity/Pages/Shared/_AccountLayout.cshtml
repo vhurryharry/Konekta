@@ -1,0 +1,32 @@
+﻿@inject Microsoft.Extensions.Options.IOptions<AppSettings> appSettings
+
+@{
+    Layout = "_Layout";
+
+    var _appSettings = appSettings.Value;
+    var isWCA = Context.Request.Host.Value.Contains("workcloud", System.StringComparison.OrdinalIgnoreCase)
+                        || Context.Request.Host.Value.Contains("appwca-test", System.StringComparison.OrdinalIgnoreCase);
+    var appLogo = isWCA ? Url.Content("~/images/workcloud-sidebyside.svg") : Url.Content("~/images/Konekta_standard_extralight.svg");
+    var appUrl = isWCA ? _appSettings.WCACoreSettings.AppUrlSettings.WorkCloud.AppUrl : _appSettings.WCACoreSettings.AppUrlSettings.Konekta.AppUrl;
+    var appName = isWCA ? "WorkCloud" : "Konekta";
+    var logoHeight = isWCA ? 160 : 130;
+}
+
+<link rel="stylesheet" href="~/css/fullpage.css" asp-append-version="true" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 no-float right">
+            <a href=@appUrl>
+                <img src=@appLogo alt=@appName height=@logoHeight />
+            </a>
+        </div>
+        <div class="col-md-6 no-float animated fadeInDown ">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

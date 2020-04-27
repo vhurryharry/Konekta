@@ -1,0 +1,198 @@
+.settlement-calculator {
+    line-height: 20px;
+}
+
+.settlement-calculator .section {
+    margin: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.settlement-calculator .section-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.settlement-calculator .state-row {
+    display: flex;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.settlement-calculator .detail-row {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.settlement-calculator .detail-row>div {
+    display: flex;
+}
+
+.settlement-calculator .sa-link {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.settlement-calculator .additional-header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.settlement-calculator .left-align-section-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.settlement-calculator .right-align-section-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.settlement-calculator .right-align {
+    text-align: right;
+}
+
+.settlement-calculator .button {
+    margin: 3px;
+    border-radius: 3px;
+    color: white;
+    border: none;
+}
+
+.settlement-calculator .gray-button {
+    background-color: gray;
+    padding: 10px;
+}
+
+.settlement-calculator .red-button {
+    background-color: rgb(212, 73, 70);
+    padding: 10px;
+}
+
+.settlement-calculator .blue-icon-button {
+    background-color: rgb(0, 120, 212);
+    padding: 25px;
+}
+
+.settlement-calculator .show-hide-button {
+    background-color: rgb(0, 120, 212);
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.settlement-calculator .green-icon-button {
+    background-color: rgb(82, 175, 82);
+    padding: 25px;
+}
+
+.settlement-calculator .price-info {
+    height: 100%;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.settlement-calculator .separator {
+    text-align: right;
+    margin-left: 8px;
+    margin-bottom: -10px;
+}
+
+.settlement-calculator .calculated {
+    text-align: right;
+    margin-left: 8px;
+    margin-top: 15px;
+}
+
+.settlement-calculator .modal {
+    border-radius: 5px;
+}
+
+.settlement-calculator .modal-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: black;
+}
+
+.settlement-calculator .modal-row {
+    padding: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.settlement-calculator .modal-label {
+    min-width: 200px;
+}
+
+.settlement-calculator .modal-close-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.settlement-calculator .modal-body {
+    min-width: 700px;
+}
+
+.settlement-calculator .loading-modal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: "Exo", "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.settlement-calculator .create-cheque-button {
+    margin: 10px;
+    margin-left: 25px;
+}
+
+.settlement-calculator .red {
+    color: red;
+}
+
+.settlement-calculator .green {
+    color: green;
+}
+
+.settlement-calculator .ms-Checkbox-checkbox {
+    display: none;
+}
+
+.settlement-calculator .ibox-footer {
+    display: flex;
+}
+
+.settlement-calculator .update-check-box {
+    margin: 0;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.settlement-calculator .detail-row>.ms-Grid-col {
+    display: unset;
+}
+
+.settlement-calculator .ibox-content {
+    min-height: 0;
+}
+
+.loading-widget {
+    text-align: center;
+    padding: 3em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

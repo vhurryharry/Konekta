@@ -1,0 +1,63 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+
+@{ 
+    var isWCA = Context.Request.Host.Value.Contains("workcloud", System.StringComparison.OrdinalIgnoreCase)
+                        || Context.Request.Host.Value.Contains("appwca-test", System.StringComparison.OrdinalIgnoreCase);
+    var appName = isWCA ? "WorkCloud" : "Konekta";
+    var favicon16Name = isWCA ? Url.Content("~/images/wca-cogs16.png") : Url.Content("~/images/Konekta_16.png");
+    var favicon32Name = isWCA ? Url.Content("~/images/wca-cogs32.png") : Url.Content("~/images/Konekta_32.png");
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - @appName</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    @RenderSection("Head", required: false)
+
+    <link rel="stylesheet" href="~/libman/twitter-bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styles/styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/libman/font-awesome/css/all.min.css" asp-append-version="true">
+
+    <link rel="icon" type="image/png" href=@favicon16Name sizes="16x16">
+    <link rel="icon" type="image/png" href=@favicon16Name sizes="32x32">
+
+    <!-- Hotjar Tracking Code for https://app.workcloud.com.au/wca -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 1269135, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
+
+    @Html.Raw(JavaScriptSnippet.FullScript)
+</head>
+<body class="top-navigation">
+
+    @RenderBody()
+
+    <partial name="Footer" />
+
+    <!-- Main scripts -->
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/libman/twitter-bootstrap/js/bootstrap.js"></script>
+    <script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- Custom inspinia and plugin javascript -->
+    <script src="/js/script.js"></script>
+    <script src="/js/plugins/pace/pace.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="/js/plugins/iCheck/icheck.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

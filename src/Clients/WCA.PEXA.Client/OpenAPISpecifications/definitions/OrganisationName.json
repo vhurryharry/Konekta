@@ -1,0 +1,11 @@
+{
+    "openapi": "3.0.0",
+    "components": {
+        "schemas": {
+            "OrganisationName": {
+                "type": "string",
+                "description": "Assumption as file is not available from PEXA Swagger UI at https://developer.pexalabs.com.au/."
+            }
+        }
+    }
+}

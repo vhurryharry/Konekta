@@ -1,0 +1,212 @@
+<template>
+    <require from="./home.css"></require>
+    <require from="../components/actionstep/actionstep-matter-info"></require>
+
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <h2>${appInfoService.appName} Integrations</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/">${appInfoService.appName}</a>
+            </li>
+        </ol>
+    </div>
+
+    <actionstep-matter-info></actionstep-matter-info>
+
+    <div id="wca-home-page" class="wrapper wrapper-content animated fadeInRight vertical-container">
+        <div class="row" if.bind="!matterInfoAvailable">
+            <div class="col-md-12">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <i class="fa fa-exclamation-triangle"></i> <span class="m-l-xs">
+                            Some integrations are disabled
+                        </span>
+                    </div>
+                    <div class="panel-body p-v-xs">
+                        <p>
+                            Some integrations are disabled because you don't have a matter selected.
+                            Please <a href.bind="actionstepUrl">go back to Actionstep</a>, open a matter,
+                            then click the Integrations tab to use integrations with that matter.
+                        </p>
+                        <p>
+                            Alternatively you can select a connected org and enter a matter number manually:
+                        </p>
+                        <form submit.trigger="selectMatter()">
+                            <select value.bind="navigateToOrgKey">
+                                <option repeat.for="credential of credentials">${credential.key}</option>
+                            </select>
+                            <input type="text" placeholder="Enter Matter ID" value.bind="navigateToMatterId" />
+                            <button type="submit">Go</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" if.bind="matterInfoLoaded">
+            <div class="col-md-12">
+                <h2 style="text-align:center;margin-bottom: 20px; margin-top:0px;">
+                    <strong>
+                        ${matterName}
+                        (${matterId})
+                    </strong>
+                </h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="ibox">
+                    <div class="ibox-title ibox-logo-title">
+                        <img id="wca-logo-title" src="${appInfoService.appLogo}" alt='${appInfoService.appName} Logo'
+                            height="25px" />
+                    </div>
+                    <div class="ibox-content float-e-margins text-center">
+                        <p class="group-of-tiles">
+                            <button
+                                disabled.bind="(!matterInfoAvailable && !oldSettlmentCalculatorUrl) || oldSettlmentCalculatorButtonLoading"
+                                class="tile col-md-12 btn btn-w-m btn-default has-tool-tip" id="settlement-calculator"
+                                data-cy="settlement-calculator" click.delegate="navigateSettlementCalculator()">
+
+                                <div class="tool-tip-content">Settlement Calculator</div>
+
+                                <img class="tile-logo" src="/images/landing-page-icons/settlement-calculator.png"
+                                    alt='Settlement Calculator Icon' height="35px" />
+
+                                <div class="tile-title">
+                                    ${oldSettlmentCalculatorButtonText}
+                                </div>
+
+                            </button>
+
+                            <button disabled.bind="stampDutyButtonLoading || !matterInfoAvailable"
+                                class="tile col-md-12 btn btn-w-m btn-default has-tool-tip"
+                                click.trigger="navigateStampDutyCalculator()">
+
+                                <div class="tool-tip-content">Stamp Duty Calculator</div>
+
+                                <img class="tile-logo" src="/images/landing-page-icons/stamp-duty-calculator.png"
+                                    alt='Stamp Duty Calculator Icon' height="35px" />
+
+                                <div class="tile-title">
+                                    ${stampDutyButtonText}
+                                </div>
+
+                            </button>
+                            <button class="tile col-md-12 btn btn-w-m btn-default has-tool-tip"
+                                disabled.bind="!matterInfoAvailable" click.trigger="navigateRoute('infotrack/orders')">
+
+                                <div class="tool-tip-content">Manage Order History</div>
+
+                                <img class="tile-logo" src="/images/landing-page-icons/order-history.png"
+                                    alt='Order History Icon' height="35px" />
+
+                                <div class="tile-title">
+                                    Order History
+                                </div>
+
+                            </button>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="ibox">
+                    <div class="ibox-title ibox-logo-title">
+                        <img src="/images/InfoTrackLogo_216x80.png" alt='InfoTrack Logo' height="25px" />
+                    </div>
+
+                    <div class="ibox-content float-e-margins text-center">
+                        <p class="group-of-tiles">
+                            <button disabled.bind="!matterInfoAvailable"
+                                class="tile col-md-12 btn btn-w-m btn-default has-tool-tip"
+                                click.trigger="navigateRoute(`/infotrack/redirect-with-matter-info?resolvableEntryPoint=PropertyEnquiry&matterId=${matterId}&actionstepOrg=${actionstepOrg}`)">
+
+                                <div class="tool-tip-content">Perform a Property Enquiry</div>
+
+                                <img class="tile-logo" src="/images/landing-page-icons/property-enquiry.png"
+                                    alt='Property Enquiry Icon' height="35px" />
+
+                                <div class="tile-title">
+                                    Property Enquiry
+                                </div>
+
+                            </button>
+                            <button disabled.bind="!matterInfoAvailable"
+                                class="tile col-md-12 btn btn-w-m btn-default has-tool-tip"
+                                click.trigger="navigateRoute(`/infotrack/redirect-with-matter-info?resolvableEntryPoint=TitleSearch&matterId=${matterId}&actionstepOrg=${actionstepOrg}`)">
+
+                                <div class="tool-tip-content">Perform a Title Search</div>
+
+                                <img class="tile-logo" src="/images/landing-page-icons/title-search.png"
+                                    alt='Title Search Icon' height="35px" />
+
+                                <div class="tile-title">
+                                    Title Search
+                                </div>
+
+                            </button>
+                            <button disabled.bind="!matterInfoAvailable"
+                                class="tile col-md-12 btn btn-w-m btn-default has-tool-tip"
+                                click.trigger="navigateRoute(`/infotrack/redirect-with-matter-info?resolvableEntryPoint=webvoi%2Fdashboard&matterId=${matterId}&actionstepOrg=${actionstepOrg}`)">
+
+                                <div class="tool-tip-content">Verification of Identity Search</div>
+
+                                <img class="tile-logo" src="/images/landing-page-icons/verification-identity.png"
+                                    alt='Other Searches Icon' height="35px" />
+
+                                <div class="tile-title">
+                                    Verification of Identity
+                                </div>
+                            </button>
+                            <button disabled.bind="!matterInfoAvailable"
+                                class="tile col-md-12 btn btn-w-m btn-default has-tool-tip"
+                                click.trigger="navigateRoute(`/infotrack/redirect-with-matter-info?matterId=${matterId}&actionstepOrg=${actionstepOrg}`)">
+
+                                <div class="tool-tip-content">Perform Other Searches</div>
+
+                                <img class="tile-logo" src="/images/landing-page-icons/other-searches.png"
+                                    alt='Other Searches Icon' height="35px" />
+
+                                <div class="tile-title">
+                                    Other Searches
+                                </div>
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="ibox">
+                    <div class="ibox-title ibox-logo-title">
+                        <img src="/images/pexa-logo.svg" alt='PEXA Logo' height="25px" />
+                    </div>
+
+                    <div class="ibox-content float-e-margins text-center">
+                        <h2 if.bind="!showPexa">Coming soon!</h2>
+                        <p class="group-of-tiles" if.bind="showPexa">
+                            <button disabled.bind="!matterInfoAvailable"
+                                class="tile col-md-12 btn btn-w-m btn-default has-tool-tip"
+                                click.trigger="navigateUrl(`../pexa/create-workspace?matterId=${matterId}&actionstepOrg=${actionstepOrg}`)">
+
+                                <div class="tool-tip-content">Create a PEXA Workspace</div>
+
+                                <img class="tile-logo" src="/images/landing-page-icons/create-pexa-workspace.png"
+                                    alt='Create Pexa Workspace Icon' height="35px" />
+
+                                <div class="tile-title">
+                                    Create PEXA Workspace
+                                </div>
+
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

@@ -1,0 +1,64 @@
+﻿@page
+@model WCA.Web.Areas.Admin.Pages.IntegrationSettings.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>IntegrationSetting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.ActionstepOrg)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.ActionstepOrg.Key)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.User)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.User.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.SortOrder)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.SortOrder)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.HideIntegration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.HideIntegration)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.Integration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.Integration.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.DateCreatedUtc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.DateCreatedUtc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.LastUpdatedUtc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.LastUpdatedUtc)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="IntegrationSetting.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

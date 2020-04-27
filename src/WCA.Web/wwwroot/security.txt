@@ -1,0 +1,26 @@
+﻿-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Contact: mailto security at konekta.com.au
+Encryption: https://keybase.io/konekta
+Preferred-Languages: en
+Canonical: https://app.konekta.com.au/.well-known/security.txt
+Policy: https://support.konekta.com.au/en/support/solutions/articles/6000229543-terms-conditions
+-----BEGIN PGP SIGNATURE-----
+Version: Keybase OpenPGP v2.1.3
+Comment: https://keybase.io/crypto
+
+wsFcBAABCgAGBQJdy2O7AAoJEMcsoMisGIdVNVsP/jTZekla4p70cbgjlWRe5aCs
+wQY6w+IFj5GlmA2rFGUMHbNQwhC78DhmaBf7ByuFMcvQ6h4vp/bmsoERpUVu+Aea
+bZ764g3CIZzvqNaRX4re6l6zU4xyqNZN3iI077C4WfNgYZemlSFCSAl+Z15nUTJH
+ehrhop6Z92rvdpS5brOwiTX6xX2diZU9OJJ/MaURd+ji7x3hFO+fRq1vAtrU3b1W
+xqL6yz8fxqaEkw1l1T4+26Xz2cYq4+jD3mRUYdgvyIneNU48OCe91hZ5dsVMEyDb
+oWU59P0G0uDAoFOWo9P/0VEz8Yh23d9NVMcLGyt34c1oohFsu9AblW2erYvUuXFG
+DcG4pBVJVh0nDcvxMm5bsA6p6CioY6vRoIU4ddmFZCBGbKD/zgYd4xTQr1LuB7fK
+tXFnJVP2eh0gFGHC3zMO99B0Z9EaUwVfMmQOr6bVDGDn48WJEPtbdcuhFIAL1Tw1
+Dg2iSdIz2G6EynpPvNTj5pxYcHWndJyUe1llMYcEgw9Rl16Zo79T1o34ln50mdHo
+rRry47Jw/9I9gjOUlLHbONK536GA00DMTblmGd8vM185agKx9pmmZReJK8Ht2J9V
+WGXIOC/oIIhrPbrkVWQQ049jAuTy93b0kXCmW72Gpinqs/Vb+XDzx3SzQ+5m7Inz
+MccUqZRTeIJkBg8LPKHZ
+=4QZq
+-----END PGP SIGNATURE-----

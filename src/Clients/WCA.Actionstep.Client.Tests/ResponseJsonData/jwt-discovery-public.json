@@ -1,0 +1,11 @@
+{
+    "info": "This file is used to validate JWT Authorization headers inside Actionstep. This file is for public access",
+    "docker_public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz03/wFUf3eFd6Yqsvn4F\nuoRrOXsWjAGj77NrHnL2RYh6SMcx44PYVMZTEQ5VHDdgHPn0VDcB7RzEmxwHhhZl\nnweSRbImQBN6Ll51nHBx7Kdi3vEzJvI3/AMFCV1Q1KdgwUAzpRfwbE/SUoMUZv6w\nBJA6AUVZWZXOe2oj7iWONXfqnTW7Jx4V503S4GR4NemdvZ2Duf6b1y1QKhD5mB6E\n0WXhLL9lA/5hRsNtNI6/oOfnm3YcN2NyHIBYQH9Iw7a/Pp1wGIJzYIH0VjG63uAl\nvI1op3g5bl1nafz54nXootOPMWhIwFyRv1/yUsSwcvcXqW0duTf49RWOxZ+QKqiK\nUQIDAQAB\n-----END PUBLIC KEY-----",
+    "docker_public_key_old":"",
+    "dev_public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz03/wFUf3eFd6Yqsvn4F\nuoRrOXsWjAGj77NrHnL2RYh6SMcx44PYVMZTEQ5VHDdgHPn0VDcB7RzEmxwHhhZl\nnweSRbImQBN6Ll51nHBx7Kdi3vEzJvI3/AMFCV1Q1KdgwUAzpRfwbE/SUoMUZv6w\nBJA6AUVZWZXOe2oj7iWONXfqnTW7Jx4V503S4GR4NemdvZ2Duf6b1y1QKhD5mB6E\n0WXhLL9lA/5hRsNtNI6/oOfnm3YcN2NyHIBYQH9Iw7a/Pp1wGIJzYIH0VjG63uAl\nvI1op3g5bl1nafz54nXootOPMWhIwFyRv1/yUsSwcvcXqW0duTf49RWOxZ+QKqiK\nUQIDAQAB\n-----END PUBLIC KEY-----",
+    "dev_public_key_old": "",
+    "labs_public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz03/wFUf3eFd6Yqsvn4F\nuoRrOXsWjAGj77NrHnL2RYh6SMcx44PYVMZTEQ5VHDdgHPn0VDcB7RzEmxwHhhZl\nnweSRbImQBN6Ll51nHBx7Kdi3vEzJvI3/AMFCV1Q1KdgwUAzpRfwbE/SUoMUZv6w\nBJA6AUVZWZXOe2oj7iWONXfqnTW7Jx4V503S4GR4NemdvZ2Duf6b1y1QKhD5mB6E\n0WXhLL9lA/5hRsNtNI6/oOfnm3YcN2NyHIBYQH9Iw7a/Pp1wGIJzYIH0VjG63uAl\nvI1op3g5bl1nafz54nXootOPMWhIwFyRv1/yUsSwcvcXqW0duTf49RWOxZ+QKqiK\nUQIDAQAB\n-----END PUBLIC KEY-----",
+    "labs_public_key_old": "",
+    "prod_public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp2ikRwK8OpklNc3U9y2n\n3JE+B1sQftl8TbZs++PHiActfqHqVbdh2n8Pjaft2NDGB9BXOEO9I/F0J3jZJT+H\n2FdO8HoFPLfeMvcrRKvXa2UmSXRrZLA6YIf+wzgI0wgbb+lkEH3LUgHk0XxalnRE\nMmNUpAWtO0ZX2jh8tkp+3ymhzCtXHwYpiI1iJUDUje/kBXvKfdP+QcDgkshehY/w\nph5SEXS/a//r2TWRPbFHlzi96fL7ySZIjTWyQtZ1UwzjTqkA0gRYQLtXEQW5tLgJ\niiwivJ1UiGoGTfp4nj+ZU7OVYV5I/k+t4cv+s1jYAP/hmdW98932DavR9Mmlb80g\nXwIDAQAB\n-----END PUBLIC KEY-----",
+    "prod_public_key_old": ""
+}

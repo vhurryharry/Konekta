@@ -1,0 +1,85 @@
+<template>
+    <require from="./add-credit-card.css"></require>
+    <require from="../components/ibox"></require>
+
+    <div class="wrapper wrapper-content animated fadeInRight vertical-container">
+        <ibox collapsable.bind="true" imagesource.bind="actionsteplogo" id="actionstepMatterInfo" ibox.ref="ibox1">
+            <div class="row" slot="content" style="min-height:500px;">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <form class="signup">
+
+                            <h1 slot="title">Add credit card</h1>
+
+                            <br />
+
+                            <div class="row" show.bind="!showSuccess">
+                                <div>
+                                    <div class="group">
+                                        <label>
+                                            <span>Cardholder name</span>
+                                            <input id="cardholderName" value.bind="cardholderName" class="field"
+                                                placeholder="Cardholder name" />
+                                        </label>
+                                    </div>
+                                    <div class="group">
+                                        <label>
+                                            <span>
+                                                <span class="mandatory">*</span> Card
+                                            </span>
+                                            <div id="card-element" class="field"></div>
+                                        </label>
+                                    </div>
+                                    <p class="pull-right">
+                                        Payments
+                                        <a href="https://www.stripe.com">
+                                            <img src="/images/powered_by_stripe.png" alt="Powered by stripe logo">
+                                        </a>
+                                    </p>
+                                    <p>&nbsp;</p>
+                                </div>
+                                <div>
+                                    <div>
+                                        <input id="acceptedTermsAndConditions" checked.bind="acceptedTermsAndConditions"
+                                            class="" type="checkbox" />
+                                        <label for="acceptedTermsAndConditions" class="checkboxlabel">
+                                            <span class="mandatory">*</span> I accept the
+                                            <a href="https://support.konekta.com.au/support/solutions/articles/6000229543-terms-conditions" target="_blank">${appInfoService.appName}
+                                                Terms &amp; Conditions</a>.
+                                        </label>
+                                    </div>
+
+                                    <p>&nbsp;</p>
+                                    <button class="btn btn-primary" disabled.bind="loading" type="submit"
+                                        click.delegate="addCreditCard()">${loading ? "Loading" : "Store Credit
+                                        Card"}</button>
+                                    <p>&nbsp;</p>
+
+                                    <div class="outcome">
+                                        <div class="error" role="alert">
+                                            <ul>
+                                                <li class="error" repeat.for="error of errors">${error}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" show.bind="showSuccess">
+                                <div>
+                                    <div class="outcome">
+                                        <p>Credit Card Successfully Added</p>
+                                        <p>Thank you for updating your payment details.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </ibox>
+    </div>
+</template>

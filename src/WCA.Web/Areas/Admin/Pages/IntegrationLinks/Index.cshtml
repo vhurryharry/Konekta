@@ -1,0 +1,90 @@
+﻿@page
+@model WCA.Web.Areas.Admin.Pages.IntegrationLinks.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationLink[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationLink[0].Href)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationLink[0].OpenInNewWindow)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationLink[0].IsReactLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationLink[0].IsBeta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationLink[0].Disabled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationLink[0].ToolTip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationLink[0].Integration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationLink[0].DateCreatedUtc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationLink[0].LastUpdatedUtc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.IntegrationLink) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Href)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpenInNewWindow)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsReactLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsBeta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Disabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToolTip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Integration.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreatedUtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdatedUtc)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

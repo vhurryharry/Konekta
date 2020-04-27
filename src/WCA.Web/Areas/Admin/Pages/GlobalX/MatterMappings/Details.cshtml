@@ -1,0 +1,55 @@
+﻿@page
+@model DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GlobalX Matter Mapping</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GlobalXMatterMapping.ActionstepOrg)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GlobalXMatterMapping.ActionstepOrgKey)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GlobalXMatterMapping.ActionstepMatterId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GlobalXMatterMapping.ActionstepMatterId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GlobalXMatterMapping.UpdatedBy)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GlobalXMatterMapping.UpdatedBy.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GlobalXMatterMapping.LastUpdatedUtc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GlobalXMatterMapping.LastUpdatedUtc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GlobalXMatterMapping.CreatedBy)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GlobalXMatterMapping.CreatedBy.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GlobalXMatterMapping.DateCreatedUtc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GlobalXMatterMapping.DateCreatedUtc)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-actionstepOrgKey="@Model.GlobalXMatterMapping.ActionstepOrgKey" asp-route-globalxMatterId="@Model.GlobalXMatterMapping.GlobalXMatterId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

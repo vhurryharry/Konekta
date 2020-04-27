@@ -1,0 +1,78 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Konekta Admin</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    @RenderSection("Head", required: false)
+
+    <link rel="stylesheet" href="~/libman/twitter-bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/libman/font-awesome/css/all.min.css" asp-append-version="true">
+
+    <link rel="icon" type="image/png" href="~/images/Konekta_16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="~/images/Konekta_32.png" sizes="32x32">
+
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            margin-top: 0; /* remove the gap so it doesn't close */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-page="/Index" class="navbar-brand">Konekta Admin</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-page="/Index">Home</a></li>
+                    <li><a asp-page="/IntegrationTests">Integration Tests</a></li>
+                    <li><a asp-page="/OrchestrationInstances">Orchestration Instances</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">GlobalX <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-page="/GlobalX/Settings">GlobalX Settings</a></li>
+                            <li><a asp-page="/GlobalX/MatterMappings/Index">GlobalX Matter Mappings</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Integrations <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-page="/IntegrationSettings/Index">Integration Settings</a></li>
+                            <li><a asp-page="/IntegrationLinkSettings/Index">Integration Link Settings</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a asp-page="/Integrations/Index">Integrations</a></li>
+                            <li><a asp-page="/IntegrationLinks/Index">Integration Links</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2017 - @DateTime.Now.Year - Konekta Admin Site</p>
+        </footer>
+    </div>
+
+    <script src="~/libman/jquery/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/libman/twitter-bootstrap/js/bootstrap.min.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

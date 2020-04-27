@@ -1,0 +1,400 @@
+﻿<template>
+    <div class="col-lg-4">
+        <div class="form-group" id="data_5">
+            <!--<bootstrap-datepicker value.bind="'mm-dd-yyyy'" dp-options.bind="dpOptions" changedate.delegate="mychangedatefunction($event)"></bootstrap-datepicker>-->
+            <label class="font-normal">Date Ordered</label>
+            <div class="input-daterange input-group" id="datepicker">
+                <input type="date" class="input-sm form-control" name="start" value="22/06/2015" />
+                <span class="input-group-addon">to</span>
+                <input type="date" class="input-sm form-control" name="end" value="22/06/2018" />
+            </div>
+        </div>
+    </div>
+    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8" data-filter=#filter>
+        <thead>
+            <tr>
+                <th data-toggle="true">Description</th>
+                <th>ClientReference</th>
+                <th>DateOrdered</th>
+                <th>TotalFee</th>
+                <th>TotalFee GST</th>
+                <th>TotalFee Total</th>
+                <th>Status</th>
+                <th>IsBillable?</th>
+                <th data-hide="all"></th>
+                <th>Reconciled</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>NSW: Title Search - CP/SP63903</td>
+                <td>123456</td>
+                <td>30 May 2016 01:07 PM</td>
+                <td>$15.79</td>
+                <td>$1.58</td>
+                <td>$17.37</td>
+                <td>Complete</td>
+                <td>Yes</td>
+                <td>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>BillingTypeName</td>
+                            <td>NSW Titles</td>
+                            <td>Email</td>
+                            <td>email!@email.email</td>
+                        </tr>
+                        <tr>
+                            <td>Version</td>
+                            <td>1.0</td>
+                            <td>RetailerFee</td>
+                            <td>$7.29</td>
+                        </tr>
+                        <tr>
+                            <td>OrderId</td>
+                            <td>26988520</td>
+                            <td>RetailerFeeGST</td>
+                            <td>$0.73</td>
+                        </tr>
+                        <tr>
+                            <td>OrderedBy</td>
+                            <td>ABC Legal</td>
+                            <td>RetailerFeeTotal</td>
+                            <td>$8.02</td>
+                        </tr>
+                        <tr>
+                            <td>RetailerReference</td>
+                            <td>123456_ABC123</td>
+                            <td>SupplierFee</td>
+                            <td>$8.50</td>
+                        </tr>
+                        <tr>
+                            <td>DateCompleted</td>
+                            <td>30 May 2016 01:07 PM</td>
+                            <td>SupplierFeeGST</td>
+                            <td>$0.85</td>
+                        </tr>
+                        <tr>
+                            <td>ParentOrderId</td>
+                            <td>26988517</td>
+                            <td>SupplierFeeTotal</td>
+                            <td>$9.35</td>
+                        </tr>
+                        <tr>
+                            <td>ServiceName</td>
+                            <td>Title Search</td>
+                            <td>Reference</td>
+                            <td>CP/SP63903</td>
+                        </tr>
+                        <tr>
+                            <td>StatusMessage</td>
+                            <td>The order completed successfully.</td>
+                            <td>FileHash</td>
+                            <td>e440f77b4413d4b212ad357e65ae210d</td>
+                        </tr>
+                        <tr>
+                            <td>DownloadUrl</td>
+                            <td><a href="https://stageapi.infotrack.com.au/v1/order/download/26988520"><i class="fa fa-download"></i>Download Title</a></td>
+                            <td>OnlineUrl</td>
+                            <td><a href="http://stageintegrated.infotrack.com.au/NewSouthWales/Display.aspx?id=26988520"><i class="fa fa-external-link-square"></i>View Title Online</a></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <div class="switch">
+                        <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-toggle="true">QLD: Title Search - CP/SP63904</td>
+                <td>123457</td>
+                <td>28 May 2016 01:05 AM</td>
+                <td>$13.29</td>
+                <td>$1.35</td>
+                <td>$14.64</td>
+                <td>Complete</td>
+                <td>Yes</td>
+                <td>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>BillingTypeName</td>
+                            <td>NSW Titles</td>
+                            <td>Email</td>
+                            <td>email!@email.email</td>
+                        </tr>
+                        <tr>
+                            <td>Version</td>
+                            <td>1.0</td>
+                            <td>RetailerFee</td>
+                            <td>$7.29</td>
+                        </tr>
+                        <tr>
+                            <td>OrderId</td>
+                            <td>26988520</td>
+                            <td>RetailerFeeGST</td>
+                            <td>$0.73</td>
+                        </tr>
+                        <tr>
+                            <td>OrderedBy</td>
+                            <td>ABC Legal</td>
+                            <td>RetailerFeeTotal</td>
+                            <td>$8.02</td>
+                        </tr>
+                        <tr>
+                            <td>RetailerReference</td>
+                            <td>123456_ABC123</td>
+                            <td>SupplierFee</td>
+                            <td>$8.50</td>
+                        </tr>
+                        <tr>
+                            <td>DateCompleted</td>
+                            <td>30 May 2016 01:07 PM</td>
+                            <td>SupplierFeeGST</td>
+                            <td>$0.85</td>
+                        </tr>
+                        <tr>
+                            <td>ParentOrderId</td>
+                            <td>26988517</td>
+                            <td>SupplierFeeTotal</td>
+                            <td>$9.35</td>
+                        </tr>
+                        <tr>
+                            <td>ServiceName</td>
+                            <td>Title Search</td>
+                            <td>Reference</td>
+                            <td>CP/SP63903</td>
+                        </tr>
+                        <tr>
+                            <td>StatusMessage</td>
+                            <td>The order completed successfully.</td>
+                            <td>FileHash</td>
+                            <td>e440f77b4413d4b212ad357e65ae210d</td>
+                        </tr>
+                        <tr>
+                            <td>DownloadUrl</td>
+                            <td><a href="https://stageapi.infotrack.com.au/v1/order/download/26988520"><i class="fa fa-download"></i>Download Title</a></td>
+                            <td>OnlineUrl</td>
+                            <td><a href="http://stageintegrated.infotrack.com.au/NewSouthWales/Display.aspx?id=26988520"><i class="fa fa-external-link-square"></i>View Title Online</a></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>email!@email.email</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <div class="switch">
+                        <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-toggle="true">NSW: Title Search - CP/SP63901</td>
+                <td>123451</td>
+                <td>10 May 2016 02:27 PM</td>
+                <td>$17.79</td>
+                <td>$1.58</td>
+                <td>$19.37</td>
+                <td>Complete</td>
+                <td>Yes</td>
+                <td>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>BillingTypeName</td>
+                            <td>NSW Titles</td>
+                            <td>Email</td>
+                            <td>email!@email.email</td>
+                        </tr>
+                        <tr>
+                            <td>Version</td>
+                            <td>1.0</td>
+                            <td>RetailerFee</td>
+                            <td>$7.29</td>
+                        </tr>
+                        <tr>
+                            <td>OrderId</td>
+                            <td>26988520</td>
+                            <td>RetailerFeeGST</td>
+                            <td>$0.73</td>
+                        </tr>
+                        <tr>
+                            <td>OrderedBy</td>
+                            <td>ABC Legal</td>
+                            <td>RetailerFeeTotal</td>
+                            <td>$8.02</td>
+                        </tr>
+                        <tr>
+                            <td>RetailerReference</td>
+                            <td>123456_ABC123</td>
+                            <td>SupplierFee</td>
+                            <td>$8.50</td>
+                        </tr>
+                        <tr>
+                            <td>DateCompleted</td>
+                            <td>30 May 2016 01:07 PM</td>
+                            <td>SupplierFeeGST</td>
+                            <td>$0.85</td>
+                        </tr>
+                        <tr>
+                            <td>ParentOrderId</td>
+                            <td>26988517</td>
+                            <td>SupplierFeeTotal</td>
+                            <td>$9.35</td>
+                        </tr>
+                        <tr>
+                            <td>ServiceName</td>
+                            <td>Title Search</td>
+                            <td>Reference</td>
+                            <td>CP/SP63903</td>
+                        </tr>
+                        <tr>
+                            <td>StatusMessage</td>
+                            <td>The order completed successfully.</td>
+                            <td>FileHash</td>
+                            <td>e440f77b4413d4b212ad357e65ae210d</td>
+                        </tr>
+                        <tr>
+                            <td>DownloadUrl</td>
+                            <td><a href="https://stageapi.infotrack.com.au/v1/order/download/26988520"><i class="fa fa-download"></i>Download Title</a></td>
+                            <td>OnlineUrl</td>
+                            <td><a href="http://stageintegrated.infotrack.com.au/NewSouthWales/Display.aspx?id=26988520"><i class="fa fa-external-link-square"></i>View Title Online</a></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>email!@email.email</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <div class="switch">
+                        <div class="onoffswitch">
+                            <input type="checkbox" class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-toggle="true">QLD: Title Search - CP/SP63902</td>
+                <td>123456</td>
+                <td>22 Apr 2016 07:30 AM</td>
+                <td>$14.29</td>
+                <td>$1.35</td>
+                <td>$15.64</td>
+                <td>Complete</td>
+                <td>Yes</td>
+                <td>
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>BillingTypeName</td>
+                            <td>NSW Titles</td>
+                            <td>Email</td>
+                            <td>email!@email.email</td>
+                        </tr>
+                        <tr>
+                            <td>Version</td>
+                            <td>1.0</td>
+                            <td>RetailerFee</td>
+                            <td>$7.29</td>
+                        </tr>
+                        <tr>
+                            <td>OrderId</td>
+                            <td>26988520</td>
+                            <td>RetailerFeeGST</td>
+                            <td>$0.73</td>
+                        </tr>
+                        <tr>
+                            <td>OrderedBy</td>
+                            <td>ABC Legal</td>
+                            <td>RetailerFeeTotal</td>
+                            <td>$8.02</td>
+                        </tr>
+                        <tr>
+                            <td>RetailerReference</td>
+                            <td>123456_ABC123</td>
+                            <td>SupplierFee</td>
+                            <td>$8.50</td>
+                        </tr>
+                        <tr>
+                            <td>DateCompleted</td>
+                            <td>30 May 2016 01:07 PM</td>
+                            <td>SupplierFeeGST</td>
+                            <td>$0.85</td>
+                        </tr>
+                        <tr>
+                            <td>ParentOrderId</td>
+                            <td>26988517</td>
+                            <td>SupplierFeeTotal</td>
+                            <td>$9.35</td>
+                        </tr>
+                        <tr>
+                            <td>ServiceName</td>
+                            <td>Title Search</td>
+                            <td>Reference</td>
+                            <td>CP/SP63903</td>
+                        </tr>
+                        <tr>
+                            <td>StatusMessage</td>
+                            <td>The order completed successfully.</td>
+                            <td>FileHash</td>
+                            <td>e440f77b4413d4b212ad357e65ae210d</td>
+                        </tr>
+                        <tr>
+                            <td>DownloadUrl</td>
+                            <td><a href="https://stageapi.infotrack.com.au/v1/order/download/26988520"><i class="fa fa-download"></i>Download Title</a></td>
+                            <td>OnlineUrl</td>
+                            <td><a href="http://stageintegrated.infotrack.com.au/NewSouthWales/Display.aspx?id=26988520"><i class="fa fa-external-link-square"></i>View Title Online</a></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>email!@email.email</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <div class="switch">
+                        <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1">
+                                <span class="onoffswitch-inner"></span>
+                                <span class="onoffswitch-switch"></span>
+                            </label>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">
+                    <ul class="pagination pull-right"></ul>
+                </td>
+                <td colspan="3"></td>
+                <td><strong>Total</strong></td>
+                <td><strong>$67.02</strong></td>
+                <td colspan="3"></td>
+            </tr>
+        </tfoot>
+    </table>
+</template>

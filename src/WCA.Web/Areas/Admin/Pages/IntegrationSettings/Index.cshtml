@@ -1,0 +1,72 @@
+﻿@page
+@model WCA.Web.Areas.Admin.Pages.IntegrationSettings.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationSetting[0].ActionstepOrg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationSetting[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationSetting[0].SortOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationSetting[0].HideIntegration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationSetting[0].Integration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationSetting[0].DateCreatedUtc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntegrationSetting[0].LastUpdatedUtc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.IntegrationSetting) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionstepOrg.Key)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SortOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HideIntegration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Integration.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreatedUtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdatedUtc)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://api.pexa.net.au/schema/2/" targetNamespace="http://api.pexa.net.au/schema/2/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.5">
+	<xs:include schemaLocation="api_simple_types.xsd"/>
+	<xs:include schemaLocation="api_categories.xsd"/>
+	<xs:include schemaLocation="api_common_structures.xsd"/>
+	<xs:include schemaLocation="api_initiate_workspace_creation_structure.xsd"/>
+	<xs:complexType name="workspaceCreationTitleInformationResponseType">
+		<xs:sequence>
+			<xs:element name="WorkspaceCreationResponse" type="workspaceCreationResponseType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="TitleInformationResponse" type="titleInformationResponseType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="titleInformationResponseType">
+		<xs:sequence>
+			<xs:element name="RegistryTitleData" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="LandTitle" minOccurs="1" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="LandTitleReference" type="textType" minOccurs="1" maxOccurs="1" />
+									<xs:element name="LandDescription" type="textType" minOccurs="0" maxOccurs="1" />
+									<xs:element name="Address" type="textType" minOccurs="0" maxOccurs="1" />
+									<xs:element name="EstateType" type="textType" minOccurs="1" maxOccurs="1" />
+									<xs:element name="Tenancies" minOccurs="0" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Tenancy" minOccurs="0" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="TenancyType" type="textType" minOccurs="1" maxOccurs="1" />
+															<xs:element name="Proprietors" minOccurs="0" maxOccurs="1">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="Proprietor" maxOccurs="unbounded">
+																			<xs:complexType>
+																				<xs:sequence>
+																					<xs:element name="Name" type="textType" minOccurs="1" maxOccurs="1" />
+																					<xs:element name="NameDetail" type="textType" minOccurs="0" maxOccurs="1" />
+																					<xs:element name="Share" type="textType" minOccurs="0" maxOccurs="1" />
+																				</xs:sequence>
+																			</xs:complexType>
+																		</xs:element>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="PropertyMortgages" minOccurs="0" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="EstateConstraint" type="estateConstraintType" minOccurs="0" maxOccurs="unbounded" />
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="PropertyCaveats" minOccurs="0" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="EstateConstraint" type="estateConstraintType" minOccurs="0" maxOccurs="unbounded" />
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="StatutoryCharges" minOccurs="0" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="EstateConstraint" type="statutoryChargesEstateConstraintType" minOccurs="0" maxOccurs="unbounded" />
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="PriorityNotices" minOccurs="0" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="EstateConstraint" type="estateConstraintType" minOccurs="0" maxOccurs="unbounded" />
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="CertificateOfTitle" minOccurs="0" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Type" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="Issued" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="ControllerName" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="ControllerIdName" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="ControllerDesignation" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="ReceiptId" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="ProductionType" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="ProducingPartyName" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="ProducingPartyCapacity" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="ConsentingPartyName" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="ConsentingPartyCapacity" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="DocumentType" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="EditionDate" type="timestampType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="EditionDateString" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="EditionNumber" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="Status" type="textType" minOccurs="0" maxOccurs="1" />
+												<xs:element name="LrCustomerCode" type="textType" minOccurs="0" maxOccurs="1" />
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="TitleActivityCheck" minOccurs="0" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="LastTac" type="textType" minOccurs="1" maxOccurs="1" />
+												<xs:element name="LastTacIndicator" type="textType" minOccurs="1" maxOccurs="1" />
+												<xs:element name="LastPositiveTac" type="textType" minOccurs="0" maxOccurs="1" />
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

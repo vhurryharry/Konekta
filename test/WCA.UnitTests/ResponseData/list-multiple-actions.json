@@ -1,0 +1,115 @@
+﻿{
+    "links": {
+        "actions.assignedTo": {
+            "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/participants/{actions.assignedTo}",
+            "type": "participants"
+        },
+        "actions.division": {
+            "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/divisions/{actions.division}",
+            "type": "divisions"
+        },
+        "actions.actionType": {
+            "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/actiontypes/{actions.actionType}",
+            "type": "actiontypes"
+        },
+        "actions.primaryParticipants": {
+            "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/participants/{actions.primaryParticipants}",
+            "type": "participants"
+        },
+        "actions.step": {
+            "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/steps/{actions.step}",
+            "type": "steps"
+        },
+        "actions.billSettings": {
+            "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/actionbillsettings/{actions.billSettings}",
+            "type": "actionbillsettings"
+        },
+        "actions.relatedActions": {
+            "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/actions/{actions.relatedActions}",
+            "type": "actions"
+        }
+    },
+    "actions": [
+        {
+            "id": 1,
+            "name": "Daniel Test Matter 01",
+            "reference": null,
+            "priority": 0,
+            "status": "Active",
+            "statusTimestamp": "2018-10-10T15:40:51+13:00",
+            "isBillableOverride": null,
+            "createdTimestamp": "2018-10-10",
+            "modifiedTimestamp": "2019-05-03T15:59:58+12:00",
+            "isDeleted": "F",
+            "deletedBy": null,
+            "deletedTimestamp": null,
+            "isFavorite": "F",
+            "overrideBillingStatus": null,
+            "lastAccessTimestamp": "2019-04-25T15:43:43+12:00",
+            "links": {
+                "assignedTo": "10",
+                "division": "1",
+                "actionType": "7",
+                "primaryParticipants": [
+                    "10"
+                ],
+                "step": "7--0",
+                "billSettings": "1",
+                "relatedActions": null
+            }
+        },
+        {
+            "id": 7,
+            "name": "Daniel Test 2",
+            "reference": null,
+            "priority": 0,
+            "status": "Inactive",
+            "statusTimestamp": "2019-03-26T14:25:13+13:00",
+            "isBillableOverride": null,
+            "createdTimestamp": "2019-03-26",
+            "modifiedTimestamp": "2019-03-26T14:25:13+13:00",
+            "isDeleted": "F",
+            "deletedBy": null,
+            "deletedTimestamp": null,
+            "isFavorite": "F",
+            "overrideBillingStatus": null,
+            "lastAccessTimestamp": null,
+            "links": {
+                "assignedTo": "10",
+                "division": "1",
+                "actionType": "7",
+                "primaryParticipants": null,
+                "step": "7--0",
+                "billSettings": "7",
+                "relatedActions": null
+            }
+        }
+    ],
+    "meta": {
+        "paging": {
+            "actions": {
+                "recordCount": 2,
+                "pageCount": 1,
+                "page": 1,
+                "pageSize": 50,
+                "prevPage": null,
+                "nextPage": null
+            }
+        },
+        "debug": {
+            "requestTime": "0.182629",
+            "mem": "2.43mb",
+            "server": "app-0ec4df1d24325a620.ap-southeast-2.actionstepstaging.com",
+            "cb": "T17550-20323-1",
+            "time": "2019-05-08 12:20:24 +1200 (Pacific/Auckland)",
+            "appload": "0.15, 0.30, 0.27",
+            "app": "0.024437",
+            "db": "0.158192",
+            "dbc": "0.011162",
+            "qc": "61",
+            "uqc": "33",
+            "fc": "1,496",
+            "rl": null
+        }
+    }
+}

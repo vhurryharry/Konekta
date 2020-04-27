@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://api.pexa.net.au/schema/1/" targetNamespace="http://api.pexa.net.au/schema/1/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.30">
+	<xs:include schemaLocation="api_simple_types.xsd"/>
+    <xs:include schemaLocation="api_categories.xsd"/>
+    <xs:include schemaLocation="api_common_structures.xsd"/>
+    <xs:complexType name="manageProjectDataRequestType">
+        <xs:sequence>
+            <xs:element name="ProjectsId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="ProjectsName" type="textMandatoryType" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="Role" type="roleCategoryType"/>
+            <xs:element name="RestrictAccounts" type="yesNoCategoryType" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="AccountDetails" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ProjectAccount" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:choice>
+                                        <xs:element name="Account" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="AccountName" type="textMandatoryType" minOccurs="1" maxOccurs="1"/>
+                                                    <xs:element name="AccountBsb" type="textType" minOccurs="1" maxOccurs="1"/>
+                                                    <xs:element name="AccountNumber" type="textMandatoryType" minOccurs="1" maxOccurs="1"/>
+                                                    <xs:element name="AccountDescription" type="textMandatoryType" minOccurs="1" maxOccurs="1"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="BPay" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="BillerCode" type="textType" minOccurs="1" maxOccurs="1"/>
+                                                    <xs:element name="Reference" type="textMandatoryType" minOccurs="0" maxOccurs="1"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:choice>
+                                    <xs:element name="CategoryDetails" minOccurs="1">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="Category" maxOccurs="unbounded">
+                                                    <xs:complexType>
+                                                        <xs:sequence>                                                        
+                                                            <xs:element name="Type" type="financialLineItemTypeCategoryType" minOccurs="1" maxOccurs="1"/>
+                                                            <xs:element name="Category" type="financialLineItemCategoryType" minOccurs="1" maxOccurs="1"/>
+                                                        </xs:sequence>
+                                                    </xs:complexType>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        </xs:complexType>
+</xs:schema>

@@ -1,0 +1,67 @@
+﻿// STYLING
+.switch {
+    input {
+        margin-left: -9999px;
+        position: absolute;
+        visibility: hidden;
+    }
+
+    input+label {
+        background: $switch-inactive-border;
+        border-radius: $switch-width / 2;
+        cursor: pointer;
+        font-size: $switch-font-size;
+        height: $switch-width / 2;
+        padding: $switch-border-width;
+        position: relative;
+        transition: background 0.4s;
+        user-select: none;
+        width: $switch-width;
+
+        &:after,
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+        }
+
+        &:after {
+            background: $switch-handler-color;
+            border-radius: ($switch-width / 2) - 2 * ($switch-border-width + $switch-padding);
+            bottom: $switch-border-width + $switch-padding;
+            left: $switch-border-width + $switch-padding;
+            top: $switch-border-width + $switch-padding;
+            transition: margin 0.4s, background 0.4s;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+            width: ($switch-width / 2) - 2 * ($switch-border-width + $switch-padding);
+        }
+
+        &:before {
+            background: white;
+            border-radius: $switch-width / 2;
+            bottom: $switch-border-width;
+            left: $switch-border-width;
+            line-height: $switch-width / 2 - 2 * $switch-border-width;
+            padding-left: ($switch-width / 2) - 2 * ($switch-border-width + $switch-padding);
+            right: $switch-border-width;
+            text-align: center;
+            transition: background 0.4s;
+            top: $switch-border-width;
+        }
+    }
+
+    input:checked+label {
+        background: $switch-active-border;
+
+        &:after {
+            background: $switch-handler-color;
+            margin-left: $switch-width / 2;
+        }
+
+        &:before {
+            background: $switch-active-color;
+            padding-left: 0;
+            padding-right: ($switch-width / 2) - 2 * ($switch-border-width + $switch-padding);
+        }
+    }
+}

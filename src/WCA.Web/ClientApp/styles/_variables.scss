@@ -1,0 +1,58 @@
+// WCA Colours:
+
+// Blue (background): #153c6a / rgb(21, 60, 106)
+// Green:  #8bc442 / rgb(139, 196, 66)
+// Orange: #ef5a2b / rgb(239,  90, 43)
+// Yellow: #f9ae18 / rgb(249, 174, 24)
+// Grey:   #a6a6a6 / rgb(166, 166, 166)
+
+// Basic Colors
+$navy: #1b3b6a; // Primary color
+$dark-gray: #a7a9ac; // Default color
+$blue: #8cc641; // Success color
+$lazur: #3E88F7; // Info color
+$yellow: #fcb116; // Warning color
+$red: #f15a29; // Danger color
+$white: #FFFFFF; // White color
+// Various colors
+$text-color: #676a6c; // Body text
+$gray: #a7a9ac; // Background wrapper color
+$light-gray: #f3f3f4; // Default label, badge
+$label-badge-color: #5E5E5E;
+$light-blue:#f3f6fb;
+
+// Spiner color and margin
+$spin-color: $navy;
+$spin-margin: 0 auto;
+
+// IBOX colors ( default panel colors)
+$border-color: #e7eaec; // IBox border
+$ibox-title-bg:#ffffff; // IBox Background header
+$ibox-content-bg:#ffffff; // IBox Background content
+
+// Sidebar width
+$sidebar-width: 220px;
+
+// Boxed layout width
+$boxed-width: 1080px;
+$boxed-background: white;
+
+// Border radius for buttons
+$btn-border-radius: 3px;
+
+// Navigation
+$nav-bg: #FFFFFF;
+$nav-text-color: #a7b1c2;
+
+// Switch
+$switch-handler-color: white !default;
+$switch-active-border: #1ab394 !default;
+$switch-active-color: #1ab394 !default;
+$switch-active-text: 'Yes' !default;
+$switch-border-width: 1px !default;
+$switch-inactive-border: #a0a0a0 !default;
+$switch-inactive-color: white !default;
+$switch-inactive-text: 'No' !default;
+$switch-padding: 2px !default;
+$switch-font-size: 11px !default;
+$switch-width: 50px !default;

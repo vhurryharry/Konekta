@@ -1,0 +1,122 @@
+﻿{
+  "links": {
+    "actions.assignedTo": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/participants/{actions.assignedTo}",
+      "type": "participants"
+    },
+    "actions.division": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/divisions/{actions.division}",
+      "type": "divisions"
+    },
+    "actions.actionType": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/actiontypes/{actions.actionType}",
+      "type": "actiontypes"
+    },
+    "actions.primaryParticipants": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/participants/{actions.primaryParticipants}",
+      "type": "participants"
+    },
+    "actions.step": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/steps/{actions.step}",
+      "type": "steps"
+    },
+    "actions.billSettings": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/actionbillsettings/{actions.billSettings}",
+      "type": "actionbillsettings"
+    },
+    "actions.relatedActions": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/actions/{actions.relatedActions}",
+      "type": "actions"
+    }
+  },
+  "actions": {
+    "id": 1,
+    "name": "Test-Matter-01",
+    "reference": "Test-Reference",
+    "priority": 0,
+    "status": "Active",
+    "statusTimestamp": "2018-10-10T15:40:51+13:00",
+    "isBillableOverride": "",
+    "createdTimestamp": "2018-10-10",
+    "modifiedTimestamp": "2019-05-03T15:59:58+12:00",
+    "isDeleted": "F",
+    "deletedBy": null,
+    "deletedTimestamp": null,
+    "isFavorite": "T",
+    "overrideBillingStatus": null,
+    "lastAccessTimestamp": "2019-04-25T15:43:43+12:00",
+    "links": {
+      "assignedTo": "10",
+      "division": "1",
+      "actionType": "7",
+      "primaryParticipants": [
+        "10"
+      ],
+      "step": "7--0",
+      "billSettings": "1",
+      "relatedActions": null
+    }
+  },
+  "linked": {
+    "actiontypes": [
+      {
+        "id": 7,
+        "name": "Conveyancing  - Queensland",
+        "description": "An 'Add-on' by WorkCloud Applications - support@workcloudapplications.com.au",
+        "copyrightHolder": "WorkCloud Applications",
+        "copyrightContact": null,
+        "copyrightEmail": "support@workcloud.com.au",
+        "trackActualTime": "T",
+        "trackBillableTime": "T",
+        "isForMarketingCampaigns": "F",
+        "isForMarketingEvents": "F",
+        "isForEmployees": "F",
+        "isForCrm": "F",
+        "isForDebtCollection": "F",
+        "isDisabled": "F",
+        "isBillable": "T",
+        "enableActionImage": "T",
+        "defaultEmailSubject": "[[action_id]] - [[action_name]]",
+        "logoFilename": null,
+        "customLogoFilename": "",
+        "customLogoDirectory": "",
+        "customLogoFilesize": "",
+        "customLogoModifiedTimestamp": "",
+        "templateIdentifier": "0c06b95c570199e88269034aff296e7672e3c71c",
+        "allowCloseWithOpenInvoice": "F",
+        "allowInlineCustomizing": "F",
+        "canCreate": "T",
+        "links": {
+          "primaryParticipantType": "72"
+        }
+      }
+    ]
+  },
+  "meta": {
+    "paging": {
+      "actions": {
+        "recordCount": 1,
+        "pageCount": 1,
+        "page": 1,
+        "pageSize": 50,
+        "prevPage": null,
+        "nextPage": null
+      }
+    },
+    "debug": {
+      "requestTime": "0.182399",
+      "mem": "2.43mb",
+      "server": "app-0ec4df1d24325a620.ap-southeast-2.actionstepstaging.com",
+      "cb": "T17550-20323-1",
+      "time": "2019-05-08 01:42:31 +1200 (Pacific/Auckland)",
+      "appload": "0.14, 0.17, 0.15",
+      "app": "0.024441",
+      "db": "0.157959",
+      "dbc": "0.042950",
+      "qc": "61",
+      "uqc": "33",
+      "fc": "1,494",
+      "rl": null
+    }
+  }
+}

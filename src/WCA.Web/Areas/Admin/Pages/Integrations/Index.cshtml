@@ -1,0 +1,78 @@
+﻿@page
+@model WCA.Web.Areas.Admin.Pages.Integrations.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Integration[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Integration[0].LogoSrc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Integration[0].LogoAlt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Integration[0].LogoHref)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Integration[0].LogoWidth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Integration[0].ComingSoon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Integration[0].DateCreatedUtc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Integration[0].LastUpdatedUtc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Integration) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogoSrc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogoAlt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogoHref)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogoWidth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComingSoon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreatedUtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdatedUtc)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

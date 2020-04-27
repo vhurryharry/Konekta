@@ -1,0 +1,20 @@
+﻿<template>
+    <div class="ibox float-e-margins" id="${id}">
+        <div class="ibox-title">
+            <slot name="title"></slot>
+            <div class="ibox-tools">
+                <slot if.one-time="collapsable" name="iboxbutton"></slot>
+                <a if.one-time="collapsable" class="collapse-link" click.trigger="toggleCollapse()">
+                    <i class="fa ${collapsed ? 'fa-chevron-down' : 'fa-chevron-up'}"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div class="sk-spinner sk-spinner-wca">
+                <img src="${appInfoService.appLoadingImage}" alt="Loading" height="60"
+                    style="position:absolute;clip:rect(0,100px,60px,0);">
+            </div>
+            <slot name="content"></slot>
+        </div>
+    </div>
+</template>

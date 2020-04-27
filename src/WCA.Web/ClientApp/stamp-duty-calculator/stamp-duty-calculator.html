@@ -1,0 +1,156 @@
+<template>
+    <require from="../converters/currency-format"></require>
+    <require from="../components/ibox"></require>
+    <require from="./stamp-duty-calculator.css"></require>
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <h2>Stamp Duty Calculator</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/">${appInfoService.appName}</a>
+            </li>
+            <li>
+                Calculators
+            </li>
+            <li class="active">
+                <strong>Stamp Duty Calculator</strong>
+            </li>
+        </ol>
+    </div>
+
+    <div class="wrapper wrapper-content animated fadeInRight vertical-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ibox collapsable="true">
+                    <h5 slot="title"><i class='fa fa-home'></i> Stamp Duty Calculator</h5>
+                    <div slot="content">
+                        <div class="row">
+                            <div class="col-md-6 b-r">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="" for="purchasePrice">Property Value</label>
+                                            <div class="input-group"><span class="input-group-addon"><i
+                                                        class='fa fa-usd'></i></span><input id="purchasePrice"
+                                                    type="text" class="form-control"
+                                                    value.bind="saleInformation.purchasePrice"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="" for="state-select">State/Territory</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class='fa fa-flag'></i></span>
+                                                <select id='state-select' class="form-control"
+                                                    value.bind="saleInformation.state">
+                                                    <option repeat.for="state of states" model.bind="state.id">
+                                                        ${state.abbreviation}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class=" control-label">Are you purchasing...</label>
+                                            <div class="input-group ">
+                                                <div class="radio" repeat.for="option of propertyTypeOptions">
+                                                    <label><input type="radio" model.bind="option.id"
+                                                            checked.bind="saleInformation.propertyType"
+                                                            name="propertyType"> ${option.name}</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-default b-r-xs" repeat.for="buyer of saleInformation.buyers">
+                                    <div class="panel-heading">
+                                        Buyer
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">First Home Buyer?</label>
+                                                    <div class="input-group">
+                                                        <div class="radio" repeat.for="option of yesNoOptions">
+                                                            <label><input type="radio" model.bind="option.value"
+                                                                    checked.bind="buyer.firstHomeBuyer"
+                                                                    name="firstHomeBuyer${$parent.$index}">
+                                                                ${option.name}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Foreign Buyer?</label>
+                                                    <div class="input-group">
+                                                        <div class="radio" repeat.for="option of yesNoOptions">
+                                                            <label><input type="radio" model.bind="option.value"
+                                                                    checked.bind="buyer.isForeignBuyer"
+                                                                    name="isForeignBuyer${$parent.$index}">
+                                                                ${option.name}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Intended Use</label>
+                                                    <div class="input-group">
+                                                        <div class="radio" repeat.for="option of intendedUseOptions">
+                                                            <label><input type="radio" model.bind="option.id"
+                                                                    checked.bind="buyer.intendedUse"
+                                                                    name="intendedUse${$parent.$index}">
+                                                                ${option.name}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <input class="btn btn-primary pull-right" click.delegate="calculate()"
+                                            type="submit" value="Calculate!">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <p id='changes-made' show.bind="resultsMessage != null"
+                                    class="${resultsMessageIsError ? 'error' : ''}"><i class="fa fa-exclamation"></i>
+                                    ${resultsMessage}</p>
+                                <table class="table">
+                                    <tbody repeat.for="category of results.categories">
+                                        <tr>
+                                            <th colspan="2">${category.title}</th>
+                                        </tr>
+                                        <tr repeat.for="lineItem of category.lineItems">
+                                            <td>${lineItem.lineItemTitle}</td>
+                                            <td>${lineItem.value | currencyFormat}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><em>Total</em></td>
+                                            <td>${category.total | currencyFormat}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </ibox>
+            </div>
+        </div>
+    </div>
+</template>

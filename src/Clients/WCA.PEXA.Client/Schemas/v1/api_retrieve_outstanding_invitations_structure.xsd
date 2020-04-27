@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns="http://api.pexa.net.au/schema/1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.pexa.net.au/schema/1/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.30">
+	<xs:include schemaLocation="api_simple_types.xsd"/>
+	<xs:include schemaLocation="api_categories.xsd"/>
+	<xs:include schemaLocation="api_common_structures.xsd"/>
+	<xs:complexType name="invitationRetrievalResponseType">
+		<xs:sequence>
+			<xs:element name="MoreData" type="yesNoCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Invite" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="InviteId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="ForwardedBy" type="textType" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Date" type="dateType" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="Status" type="textType" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="WorkspaceId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="WorkspaceRole" type="roleCategoryType" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="LandTitleDetails" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="LandTitle" minOccurs="1" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="LandTitleReference" type="textType" minOccurs="1" maxOccurs="1"/>
+												<xs:element name="PropertyDetails" type="textType" minOccurs="0" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="PartyDetails" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Party" minOccurs="1" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:choice>
+												<xs:element name="FullName" type="textType" minOccurs="1" maxOccurs="1"/>
+												<xs:element name="OrganisationName" type="textType" minOccurs="1" maxOccurs="1"/>
+											</xs:choice>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="InviterSubscriberName" type="textType" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="InviteeSubscriberName" type="textType" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="Notes" type="textType" minOccurs="0" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

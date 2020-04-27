@@ -1,0 +1,311 @@
+﻿{
+  "links": {
+    "datacollectionrecordvalues.action": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/actions/{datacollectionrecordvalues.action}",
+      "type": "actions"
+    },
+    "datacollectionrecordvalues.dataCollectionField": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/datacollectionfields/{datacollectionrecordvalues.dataCollectionField}",
+      "type": "datacollectionfields"
+    },
+    "datacollectionrecordvalues.dataCollectionRecord": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/datacollectionrecords/{datacollectionrecordvalues.dataCollectionRecord}",
+      "type": "datacollectionrecords"
+    },
+    "datacollectionrecordvalues.dataCollection": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/datacollections/{datacollectionrecordvalues.dataCollection}",
+      "type": "datacollections"
+    },
+    "datacollectionfields.dataCollection": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/datacollections/{datacollectionfields.dataCollection}",
+      "type": "datacollections"
+    },
+    "datacollectionfields.tag": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/tags/{datacollectionfields.tag}",
+      "type": "tags"
+    },
+    "datacollections.actionType": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/actiontypes/{datacollections.actionType}",
+      "type": "actiontypes"
+    }
+  },
+  "datacollectionrecordvalues": [
+    {
+      "id": "23--smtdateonly--43",
+      "stringValue": "2019-06-14",
+      "links": {
+        "action": "9",
+        "dataCollectionField": "23--smtdateonly",
+        "dataCollectionRecord": "43",
+        "dataCollection": "23"
+      }
+    },
+    {
+      "id": "24--lotno--36",
+      "stringValue": "test-lotno",
+      "links": {
+        "action": "9",
+        "dataCollectionField": "24--lotno",
+        "dataCollectionRecord": "36",
+        "dataCollection": "24"
+      }
+    },
+    {
+      "id": "24--planno--36",
+      "stringValue": null,
+      "links": {
+        "action": "9",
+        "dataCollectionField": "24--planno",
+        "dataCollectionRecord": "36",
+        "dataCollection": "24"
+      }
+    },
+    {
+      "id": "24--plantype--36",
+      "stringValue": "Select...",
+      "links": {
+        "action": "9",
+        "dataCollectionField": "24--plantype",
+        "dataCollectionRecord": "36",
+        "dataCollection": "24"
+      }
+    },
+    {
+      "id": "24--titleref--36",
+      "stringValue": "test-title-ref",
+      "links": {
+        "action": "9",
+        "dataCollectionField": "24--titleref",
+        "dataCollectionRecord": "36",
+        "dataCollection": "24"
+      }
+    },
+    {
+      "id": "25--ConveyType--35",
+      "stringValue": "Purchase",
+      "links": {
+        "action": "9",
+        "dataCollectionField": "25--ConveyType",
+        "dataCollectionRecord": "35",
+        "dataCollection": "25"
+      }
+    },
+    {
+      "id": "25--purprice--35",
+      "stringValue": "100",
+      "links": {
+        "action": "9",
+        "dataCollectionField": "25--purprice",
+        "dataCollectionRecord": "35",
+        "dataCollection": "25"
+      }
+    },
+    {
+      "id": "25--smttime--35",
+      "stringValue": "01:30 PM",
+      "links": {
+        "action": "9",
+        "dataCollectionField": "25--smttime",
+        "dataCollectionRecord": "35",
+        "dataCollection": "25"
+      }
+    }
+  ],
+  "linked": {
+    "datacollectionfields": [
+      {
+        "id": "23--smtdateonly",
+        "name": "smtdateonly",
+        "dataType": "DateNM",
+        "label": "Settlement date",
+        "formOrder": 150,
+        "listOrder": 150,
+        "required": "F",
+        "description": null,
+        "customHtmlBelow": null,
+        "customHtmlAbove": null,
+        "links": {
+          "dataCollection": "23",
+          "tag": null
+        }
+      },
+      {
+        "id": "24--lotno",
+        "name": "lotno",
+        "dataType": "Str255",
+        "label": "Lot Number",
+        "formOrder": 50,
+        "listOrder": 50,
+        "required": "F",
+        "description": null,
+        "customHtmlBelow": null,
+        "customHtmlAbove": null,
+        "links": {
+          "dataCollection": "24",
+          "tag": null
+        }
+      },
+      {
+        "id": "24--planno",
+        "name": "planno",
+        "dataType": "Str255",
+        "label": "Plan Number",
+        "formOrder": 70,
+        "listOrder": 70,
+        "required": "F",
+        "description": null,
+        "customHtmlBelow": null,
+        "customHtmlAbove": null,
+        "links": {
+          "dataCollection": "24",
+          "tag": null
+        }
+      },
+      {
+        "id": "24--plantype",
+        "name": "plantype",
+        "dataType": "DropDown",
+        "label": "Plan Type",
+        "formOrder": 60,
+        "listOrder": 60,
+        "required": "F",
+        "description": null,
+        "customHtmlBelow": null,
+        "customHtmlAbove": null,
+        "links": {
+          "dataCollection": "24",
+          "tag": null
+        }
+      },
+      {
+        "id": "24--titleref",
+        "name": "titleref",
+        "dataType": "Str255",
+        "label": "Title Reference",
+        "formOrder": 40,
+        "listOrder": 40,
+        "required": "F",
+        "description": null,
+        "customHtmlBelow": null,
+        "customHtmlAbove": null,
+        "links": {
+          "dataCollection": "24",
+          "tag": null
+        }
+      },
+      {
+        "id": "25--ConveyType",
+        "name": "ConveyType",
+        "dataType": "DropDown",
+        "label": "Conveyancing Type",
+        "formOrder": 5,
+        "listOrder": 5,
+        "required": "T",
+        "description": null,
+        "customHtmlBelow": null,
+        "customHtmlAbove": null,
+        "links": {
+          "dataCollection": "25",
+          "tag": null
+        }
+      },
+      {
+        "id": "25--purprice",
+        "name": "purprice",
+        "dataType": "Money",
+        "label": "Purchase Price",
+        "formOrder": 10,
+        "listOrder": 10,
+        "required": "F",
+        "description": null,
+        "customHtmlBelow": null,
+        "customHtmlAbove": null,
+        "links": {
+          "dataCollection": "25",
+          "tag": null
+        }
+      },
+      {
+        "id": "25--smttime",
+        "name": "smttime",
+        "dataType": "Str255",
+        "label": "Settlement Booking Time",
+        "formOrder": 105,
+        "listOrder": 105,
+        "required": "F",
+        "description": null,
+        "customHtmlBelow": null,
+        "customHtmlAbove": null,
+        "links": {
+          "dataCollection": "25",
+          "tag": null
+        }
+      }
+    ],
+    "datacollections": [
+      {
+        "id": 23,
+        "name": "keydates",
+        "description": "Key Dates relating to your transacaction such as Settlement Date, Finance Due Date & B&P Date and more",
+        "multipleRecords": "F",
+        "order": 40,
+        "label": "Key Dates",
+        "alwaysShowDescriptions": "F",
+        "links": {
+          "actionType": "7"
+        }
+      },
+      {
+        "id": 24,
+        "name": "property",
+        "description": "Property Details such as Lot Number, Plan Type, Tenants and Encumbrances",
+        "multipleRecords": "F",
+        "order": 30,
+        "label": "Property",
+        "alwaysShowDescriptions": "T",
+        "links": {
+          "actionType": "7"
+        }
+      },
+      {
+        "id": 25,
+        "name": "convdet",
+        "description": "Core Details about the Transaction such as Purchase Price, Special Conditions, Transaction Type",
+        "multipleRecords": "F",
+        "order": 20,
+        "label": "Details",
+        "alwaysShowDescriptions": "F",
+        "links": {
+          "actionType": "7"
+        }
+      }
+    ]
+  },
+  "meta": {
+    "paging": {
+      "datacollectionrecordvalues": {
+        "recordCount": 8,
+        "pageCount": 1,
+        "page": 1,
+        "pageSize": 50,
+        "prevPage": null,
+        "nextPage": null
+      }
+    },
+    "debug": {
+      "requestTime": "0.163344",
+      "mem": "10.78mb",
+      "server": "app-0ec4df1d24325a620.ap-southeast-2.actionstepstaging.com",
+      "cb": "T17550-20831-1",
+      "time": "2019-06-21 15:14:20 +1200 (Pacific/Auckland)",
+      "appload": "0.44, 0.24, 0.21",
+      "app": "0.081652",
+      "db": "0.081692",
+      "dbc": "0.010845",
+      "qc": "66",
+      "uqc": "38",
+      "fc": "1,173",
+      "rl": null
+    }
+  }
+}

@@ -1,0 +1,172 @@
+﻿@page
+@model SettingsModel
+@{
+    ViewData["Title"] = "Integration Tests";
+}
+
+<div class="row">
+    <div class="col-md-12">
+
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <div class="alert alert-warning" role="alert">@Model.ErrorMessage</div>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+        {
+            <div class="alert alert-success" role="alert">@Model.SuccessMessage</div>
+        }
+
+        <div>
+            <table class="table table-striped">
+                <tr>
+                    <th>Org</th>
+                    <th>GlobalX Admin</th>
+                    <th>Actionstep Sync User</th>
+                    <th>Minimum Matter ID</th>
+                    <th>Transaction Sync Enabled?</th>
+                    <th>Latest Transaction ID</th>
+                    <th>Tax Code with GST</th>
+                    <th>Tax Code no GST</th>
+                    <th>Document Sync Enabled?</th>
+                    <th>Last Document Sync</th>
+                    <th>Action</th>
+                </tr>
+
+                @foreach (var setting in Model.AllSettings)
+                {
+                    <tr>
+                        <th>@setting.ActionstepOrgKey</th>
+                        <th>@setting.GlobalXAdmin.FirstName  @setting.GlobalXAdmin.LastName (@setting.GlobalXAdmin.Email)</th>
+                        <th>@setting.ActionstepSyncUser.FirstName  @setting.ActionstepSyncUser.LastName (@setting.ActionstepSyncUser.Email)</th>
+                        <th>@setting.MinimumMatterIdToSync</th>
+                        <th>@Html.CheckBox("disabled", setting.TransactionSyncEnabled, new { disabled = "disabled" })</th>
+                        <th>@setting.LatestTransactionId</th>
+                        <th>@setting.TaxCodeIdWithGST</th>
+                        <th>@setting.TaxCodeIdNoGST</th>
+                        <th>@Html.CheckBox("disabled", setting.DocumentSyncEnabled, new { disabled = "disabled" })</th>
+                        <th>@setting.LastDocumentSyncUtc</th>
+                        <th>
+                            <form method="get">
+                                <input type="hidden" name="EditOrgKey" value="@setting.ActionstepOrgKey" />
+                                <button class="btn btn-primary" type="submit">
+                                    Edit
+                                </button>
+                            </form>
+                            <form method="post" asp-page-handler="DeleteGlobalXSettings">
+                                <input type="hidden" name="DeleteOrgKey" value="@setting.ActionstepOrgKey" />
+                                <button class="btn btn-danger" type="submit">
+                                    Delete
+                                </button>
+                            </form>
+                        </th>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <form method="post" asp-page-handler="EditGlobalXSettings" class="form-horizontal">
+            <h2>
+                @(Model.EditOrgKeyMode ? "Edit" : "Add")
+                GlobalX Settings
+            </h2>
+
+            <div class="form-group">
+                <label asp-for="EditSettings.ActionstepOrgKey" class="col-sm-2 control-label">Actionstep Org Key</label>
+                <div class="col-sm-10">
+                    @if (Model.EditOrgKeyMode)
+                    {
+                        @Html.HiddenFor(m => m.EditSettings.ActionstepOrgKey)
+                        <span>@Model.EditSettings.ActionstepOrgKey</span>
+                    }
+                    else
+                    {
+                        <select class="form-control" asp-for="EditSettings.ActionstepOrgKey" asp-items="Model.AllActionstepOrgs"></select>
+                    }
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EditSettings.GlobalXAdminId" class="col-sm-2 control-label">GlobalX Admin User</label>
+                <div class="col-sm-10">
+                    @if (Model.EditOrgKeyMode)
+                    {
+                        <select class="form-control" asp-for="EditSettings.GlobalXAdminId" asp-items="Model.AllUsersForOrg"></select>
+                    }
+                    else
+                    {
+                        <select class="form-control" asp-for="EditSettings.GlobalXAdminId" asp-items="Model.AllUsers"></select>
+                    }
+                    <p>
+                        This must be the GlobalX "root" user that has access to all transactions/documents.
+                        It is used for transaction and document sync.
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EditSettings.ActionstepSyncUserId" class="col-sm-2 control-label">Actionstep Sync User</label>
+                <div class="col-sm-10">
+                    @if (Model.EditOrgKeyMode)
+                    {
+                        <select class="form-control" asp-for="EditSettings.ActionstepSyncUserId" asp-items="Model.AllUsersForOrg"></select>
+                    }
+                    else
+                    {
+                        <select class="form-control" asp-for="EditSettings.ActionstepSyncUserId" asp-items="Model.AllUsers"></select>
+                    }
+                    <p>
+                        This must be the GlobalX "root" user that has access to all transactions/documents.
+                        It is used for transaction and document sync.
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EditSettings.MinimumMatterIdToSync" class="col-sm-2 control-label">Minimum Matter ID to Sync</label>
+                <div class="col-sm-10">
+                    <input asp-for="EditSettings.MinimumMatterIdToSync" />
+                    <p>
+                        Transactions and Documents for Matters ID's lower than this number will not be synced.
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EditSettings.TransactionSyncEnabled" class="col-sm-2 control-label">Transaction Sync Enabled?</label>
+                <div class="col-sm-10"><input asp-for="EditSettings.TransactionSyncEnabled" /></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EditSettings.LatestTransactionId" class="col-sm-2 control-label">Latest Transaction ID</label>
+                <div class="col-sm-10"><input asp-for="EditSettings.LatestTransactionId" class="form-control" /></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EditSettings.TaxCodeIdWithGST" class="col-sm-2 control-label">Tax Code with GST</label>
+                <div class="col-sm-10"><input asp-for="EditSettings.TaxCodeIdWithGST" class="form-control" /></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EditSettings.TaxCodeIdNoGST" class="col-sm-2 control-label">Tax Code no GST</label>
+                <div class="col-sm-10"><input asp-for="EditSettings.TaxCodeIdNoGST" class="form-control" /></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EditSettings.DocumentSyncEnabled" class="col-sm-2 control-label">Document Sync Enabled?</label>
+                <div class="col-sm-10"><input asp-for="EditSettings.DocumentSyncEnabled" /></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EditSettings.LastDocumentSyncUtc" class="col-sm-2 control-label">Last Document Sync</label>
+                <div class="col-sm-10"><input asp-for="EditSettings.LastDocumentSyncUtc" /></div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<template>
+    <require from="common/nav-top"></require>
+    <require from="common/nav-top-right-menu"></require>
+    <require from="toastr/build/toastr.min.css"></require>
+    <require from="select2/dist/css/select2.min.css"></require>
+    <link href="/css/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <div id="wrapper" class="white-bg">
+        <div id="page-wrapper"
+            class="${router.currentInstruction.config.settings.standalonePage ? 'standalone-page' : ''}">
+            <div if.bind="!insideIframe && !router.currentInstruction.config.settings.standalonePage"
+                class="row border-bottom">
+                <nav-top navigation.bind="router.navigation" currenttitle.bind="router.currentInstruction.config.title"
+                    actionstepurl.bind="actionstepurl"></nav-top>
+            </div>
+
+            <nav-top-right-menu if.bind="router.currentInstruction.config.settings.hasBreadCrumb">
+            </nav-top-right-menu>
+
+            <router-view></router-view>
+
+        </div>
+    </div>
+</template>

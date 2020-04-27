@@ -1,0 +1,19 @@
+﻿@page
+@model WCA.Web.Pages.PopupConnectionSuccessfulModel
+
+@{
+    ViewData["Title"] = "Connection Successful";
+}
+
+@section Scripts {
+    <script>
+        debugger;
+        if (window.opener != null) {
+            window.opener.postMessage('konekta_connection_successful');
+            window.close();
+        } else {
+            // Fall back to root
+            window.location.href = '/';
+        }
+    </script>
+}

@@ -1,0 +1,74 @@
+﻿@using WCA.Web
+@inject Microsoft.Extensions.Options.IOptions<AppSettings> appSettings
+@{
+    var _appSettings = appSettings.Value;
+}
+
+<div class="footer footer-holder">
+    <!-- Build: @UIDefinitions.BuildNumber  -->
+    <aside id="footer" class="widget-count-1 widget widget_text main-footer-holder">
+        <div class="textwidget">
+            <center>
+                @{
+                    var isWCA = Context.Request.Host.Value.Contains("workcloud", System.StringComparison.OrdinalIgnoreCase)
+                        || Context.Request.Host.Value.Contains("appwca-test", System.StringComparison.OrdinalIgnoreCase);
+                    var appUrl = isWCA ? _appSettings.WCACoreSettings.AppUrlSettings.WorkCloud.AppUrl : _appSettings.WCACoreSettings.AppUrlSettings.Konekta.AppUrl;
+                    var appLogo = isWCA ? "/images/workcloud-sidebyside.svg" : "/images/Konekta_standard_extralight.svg";
+                    var logoWidth = isWCA ? 300 : 200;
+                }
+                <a href="@appUrl">
+                    <img src="@appLogo" alt="App logo" width="@logoWidth">
+                </a>
+                &nbsp;
+                &copy; Copyright
+                @{
+                    var currentYear = DateTime.UtcNow.Year;
+                    var yearWcaIncorporated = UIDefinitions.YearWcaIncorporated;
+
+                    if (currentYear > yearWcaIncorporated)
+                    {
+                        @(yearWcaIncorporated.ToString() + "-" + currentYear.ToString());
+                    }
+                    else
+                    {
+                        @(currentYear.ToString());
+                    }
+                }
+                <a href="https://support.konekta.com.au/support/solutions/articles/6000229543-terms-conditions">Terms and Conditions</a>
+            </center>
+        </div>
+        <div class="textwidget footer-logo-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2>Integration Partners</h2>
+                    </div>
+                </div>
+                <div class="row integration-partner-logos">
+                    <div class="container">
+                        <div class="col-md-6 col-md-offset-3 text-center">
+                            <div class="col-md-4 text-center">
+                                <a href="https://www.actionstep.com/" target="_blank">
+                                    <img src="~/images/actionstep-logo175x34.png" alt="Actionstep Logo">
+                                </a>
+                            </div>
+
+                            <div class="col-md-4 text-center">
+                                <a href="https://www.infotrack.com/" target="_blank">
+                                    <img src="~/images/InfoTrackLogo_216x80.png" alt="InfoTrack Logo">
+                                </a>
+                            </div>
+
+                            <div class="col-md-4 text-center">
+                                <a href="https://www.pexa.com.au/" target="_blank">
+                                    <img src="~/images/pexa-logo.svg" alt="PEXA Logo">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <div class="clear"></div>
+</div>

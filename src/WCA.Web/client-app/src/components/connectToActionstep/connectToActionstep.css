@@ -1,0 +1,27 @@
+.connect-box {
+    margin: 30px 20px;
+    box-shadow: -1px -1px 3px 0 rgba(0, 0, 0, 0.132), 1px 1px 5px 4px rgba(0, 0, 0, 0.108);
+    padding: 20px;
+}
+
+.connect-message {
+    font-size: large;
+    font-weight: 600;
+    margin: 5px 0px 30px;
+}
+
+.connect-box-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.connect-box-footer a {
+    text-decoration: none;
+    color: rgb(0, 120, 212);
+}
+
+.connect-tip {
+    font-size: small;
+    margin: 10px 0px 0px;
+}

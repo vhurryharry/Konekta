@@ -1,0 +1,24 @@
+<template>
+    <require from="components/react-element"></require>
+    <link href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.3.0/css/fabric.min.css"
+        rel="stylesheet" />
+    <require from="./settlement-page.css"></require>
+
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <h2>Settlement Calculator</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/">${appInfoService.appName}</a>
+            </li>
+            <li>
+                Calculators
+            </li>
+            <li class="active">
+                <strong>Settlement Calculator</strong>
+            </li>
+        </ol>
+    </div>
+
+    <react-element component="calculators/settlement" class="settlement-calculator" props.bind="reactProps">
+    </react-element>
+</template>

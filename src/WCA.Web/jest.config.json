@@ -1,0 +1,26 @@
+{
+    "globals": {
+        "ts-jest": {
+            "tsConfigFile": "client-app/tsconfig.json"
+        }
+    },
+    "testRegex": "(/__tests__/.*)\\.[jt]sx?$",
+    "setupFilesAfterEnv": [
+        "<rootDir>/jest.setup.js"
+    ],
+    "transformIgnorePatterns": [
+        "<rootDir>/node_modules/(?!office-ui-fabric-react).+\\.js$"
+    ],
+    "transform": {
+        "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+        "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "modulePaths": [
+        "<rootDir>"
+    ],
+    "moduleDirectories": [
+        "<rootDir>/node_modules",
+        "<rootDir>/client-app/node_modules",
+        "<rootDir>/client-app/src"
+    ]
+}

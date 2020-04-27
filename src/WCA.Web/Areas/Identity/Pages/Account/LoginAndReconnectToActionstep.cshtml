@@ -1,0 +1,37 @@
+﻿@page
+@model LoginAndReconnectToActionstepModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<h1>We need your authorisation to do that...</h1>
+<br />
+
+<p><img width="300" src="~/images/broken-chain.png" alt="Login to connect" /></p>
+<br />
+
+<h3>We tried to connect to Actionstep on your behalf, but something went wrong.</h3>
+<br />
+
+<h3>To continue using the @Model.AppName integration, please click the button below and log in with your Actionstep username and password.</h3>
+<br />
+
+<section>
+    <form asp-controller="Integrations" asp-action="ConnectToActionstep" method="get" class="form-horizontal">
+        @* Doesn't work as form attribute due to usage of GET method: asp-route-returnurl="@Model.ReturnUrl"*@
+        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+        <div>
+            <p>
+                <button type="submit" class="btn btn-primary login-actionstep-button" name="provider" value="Actionstep" title="Log in using your Actionstep account">
+                    <span>Connect to </span>
+                    <img style="padding-left:10px" src="~/images/actionstep-logo-white.png" width="130" alt="Actionstep" />
+                </button>
+            </p>
+        </div>
+    </form>
+</section>
+
+<br />
+
+<p>You should only need to authorise once. If you continue to see this message, you may wish to <a href="@Model.SupportUrl/support/tickets/new" target="_blank">log a support ticket</a>.</p>

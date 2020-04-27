@@ -1,0 +1,18 @@
+{
+  "integrationFolder": "./cypress/integration",
+  "baseUrl": "https://localhost:5001",
+  "reporter": "junit",
+  "viewportHeight": 1600,
+  "viewportWidth": 1080,
+  "reporterOptions": {
+    "mochaFile": "./cypress/test-output-[hash].xml",
+    "toConsole": true,
+    "attachments": true
+  },
+  "video": false,
+  "env": {
+    "urlEnv": "staging"
+  },
+  "chromeWebSecurity": false,
+  "pageLoadTimeout": 50000
+}

@@ -1,0 +1,24 @@
+﻿<template>
+    <require from="../../css/ai-dialog/ai-dialog.css"></require>
+    <ai-dialog class="inmodal">
+        <ai-dialog-header class="modal-header">
+            <button type="button" click.trigger="controller.cancel()">
+                <span aria-hidden="true"><i class="fa fa-times"></i></span>
+                <span class="sr-only">Close</span></button>
+            <h5 class="modal-title">We need your approval!</h5>
+        </ai-dialog-header>
+        <ai-dialog-body class="modal-body">
+            <p>So that we can pre-populate the matter details we need your
+                permission to access your Actionstep system.</p>
+            <p>Please click <strong>Connect to Actionstep</strong>, to be
+                redirected to Actionstep where they will ask you for your username
+                and password.</p>
+        </ai-dialog-body>
+        <ai-dialog-footer class="modal-footer">
+            <button type="button" class="btn btn-success" click.trigger="ConnectToActionstep()"
+                data-cy="connect-to-actionstep">
+                Connect to Actionstep
+            </button>
+        </ai-dialog-footer>
+    </ai-dialog>
+</template>

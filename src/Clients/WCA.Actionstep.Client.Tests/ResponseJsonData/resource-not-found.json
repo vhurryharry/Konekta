@@ -1,0 +1,18 @@
+﻿{
+  "errors": {
+    "id": "7aeabb2cd0cf8aca56436f7c380ffa69e12db085",
+    "links": {
+      "about": null
+    },
+    "status": 404,
+    "code": "AS-TBC",
+    "title": "API Resource Not Found",
+    "detail": "The specified Resource 'Datacollectionrecordvaluesa' does not exist",
+    "source": {
+      "pointer": null,
+      "parameter": null
+    },
+    "meta": [],
+    "rls": null
+  }
+}
