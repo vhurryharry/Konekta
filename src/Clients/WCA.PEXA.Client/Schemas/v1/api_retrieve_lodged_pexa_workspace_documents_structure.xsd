@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns="http://api.pexa.net.au/schema/1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.pexa.net.au/schema/1/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.30">
+	<xs:include schemaLocation="api_simple_types.xsd"/>
+	<xs:include schemaLocation="api_categories.xsd"/>
+	<xs:include schemaLocation="api_common_structures.xsd"/>
+	<xs:complexType name="workspaceDocumentRetrievalResponseType">
+		<xs:sequence>
+			<xs:element name="LodgementCase" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="WorkspaceId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="LodgementCaseId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="Documents" minOccurs="1" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Document" minOccurs="1" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="DocumentId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+												<xs:element name="LrDocumentId" type="identifierType" minOccurs="0" maxOccurs="1"/>
+												<xs:element name="DocumentType" type="documentTypeCategoryType" minOccurs="1" maxOccurs="1"/>
+												<xs:element name="MimeType" type="mimeType" minOccurs="1" maxOccurs="1"/>
+												<xs:element name="RenderedDocument" type="xs:base64Binary" minOccurs="1" maxOccurs="1"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

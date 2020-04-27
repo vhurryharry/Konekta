@@ -1,0 +1,628 @@
+﻿{
+  "links": {
+    "actionparticipants.action": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/actions/{actionparticipants.action}",
+      "type": "actions"
+    },
+    "actionparticipants.participantType": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/participanttypes/{actionparticipants.participantType}",
+      "type": "participanttypes"
+    },
+    "actionparticipants.participant": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/participants/{actionparticipants.participant}",
+      "type": "participants"
+    },
+    "participants.physicalCountry": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/countries/{participants.physicalCountry}",
+      "type": "countries"
+    },
+    "participants.mailingCountry": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/countries/{participants.mailingCountry}",
+      "type": "countries"
+    },
+    "participants.division": {
+      "href": "https://ap-southeast-2.actionstepstaging.com.actionstep.com/api/rest/divisions/{participants.division}",
+      "type": "divisions"
+    }
+  },
+  "actionparticipants": [
+    {
+      "id": "1--27--10",
+      "participantNumber": 1,
+      "links": {
+        "action": "1",
+        "participantType": "27",
+        "participant": "10"
+      }
+    },
+    {
+      "id": "1--27--12",
+      "participantNumber": 2,
+      "links": {
+        "action": "1",
+        "participantType": "27",
+        "participant": "12"
+      }
+    },
+    {
+      "id": "1--28--10",
+      "participantNumber": 1,
+      "links": {
+        "action": "1",
+        "participantType": "28",
+        "participant": "10"
+      }
+    },
+    {
+      "id": "1--28--12",
+      "participantNumber": 2,
+      "links": {
+        "action": "1",
+        "participantType": "28",
+        "participant": "12"
+      }
+    },
+    {
+      "id": "1--46--16",
+      "participantNumber": 1,
+      "links": {
+        "action": "1",
+        "participantType": "46",
+        "participant": "16"
+      }
+    },
+    {
+      "id": "1--51--10",
+      "participantNumber": 1,
+      "links": {
+        "action": "1",
+        "participantType": "51",
+        "participant": "10"
+      }
+    },
+    {
+      "id": "1--51--12",
+      "participantNumber": 2,
+      "links": {
+        "action": "1",
+        "participantType": "51",
+        "participant": "12"
+      }
+    },
+    {
+      "id": "1--52--10",
+      "participantNumber": 1,
+      "links": {
+        "action": "1",
+        "participantType": "52",
+        "participant": "10"
+      }
+    },
+    {
+      "id": "1--57--10",
+      "participantNumber": 2,
+      "links": {
+        "action": "1",
+        "participantType": "57",
+        "participant": "10"
+      }
+    },
+    {
+      "id": "1--57--14",
+      "participantNumber": 1,
+      "links": {
+        "action": "1",
+        "participantType": "57",
+        "participant": "14"
+      }
+    },
+    {
+      "id": "1--59--14",
+      "participantNumber": 1,
+      "links": {
+        "action": "1",
+        "participantType": "59",
+        "participant": "14"
+      }
+    },
+    {
+      "id": "1--60--14",
+      "participantNumber": 1,
+      "links": {
+        "action": "1",
+        "participantType": "60",
+        "participant": "14"
+      }
+    },
+    {
+      "id": "1--62--13",
+      "participantNumber": 1,
+      "links": {
+        "action": "1",
+        "participantType": "62",
+        "participant": "13"
+      }
+    },
+    {
+      "id": "1--65--14",
+      "participantNumber": 1,
+      "links": {
+        "action": "1",
+        "participantType": "65",
+        "participant": "14"
+      }
+    },
+    {
+      "id": "1--66--10",
+      "participantNumber": 1,
+      "links": {
+        "action": "1",
+        "participantType": "66",
+        "participant": "10"
+      }
+    },
+    {
+      "id": "1--72--10",
+      "participantNumber": 1,
+      "links": {
+        "action": "1",
+        "participantType": "72",
+        "participant": "10"
+      }
+    },
+    {
+      "id": "1--74--10",
+      "participantNumber": 1,
+      "links": {
+        "action": "1",
+        "participantType": "74",
+        "participant": "10"
+      }
+    }
+  ],
+  "linked": {
+    "participants": [
+      {
+        "id": 10,
+        "displayName": "Smon, Daniel",
+        "isCompany": "F",
+        "companyName": null,
+        "salutation": "Mr",
+        "firstName": "Daniel",
+        "middleName": null,
+        "lastName": "Smon",
+        "suffix": "Suffix",
+        "preferredName": null,
+        "physicalAddressLine1": "Address Line 1",
+        "physicalAddressLine2": "Address Line 2",
+        "physicalCity": "City",
+        "physicalStateProvince": "State",
+        "physicalPostCode": "123456",
+        "mailingAddressLine1": "Address Line 1",
+        "mailingAddressLine2": "Address Line 2",
+        "mailingCity": "Guinobatan",
+        "mailingStateProvince": "Albay",
+        "mailingPostCode": "4503",
+        "phone1Label": "Business",
+        "phone1Country": 61,
+        "phone1Area": 123,
+        "phone1Number": "44556688",
+        "phone1Notes": null,
+        "phone2Label": "Mobile",
+        "phone2Country": 61,
+        "phone2Area": 555,
+        "phone2Number": "54545454",
+        "phone2Notes": null,
+        "phone3Label": "Home",
+        "phone3Country": 61,
+        "phone3Area": 778,
+        "phone3Number": "84129987",
+        "phone3Notes": null,
+        "phone4Label": "Other",
+        "phone4Country": 61,
+        "phone4Area": 118,
+        "phone4Number": "54987437",
+        "phone4Notes": null,
+        "fax": "554422",
+        "sms": "223366",
+        "email": "daniel@workcloud.com.au",
+        "website": null,
+        "occupation": "Occupation",
+        "taxNumber": null,
+        "birthTimestamp": "2018-02-05",
+        "deathTimestamp": "2019-05-27",
+        "maritalStatus": "Married",
+        "gender": "M",
+        "modifiedTimestamp": "2019-06-13T21:11:53+12:00",
+        "createdTimestamp": "2018-10-05T11:55:40+13:00",
+        "links": {
+          "physicalCountry": "AU",
+          "mailingCountry": "PH",
+          "division": "1"
+        }
+      },
+      {
+        "id": 12,
+        "displayName": "Sando, Greg",
+        "isCompany": "F",
+        "companyName": null,
+        "salutation": null,
+        "firstName": "Greg",
+        "middleName": null,
+        "lastName": "Sando",
+        "suffix": null,
+        "preferredName": null,
+        "physicalAddressLine1": null,
+        "physicalAddressLine2": null,
+        "physicalCity": null,
+        "physicalStateProvince": null,
+        "physicalPostCode": null,
+        "mailingAddressLine1": null,
+        "mailingAddressLine2": null,
+        "mailingCity": null,
+        "mailingStateProvince": null,
+        "mailingPostCode": null,
+        "phone1Label": "Business",
+        "phone1Country": 61,
+        "phone1Area": null,
+        "phone1Number": null,
+        "phone1Notes": null,
+        "phone2Label": "Mobile",
+        "phone2Country": 61,
+        "phone2Area": null,
+        "phone2Number": null,
+        "phone2Notes": null,
+        "phone3Label": "Home",
+        "phone3Country": 61,
+        "phone3Area": null,
+        "phone3Number": null,
+        "phone3Notes": null,
+        "phone4Label": "Other",
+        "phone4Country": 61,
+        "phone4Area": null,
+        "phone4Number": null,
+        "phone4Notes": null,
+        "fax": null,
+        "sms": null,
+        "email": "greg@workcloud.com.au",
+        "website": null,
+        "occupation": null,
+        "taxNumber": null,
+        "birthTimestamp": null,
+        "deathTimestamp": null,
+        "maritalStatus": null,
+        "gender": null,
+        "modifiedTimestamp": "2018-10-05T11:58:08+13:00",
+        "createdTimestamp": "2018-10-05T11:57:55+13:00",
+        "links": {
+          "physicalCountry": "AU",
+          "mailingCountry": "AU",
+          "division": "1"
+        }
+      },
+      {
+        "id": 13,
+        "displayName": "Solicitor, Principal",
+        "isCompany": "F",
+        "companyName": null,
+        "salutation": null,
+        "firstName": "Principal",
+        "middleName": null,
+        "lastName": "Solicitor",
+        "suffix": null,
+        "preferredName": null,
+        "physicalAddressLine1": null,
+        "physicalAddressLine2": null,
+        "physicalCity": null,
+        "physicalStateProvince": null,
+        "physicalPostCode": null,
+        "mailingAddressLine1": null,
+        "mailingAddressLine2": null,
+        "mailingCity": null,
+        "mailingStateProvince": null,
+        "mailingPostCode": null,
+        "phone1Label": "Business",
+        "phone1Country": 61,
+        "phone1Area": null,
+        "phone1Number": null,
+        "phone1Notes": null,
+        "phone2Label": "Mobile",
+        "phone2Country": 61,
+        "phone2Area": null,
+        "phone2Number": null,
+        "phone2Notes": null,
+        "phone3Label": "Home",
+        "phone3Country": 61,
+        "phone3Area": null,
+        "phone3Number": null,
+        "phone3Notes": null,
+        "phone4Label": "Other",
+        "phone4Country": 61,
+        "phone4Area": null,
+        "phone4Number": null,
+        "phone4Notes": null,
+        "fax": null,
+        "sms": null,
+        "email": null,
+        "website": null,
+        "occupation": null,
+        "taxNumber": null,
+        "birthTimestamp": null,
+        "deathTimestamp": null,
+        "maritalStatus": null,
+        "gender": null,
+        "modifiedTimestamp": "2018-10-10T15:40:38+13:00",
+        "createdTimestamp": "2018-10-10T15:40:38+13:00",
+        "links": {
+          "physicalCountry": "AU",
+          "mailingCountry": "AU",
+          "division": "1"
+        }
+      },
+      {
+        "id": 14,
+        "displayName": "Padre, Richard",
+        "isCompany": "F",
+        "companyName": null,
+        "salutation": "Mr",
+        "firstName": "Richard",
+        "middleName": null,
+        "lastName": "Padre",
+        "suffix": null,
+        "preferredName": null,
+        "physicalAddressLine1": "Address Line 1",
+        "physicalAddressLine2": "Address Line 2",
+        "physicalCity": "Guinobatan",
+        "physicalStateProvince": "Albay",
+        "physicalPostCode": "4503",
+        "mailingAddressLine1": "Address Line 1",
+        "mailingAddressLine2": "Address Line 2",
+        "mailingCity": "Guinobatan",
+        "mailingStateProvince": "Albay",
+        "mailingPostCode": "4503",
+        "phone1Label": "Business",
+        "phone1Country": 61,
+        "phone1Area": null,
+        "phone1Number": null,
+        "phone1Notes": null,
+        "phone2Label": "Mobile",
+        "phone2Country": 61,
+        "phone2Area": null,
+        "phone2Number": null,
+        "phone2Notes": null,
+        "phone3Label": "Home",
+        "phone3Country": 61,
+        "phone3Area": null,
+        "phone3Number": null,
+        "phone3Notes": null,
+        "phone4Label": "Other",
+        "phone4Country": 61,
+        "phone4Area": null,
+        "phone4Number": null,
+        "phone4Notes": null,
+        "fax": null,
+        "sms": null,
+        "email": "richard@workcloudapplications.com",
+        "website": null,
+        "occupation": null,
+        "taxNumber": null,
+        "birthTimestamp": null,
+        "deathTimestamp": null,
+        "maritalStatus": null,
+        "gender": "M",
+        "modifiedTimestamp": "2019-06-05T20:03:59+12:00",
+        "createdTimestamp": "2018-12-10T15:09:27+13:00",
+        "links": {
+          "physicalCountry": "PH",
+          "mailingCountry": "PH",
+          "division": "1"
+        }
+      },
+      {
+        "id": 16,
+        "displayName": "Test Agent Office",
+        "isCompany": "T",
+        "companyName": "Test Agent Office",
+        "salutation": null,
+        "firstName": null,
+        "middleName": null,
+        "lastName": null,
+        "suffix": null,
+        "preferredName": null,
+        "physicalAddressLine1": "Line 1",
+        "physicalAddressLine2": "Line 2",
+        "physicalCity": "City",
+        "physicalStateProvince": "State",
+        "physicalPostCode": "1234",
+        "mailingAddressLine1": "MLine 1",
+        "mailingAddressLine2": "MLine 2",
+        "mailingCity": "MCity",
+        "mailingStateProvince": "MState",
+        "mailingPostCode": "12345",
+        "phone1Label": "Home",
+        "phone1Country": 61,
+        "phone1Area": 123,
+        "phone1Number": "123456789",
+        "phone1Notes": null,
+        "phone2Label": "Mobile",
+        "phone2Country": 61,
+        "phone2Area": null,
+        "phone2Number": null,
+        "phone2Notes": null,
+        "phone3Label": "Home",
+        "phone3Country": 61,
+        "phone3Area": null,
+        "phone3Number": null,
+        "phone3Notes": null,
+        "phone4Label": "Other",
+        "phone4Country": 61,
+        "phone4Area": null,
+        "phone4Number": null,
+        "phone4Notes": null,
+        "fax": null,
+        "sms": null,
+        "email": "testagentoffice@email.com",
+        "website": "http://www.google.com",
+        "occupation": null,
+        "taxNumber": "0000",
+        "birthTimestamp": null,
+        "deathTimestamp": null,
+        "maritalStatus": null,
+        "gender": null,
+        "modifiedTimestamp": "2019-01-23T15:27:29+13:00",
+        "createdTimestamp": "2019-01-23T15:27:29+13:00",
+        "links": {
+          "physicalCountry": "AU",
+          "mailingCountry": "AU",
+          "division": "1"
+        }
+      }
+    ],
+    "participanttypes": [
+      {
+        "id": 27,
+        "name": "Client",
+        "displayName": "Client",
+        "description": "Client",
+        "isBaseParticipantType": "F",
+        "companyFlag": null,
+        "taxNumberAlias": null
+      },
+      {
+        "id": 28,
+        "name": "Client_Primary_Contact",
+        "displayName": "Client Primary Contact",
+        "description": "Client Primary Contact",
+        "isBaseParticipantType": "F",
+        "companyFlag": null,
+        "taxNumberAlias": null
+      },
+      {
+        "id": 46,
+        "name": "Agent_(Office)",
+        "displayName": "Agent (Office)",
+        "description": "Real Estate Agency",
+        "isBaseParticipantType": "F",
+        "companyFlag": "T",
+        "taxNumberAlias": null
+      },
+      {
+        "id": 51,
+        "name": "Conveyancer",
+        "displayName": "Conveyancer",
+        "description": "Conveyancing Paralegal",
+        "isBaseParticipantType": "F",
+        "companyFlag": "F",
+        "taxNumberAlias": null
+      },
+      {
+        "id": 52,
+        "name": "Admin_Staff",
+        "displayName": "Admin Staff",
+        "description": "Admin Staff",
+        "isBaseParticipantType": "F",
+        "companyFlag": "F",
+        "taxNumberAlias": null
+      },
+      {
+        "id": 57,
+        "name": "Buyer",
+        "displayName": "Buyer",
+        "description": "Buyer",
+        "isBaseParticipantType": "F",
+        "companyFlag": null,
+        "taxNumberAlias": null
+      },
+      {
+        "id": 59,
+        "name": "Seller",
+        "displayName": "Seller",
+        "description": "Seller",
+        "isBaseParticipantType": "F",
+        "companyFlag": null,
+        "taxNumberAlias": null
+      },
+      {
+        "id": 60,
+        "name": "Agent_Primary_Contact",
+        "displayName": "Agent Primary Contact",
+        "description": "Agent",
+        "isBaseParticipantType": "F",
+        "companyFlag": "F",
+        "taxNumberAlias": null
+      },
+      {
+        "id": 62,
+        "name": "Principal_Solicitor",
+        "displayName": "Principal Solicitor",
+        "description": "Principal Solicitor",
+        "isBaseParticipantType": "F",
+        "companyFlag": null,
+        "taxNumberAlias": null
+      },
+      {
+        "id": 65,
+        "name": "Otherside_Solicitor",
+        "displayName": "Otherside Solicitor",
+        "description": "Otherside Solicitor",
+        "isBaseParticipantType": "F",
+        "companyFlag": null,
+        "taxNumberAlias": null
+      },
+      {
+        "id": 66,
+        "name": "Otherside_Solicitor_Primary_Contact",
+        "displayName": "Otherside Solicitor Primary Contact",
+        "description": "Otherside Solicitor Primary Contact",
+        "isBaseParticipantType": "F",
+        "companyFlag": null,
+        "taxNumberAlias": null
+      },
+      {
+        "id": 72,
+        "name": "Property_Address",
+        "displayName": "Property Address",
+        "description": "Property Address",
+        "isBaseParticipantType": "F",
+        "companyFlag": "T",
+        "taxNumberAlias": null
+      },
+      {
+        "id": 74,
+        "name": "Test_Participant_1",
+        "displayName": "Test Participant 1",
+        "description": null,
+        "isBaseParticipantType": "F",
+        "companyFlag": null,
+        "taxNumberAlias": null
+      }
+    ]
+  },
+  "meta": {
+    "paging": {
+      "actionparticipants": {
+        "recordCount": 17,
+        "pageCount": 1,
+        "page": 1,
+        "pageSize": 50,
+        "prevPage": null,
+        "nextPage": null
+      }
+    },
+    "debug": {
+      "requestTime": "0.207956",
+      "mem": "10.42mb",
+      "server": "app-0ec4df1d24325a620.ap-southeast-2.actionstepstaging.com",
+      "cb": "T17550-20807-3",
+      "time": "2019-06-17 23:28:49 +1200 (Pacific/Auckland)",
+      "appload": "0.36, 0.23, 0.19",
+      "app": "0.079608",
+      "db": "0.128348",
+      "dbc": "0.010747",
+      "qc": "61",
+      "uqc": "33",
+      "fc": "1,511",
+      "rl": null
+    }
+  }
+}

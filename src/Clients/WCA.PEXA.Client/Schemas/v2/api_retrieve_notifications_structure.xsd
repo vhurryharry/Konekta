@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns="http://api.pexa.net.au/schema/2/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.pexa.net.au/schema/2/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.5">
+	<xs:include schemaLocation="api_simple_types.xsd"/>
+	<xs:include schemaLocation="api_categories.xsd"/>
+	<xs:include schemaLocation="api_common_structures.xsd"/>
+	<xs:complexType name="retrieveNotificationsResponseType">
+		<xs:sequence>
+			<xs:element name="NotificationsList" type="NotificationsListType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotificationsListType">
+		<xs:sequence>
+			<xs:element name="Count" type="countType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="MoreData" type="yesNoCategoryType"/>
+			<xs:element name="LastEventTimestamp" type="timestampType"/>
+			<xs:element name="LastEventId" type="identifierType"/>
+			<xs:element name="Notification" type="notificationType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationType">
+		<xs:sequence>
+			<xs:element name="SubscriberId" type="identifierType"/>
+			<xs:element name="SystemGenerated" type="yesNoCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="InitiatingSubscriberId" type="identifierType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="InitiatingSubscriberName" type="textType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="WorkspaceId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SubscriberReference" type="subscriberReferenceType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="EventId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Timestamp" type="timestampType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Severity" type="notificationSeverityCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Category" type="notificationCategoryCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Type" type="notificationTypeKeyValue" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Description" type="textType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Details" type="notificationDetailsType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="subscriberReferenceType">
+		<xs:sequence>
+			<xs:element name="WorkspaceRole" type="workspaceRoleCategoryType"/>
+			<xs:element name="Value" type="textType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationTypeKeyValue">
+		<xs:sequence>
+			<xs:element name="Key" type="xs:string"/>
+			<xs:element name="Value" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationDetailsType">
+		<xs:choice>
+			<xs:element name="Invitation" type="notificationInvitationDetailsType"/>
+			<xs:element name="LandTitle" type="notificationLandTitleDetailsType"/>
+			<xs:element name="Party" type="notificationPartyDetailsType"/>
+			<xs:element name="Document" type="notificationDocumentDetailsType"/>
+			<xs:element name="SettlementSchedule" type="notificationSettlementScheduleDetailsType"/>
+			<xs:element name="FinancialLineItem" type="notificationFinancialLineItemType"/>
+			<xs:element name="WorkspaceStatus" type="workspaceStatusCategoryType"/>
+			<xs:element name="Settlement" type="notificationSettlementDetailsType"/>
+			<xs:element name="Lodgement" type="notificationLodgementDetailsType"/>
+			<xs:element name="Participant" type="notificationParticipantDetailsType"/>
+			<xs:element name="Conversation" type="notificationConversationDetailsType"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="notificationInvitationDetailsType">
+		<xs:choice>
+			<xs:element name="Outstanding" type="notificationInvitationOutstandingDetailsType"/>
+			<xs:element name="Response" type="notificationInvitationResponseDetailsType"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="notificationInvitationOutstandingDetailsType">
+		<xs:sequence>
+			<xs:element name="InviteId" type="identifierType"/>
+			<xs:element name="ForwardedBy" type="textType" minOccurs="0"/>
+			<xs:element name="Timestamp" type="timestampType"/>
+			<xs:element name="Jurisdiction" type="jurisdictionCategoryType"/>
+			<xs:element name="WorkspaceRole" type="workspaceRoleCategoryType"/>
+			<xs:element name="SettlementDate" type="timestampType" minOccurs="0"/>
+			<xs:element name="ExpressRefinance" type="yesNoCategoryType"/>
+			<xs:element name="LandTitleDetails" type="notificationInvitationOutstandingLandTitleType" minOccurs="0"/>
+			<xs:element name="PartyDetails" type="notificationInvitationOutstandingPartyType" minOccurs="0"/>
+			<xs:element name="InviterSubscriberDetails" type="notificationInvitationOutstandingInviterSubscriberDetailsType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationInvitationOutstandingLandTitleType">
+		<xs:sequence>
+			<xs:element name="LandTitle" type="notificationInvitationOutstandingLandTitleDetailsType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationInvitationOutstandingLandTitleDetailsType">
+		<xs:sequence>
+			<xs:element name="LandTitleReference" type="textType"/>
+			<xs:element name="PropertyDetails" type="propertyDetailsType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="propertyDetailsType">
+		<xs:sequence>
+			<xs:element name="LandDescription" type="textType" minOccurs="0"/>
+			<xs:element name="PropertyAddress" type="textType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationInvitationOutstandingPartyType">
+		<xs:sequence>
+			<xs:element name="Party" type="notificationInvitationOutstandingPartyDetailsType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationInvitationOutstandingPartyDetailsType">
+		<xs:sequence>
+			<xs:element name="PartyId" type="identifierType"/>
+			<xs:element name="PartyRole" type="partyRoleCategoryType"/>
+			<xs:element name="PartyName" type="partyNameDetailsType"/>
+			<xs:element name="AssociatedLandTitleReference" type="textType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="partyNameDetailsType">
+		<xs:choice>
+			<xs:element name="FullName" type="fullNameType"/>
+			<xs:element name="BusinessDetails" type="businessType"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="notificationInvitationOutstandingInviterSubscriberDetailsType">
+		<xs:sequence>
+			<xs:element name="SubscriberId" type="identifierType"/>
+			<xs:element name="SubscriberType" type="subscriberCategoryType"/>
+			<xs:element name="SubscriberName" type="textType"/>
+			<xs:element name="SubscriberWorkspaceRole" type="workspaceRoleCategoryType"/>
+			<xs:element name="Representing" type="notificationInvitationOutstandingInviterSubscriberDetailsRepresenting" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Notes" type="textType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationInvitationOutstandingInviterSubscriberDetailsRepresenting">
+		<xs:sequence>
+			<xs:element name="Party" type="notificationInvitationOutstandingInviterSubscriberDetailsRepresentingPartyType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationInvitationOutstandingInviterSubscriberDetailsRepresentingPartyType">
+		<xs:sequence>
+			<xs:element name="PartyId" type="identifierType"/>
+			<xs:element name="PartyRole" type="partyRoleCategoryType"/>
+			<xs:element name="PartyName" type="partyNameDetailsType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationInvitationResponseDetailsType">
+		<xs:sequence>
+			<xs:element name="InviteId" type="identifierType"/>
+			<xs:element name="SubscriberId" type="identifierType"/>
+			<xs:element name="SubscriberName" type="textType"/>
+			<xs:element name="WorkspaceRole" type="workspaceRoleCategoryType"/>
+			<xs:element name="ResponseReason" type="invitationResponseReasonCategoryType" minOccurs="0"/>
+			<xs:element name="AdditionalText" type="textType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationLandTitleDetailsType">
+		<xs:sequence>
+			<xs:element name="LandTitleReference" type="textType"/>
+			<xs:element name="PropertyDetails" type="propertyDetailsType" minOccurs="0"/>
+			<xs:element name="TitleActivityCheck" type="notificationTitleActivityCheck" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationTitleActivityCheck">
+		<xs:sequence>
+			<xs:element name="DocumentReference" type="notificationDocumentReferenceDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="AdministrativeActionReference" type="notificationAdministrativeActionReferenceDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationAdministrativeActionReferenceDetailsType">
+		<xs:sequence>
+			<xs:element name="AdministrativeActionTimestamp" type="timestampType"/>
+			<xs:element name="AdministrativeActionType" type="administrativeActionTypeCategoryType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationPartyDetailsType">
+		<xs:sequence>
+			<xs:element name="PartyId" type="identifierType"/>
+			<xs:element name="PartyRole" type="partyRoleCategoryType"/>
+			<xs:element name="PartyName" type="partyNameDetailsType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationDocumentDetailsType">
+		<xs:sequence>
+			<xs:element name="DocumentId" type="identifierType"/>
+			<xs:element name="DocumentType" type="documentTypeCategoryType"/>
+			<xs:element name="Status" type="documentStatusCategoryType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationSettlementScheduleDetailsType">
+		<xs:sequence>
+			<xs:element name="Status" type="settlementScheduleStatusCategoryType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationSettlementDetailsType">
+		<xs:sequence>
+			<xs:element name="SettlementDate" type="timestampType" minOccurs="0"/>
+			<xs:element name="Reason" type="textType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationFinancialLineItemType">
+		<xs:sequence>
+			<xs:element name="Type" type="financialLineItemTypeCategoryType"/>
+			<xs:element name="Category" type="financialLineItemCategoryType"/>
+			<xs:element name="OwningSubscriberId" type="identifierType"/>
+			<xs:element name="OwningSubscriberName" type="textType"/>
+			<xs:element name="Amount" type="amountType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationLodgementDetailsType">
+		<xs:sequence>
+			<xs:element name="LodgementCaseId" type="identifierType"/>
+			<xs:element name="LodgementCaseStatus" type="lodgementCaseStatusCategoryType" minOccurs="0"/>
+			<xs:element name="Document" type="notificationLodgementDocumentDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationLodgementDocumentDetailsType">
+		<xs:sequence>
+			<xs:element name="DocumentId" type="identifierType"/>
+			<xs:element name="DocumentType" type="documentTypeCategoryType"/>
+			<xs:element name="DocumentStatus" type="documentStatusCategoryType"/>
+			<xs:element name="DealingNumber" type="identifierType" minOccurs="0"/>
+			<xs:element name="LandTitleReference" type="textType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="MortgageDate" type="dateType" minOccurs="0"/>
+			<xs:element name="Timestamp" type="timestampType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationParticipantDetailsType">
+		<xs:sequence>
+			<xs:element name="SubscriberName" type="textType"/>
+			<xs:element name="WorkspaceRole" type="workspaceRoleCategoryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="notificationConversationDetailsType">
+		<xs:sequence>
+			<xs:element name="ConversationId" type="identifierType"/>
+			<xs:element name="Timestamp" type="timestampType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

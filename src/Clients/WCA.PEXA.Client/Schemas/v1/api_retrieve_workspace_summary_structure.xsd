@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns="http://api.pexa.net.au/schema/1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.pexa.net.au/schema/1/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.30">
+	<xs:include schemaLocation="api_simple_types.xsd"/>
+	<xs:include schemaLocation="api_categories.xsd"/>
+	<xs:include schemaLocation="api_common_structures.xsd"/>
+	<xs:complexType name="workspaceSummaryResponseType">
+		<xs:sequence>
+			<xs:element name="WorkspaceId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Role" type="roleCategoryType" minOccurs="1"/>
+			<xs:element name="Jurisdiction" type="jurisdictionCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Status" type="workspaceStatusCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="LandTitleDetails" type="workspaceSummaryLandTitleDetailsType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ParticipantDetails" type="workspaceSummaryParticipantDetailsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PartyDetails" type="workspaceSummaryPartyDetailsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DocumentSummary" type="workspaceSummaryDocumentSummaryDetailsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="SettlementSchedule" type="workspaceSummarySettlementScheduleDetailsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="BusinessEventsList" type="workspaceSummaryBusinessEventsListDetailsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TaskList" type="workspaceSummaryTaskListDetailsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Fees" type="workspaceSummaryFeesDetailsType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceSummaryLandTitleDetailsType">
+		<xs:sequence>
+			<xs:element name="LandTitle" type="workspaceSummaryLandTitlesType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceSummaryLandTitlesType">
+		<xs:sequence>
+			<xs:element name="LandTitleReference" type="textType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ParentTitle" type="yesNoCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="PropertyDetails" type="textType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceSummaryParticipantDetailsType">
+		<xs:sequence>
+			<xs:element name="Participant" type="workspaceSummaryParticipantType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceSummaryParticipantType">
+		<xs:sequence>
+			<xs:element name="SubscriberName" type="textType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Workspace" type="workspaceSummaryWorkspaceDetailsType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="ContactDetails" type="workspacesummaryParticipantContactDetailsType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceSummaryWorkspaceDetailsType">
+		<xs:sequence>
+			<xs:element name="Role" type="roleCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SubscriberReference" type="textType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Status" type="participantStatusCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="RepresentedParty" type="workspaceSummaryRepresentedPartyDetailsType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceSummaryRepresentedPartyDetailsType">
+		<xs:sequence>
+			<xs:element name="Party" type="workspaceSummaryPartyType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceSummaryPartyType">
+		<xs:sequence>
+			<xs:element name="PartyId" type="identifierType"/>
+			<xs:element name="RepresentingSelf" type="yesNoCategoryType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspacesummaryParticipantContactDetailsType">
+		<xs:sequence>
+			<xs:element name="Email" type="emailAddressType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Phone" type="telephoneNumberType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceSummaryPartyDetailsType">
+		<xs:sequence>
+			<xs:element name="Party" type="partyDetailsType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="partyDetailsType">
+		<xs:sequence>
+			<xs:element name="PartyId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="PartyRole" type="partyRoleCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="UnrepresentedParty" type="yesNoCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="PartyType" type="partyCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="FullName" type="fullNameType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Business" type="businessType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="CurrentAddress" type="address1Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="FutureAddress" type="address1Type" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PartyCapacityDetails" type="partyCapacityDetailsType" minOccurs="0"/>
+			<xs:element name="TrustDetails" type="trustDetailsType" minOccurs="0"/>
+			<xs:element name="ForeignPartyDetails" type="foreignPartyDetailsType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceSummaryDocumentSummaryDetailsType">
+		<xs:sequence>
+			<xs:element name="LodgementCase" type="lodgementCaseDetailsType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lodgementCaseDetailsType">
+		<xs:sequence>
+			<xs:element name="LodgementCaseId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="LodgementCaseStatus" type="lodgementCaseStatusCategoryType"/>
+			<xs:element name="Documents" type="lodgementCaseDocumentDetailsType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lodgementCaseDocumentDetailsType">
+		<xs:sequence>
+			<xs:element name="Document" type="documentDetailsType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="documentDetailsType">
+		<xs:sequence>
+			<xs:element name="DocumentId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="LandTitleReference" type="textType" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="DocumentStatus" type="documentStatusCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="DocumentType" type="documentTypeCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="RelatedDocumentId" type="identifierType" minOccurs="0"/>
+			<xs:element name="LastModified" type="timestampType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SignaturesRequired" type="countType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SignaturesReceived" type="countType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="LodgementVerification" type="lodgementVerificationDetailsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="StampDuty" type="stampDutyDetailsType" minOccurs="0"/>
+			<xs:element name="Lodgement" type="lodgementDetailsType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lodgementVerificationDetailsType">
+		<xs:sequence>
+			<xs:element name="VerificationResult" type="lodgementVerificationResultCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Date" type="timestampType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="stampDutyDetailsType">
+		<xs:sequence>
+			<xs:element name="VerificationResult" type="stampDutyVerificationResultCategoryType"/>
+			<xs:element name="Date" type="timestampType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="lodgementDetailsType">
+		<xs:sequence>
+			<xs:element name="DealingNumber" type="identifierType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Date" type="timestampType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceSummarySettlementScheduleDetailsType">
+		<xs:sequence>
+			<xs:element name="SettlementScheduleId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Status" type="settlementScheduleStatusCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SettlementDate" type="timestampType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="OverallSettlementAcceptanceStatus" type="overallSettlementAcceptanceStatusCategoryType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="LastModified" type="timestampType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="SignaturesRequired" type="countType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SignaturesReceived" type="countType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceSummaryBusinessEventsListDetailsType">
+		<xs:sequence>
+			<xs:element name="Count" type="countType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="MoreData" type="yesNoCategoryType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Event" type="eventDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eventDetailsType">
+		<xs:sequence>
+			<xs:element name="EventId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Date" type="timestampType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Severity" type="businessEventSeverityCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Category" type="businessEventCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Type" type="typeDetailsType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Detail" type="textType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="typeDetailsType">
+		<xs:sequence>
+			<xs:element name="Key" type="xs:string"/>
+			<xs:element name="Value" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceSummaryTaskListDetailsType">
+		<xs:sequence>
+			<xs:element name="Task" type="taskDetailsType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="taskDetailsType">
+		<xs:sequence>
+			<xs:element name="TaskId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="DateCreated" type="timestampType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="DateCompleted" type="timestampType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Type" type="typeDetailsType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Status" type="taskStatusCategoryType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceSummaryFeesDetailsType">
+		<xs:sequence>
+			<xs:element name="FeeItem" type="feeItemDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="feeItemDetailsType">
+		<xs:sequence>
+			<xs:element name="Date" type="timestampType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DocumentType" type="documentTypeCategoryType" minOccurs="0"/>
+			<xs:element name="Type" type="typeDetailsType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SigningSubscriber" type="signingSubscriberDetailsType" minOccurs="0"/>
+			<xs:element name="NetAmount" type="amountType" minOccurs="0"/>
+			<xs:element name="GstAmount" type="amountType" minOccurs="0"/>
+			<xs:element name="TotalAmount" type="amountType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="signingSubscriberDetailsType">
+		<xs:sequence>
+			<xs:element name="SubscriberName" type="textType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

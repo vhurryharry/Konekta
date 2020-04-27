@@ -1,0 +1,9 @@
+#top-bar-info {
+    display: flex;
+}
+
+.matter-info {
+    margin: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

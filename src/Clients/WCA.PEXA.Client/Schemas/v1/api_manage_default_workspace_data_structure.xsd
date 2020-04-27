@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns="http://api.pexa.net.au/schema/1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.pexa.net.au/schema/1/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.30">
+	<xs:include schemaLocation="api_simple_types.xsd"/>
+	<xs:include schemaLocation="api_categories.xsd"/>
+	<xs:include schemaLocation="api_common_structures.xsd"/>
+	<xs:complexType name="manageWorkspaceDataRequestType">
+		<xs:sequence>
+			<xs:element name="SubscriberId" type="identifierType"/>
+			<xs:element name="WorkspaceId" type="identifierType"/>
+			<xs:element name="Role" type="workspaceRoleCategoryType"/>
+			<xs:element name="WorkspaceData" type="workspaceDataDetailType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="workspaceDataDetailType">
+		<xs:sequence>
+			<xs:element name="TransactionDetails" type="transactionDetailsDetailType" minOccurs="0"/>
+			<xs:element name="PropertyDetails" type="propertyDetailsDetailType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>	
+	<xs:complexType name="transactionDetailsDetailType">
+		<xs:sequence>	
+			<xs:element name="ConsiderationAmount" type="amountType" minOccurs="0"/>
+			<xs:element name="ContractOfSaleDate" type="dateType" minOccurs="0"/>
+			<xs:element name="ConsiderationLessThanValue" type="yesNoCategoryType" minOccurs="0"/>
+			<xs:element name="OtherDutiableTransactions" type="yesNoCategoryType" minOccurs="0"/>
+			<xs:element name="GstAmount" type="amountType" minOccurs="0"/>
+			<xs:element name="CovenantMcpReference" type="textMandatoryType" minOccurs="0"/>
+			<xs:element name="CovenantMcpExpiryDate" type="dateType" minOccurs="0"/>
+			<xs:element name="DepositPaid" type="amountType" minOccurs="0"/>
+			<xs:element name="PhoneNumber" type="telephoneNumberType" minOccurs="0"/>		
+			<xs:element name="DateOfPossession" type="dateType" minOccurs="0"/>		
+			<xs:element name="MarginScheme" type="yesNoCategoryType" minOccurs="0"/>	
+			<xs:element name="TermsSaleIndicator" type="yesNoCategoryType" minOccurs="0"/>		
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="propertyDetailsDetailType">
+		<xs:sequence>	
+			<xs:element name="NatureOfProperty" type="natureOfPropertyCategoryType" minOccurs="0"/>
+			<xs:element name="PrimaryLandUse" type="primaryLandUseDetailType" minOccurs="0"/>
+			<xs:element name="CurrentLandUse" type="currentLandUseDetailType" minOccurs="0"/>
+			<xs:element name="ConstructionType" type="constructionTypeDetailType" minOccurs="0"/>
+			<xs:element name="MunicipalityName" type="municipalityNameCategoryType" minOccurs="0"/>
+			<xs:element name="LocalityName" type="localityNameType" minOccurs="0"/>
+			<xs:element name="AreaOfLand" type="areaOfLandDetailType" minOccurs="0"/>
+			<xs:element name="NumberOfBedrooms" type="countType" minOccurs="0"/>
+			<xs:element name="SafetySwitch" type="safetySwitchDetailType" minOccurs="0"/>					
+			<xs:element name="SmokeAlarm" type="smokeAlarmDetailType" minOccurs="0"/>		
+		</xs:sequence>
+	</xs:complexType>		
+</xs:schema>

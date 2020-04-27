@@ -1,0 +1,1 @@
+﻿This folder contains stylesheets used by the MVC application, not the SPA.

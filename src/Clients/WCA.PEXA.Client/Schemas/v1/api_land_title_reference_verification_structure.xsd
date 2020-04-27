@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns="http://api.pexa.net.au/schema/1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.pexa.net.au/schema/1/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.30">
+	<xs:include schemaLocation="api_simple_types.xsd"/>
+	<xs:include schemaLocation="api_categories.xsd"/>
+	<xs:include schemaLocation="api_common_structures.xsd"/>
+	<xs:complexType name="landTitleReferenceVerificationResponseType">
+		<xs:sequence>
+			<xs:element name="Warnings" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Workspace" minOccurs="1" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="WorkspaceId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="ParticipantsList" minOccurs="1" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Participants" minOccurs="1" maxOccurs="unbounded">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="SubscriberName" type="textType" minOccurs="1" maxOccurs="1"/>
+															<xs:element name="Role" type="roleCategoryType" minOccurs="1" maxOccurs="1"/>
+															<xs:element name="ContactName" type="textType" minOccurs="0" maxOccurs="1"/>
+															<xs:element name="Email" type="emailAddressType" minOccurs="0" maxOccurs="1"/>
+															<xs:element name="Phone" type="telephoneNumberType" minOccurs="0" maxOccurs="1"/>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LandTitleReferenceReport" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="LandTitleReference" type="textType" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="NewLandTitleReference" type="textType" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="PropertyDetails" type="textType" minOccurs="0" maxOccurs="1"/>
+						<xs:element name="ElectronicLodgement" type="yesNoCategoryType" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="Note" type="textType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

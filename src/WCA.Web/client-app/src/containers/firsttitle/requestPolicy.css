@@ -1,0 +1,13 @@
+﻿.firsttitle-page.ms-Grid-row {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.firsttitle-page.ms-Grid-row:last-child {
+    border-bottom: 0px;
+}
+
+.firsttitle-page.row.wrapper {
+    padding: 40px 40px 40px;
+}

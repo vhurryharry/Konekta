@@ -1,0 +1,51 @@
+.matter-page {
+    padding: 0px 10px;
+}
+
+.parter-cards-wrapper {
+    margin: 30px 30px !important;
+}
+
+.parter-cards-wrapper > div.ms-Grid-col {
+    float: left;
+}
+
+.partner-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 20px;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.partner-card {
+    min-height: 300px;
+    margin: 20px 15px;
+}
+
+.partner-integrations {
+    padding: 5px;
+}
+
+.partner-integrations a {
+    text-align: center;
+    text-decoration: none;
+}
+
+.partner-integrations a:hover {
+    text-decoration: underline;
+}
+
+.partner-integrations a:not(.is-disabled) {
+    color: black;
+}
+
+.error-page {
+    margin: 30px 0px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}

@@ -1,0 +1,34 @@
+﻿
+.login-actionstep-button span {
+    vertical-align: middle;
+    font-weight: bold;
+    display: inline-block;
+    padding-top: 5px;
+}
+
+html, body, .container {
+    height: 100%;
+}
+
+.container {
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+    vertical-align:middle;
+    padding: 0;
+}
+
+.row {
+    height: 100%;
+    display: table-row;
+}
+
+.row .no-float {
+    display: table-cell;
+    vertical-align:middle;
+    float: none;
+}
+
+.row .right {
+    text-align:right
+}

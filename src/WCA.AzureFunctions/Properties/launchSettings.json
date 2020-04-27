@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "FunctionsCLI": {
+      "commandName": "Executable",
+      "executablePath": "dotnet.exe",
+      "commandLineArgs": "%userprofile%\\AppData\\Roaming\\npm\\node_modules\\azure-functions-core-tools\\bin\\func.dll host start",
+      "environmentVariables": {
+        "APPINSIGHTS_INSTRUMENTATIONKEY": "8bb25e8c-6bdf-4451-a3f6-e9c1ab66d974",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

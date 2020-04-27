@@ -1,0 +1,102 @@
+﻿<template>
+    <require from="./infotrack-connection.css"></require>
+    <require from="../components/ibox"></require>
+
+    <div class="wrapper wrapper-content animated fadeInRight vertical-container info-track-wrapper">
+        <ibox collapsable.bind="true" id="infoTrackForm" ibox.ref="ibox">
+            <form slot="content" class="signup" id="infoTrackConnectForm">
+                <h1>Enable InfoTrack Integration</h1>
+                <p>
+                    Your account is not currently configured to be integrated with InfoTrack system. To enable this
+                    feature,
+                    please enter and submit your InfoTrack credentials on the form below.
+                </p>
+                <p>
+                    If you don't have an existing account with InfoTrack,
+                    please register using this <a href="https://www.infotrack.com.au/contact-us/create-account/"
+                        target="_blank">link</a>.
+                </p>
+                <br />
+
+                <div class="group" validation-errors.bind="ActionstepOrgKeyErrors" style="height: 80px;">
+                    <label if.bind="fromRedirect">
+                        <span style="margin-right:55px;">Actionstep Organisation</span>
+                        <b>${infoTrackCredentialsForOrg.ActionstepOrgKey}</b>
+                    </label>
+
+                    <label if.bind="!fromRedirect">
+                        <span><span class="mandatory">*</span>Actionstep Organisation</span>
+                        <select value.bind="infoTrackCredentialsForOrg.ActionstepOrgKey & validate" class="field">
+                            <option value="">-- Please Select --</option>
+                            <option repeat.for="org of userOrgs" value="${org.actionstepOrgKey}">
+                                ${org.actionstepOrgTitle}</option>
+                        </select>
+                    </label>
+
+                    <label style="line-height:1.5em; padding-left: 10px;">
+                        Can't see the Actionstep organisation you're looking for?<br />
+                        <a click.trigger="connectToActionstepOrg()">Click here to connect to another
+                            organisation.</a><br />
+                    </label>
+
+                    <div class="error">
+                        <div repeat.for="errorInfo of ActionstepOrgKeyErrors">
+                            ${errorInfo.error.message}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="group" validation-errors.bind="InfoTrackUsernameErrors">
+                    <label>
+                        <span><span class="mandatory">*</span> InfoTrack Username</span>
+                        <input id="username" value.bind="infoTrackCredentialsForOrg.InfoTrackUsername & validate"
+                            class="field" type="text" />
+                    </label>
+                    <div class="error">
+                        <div repeat.for="errorInfo of InfoTrackUsernameErrors">
+                            ${errorInfo.error.message}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group" validation-errors.bind="InfoTrackPasswordErrors">
+                    <label>
+                        <span><span class="mandatory">*</span> InfoTrack Password</span>
+                        <input id="password" value.bind="infoTrackCredentialsForOrg.InfoTrackPassword & validate"
+                            class="field" type="password" />
+                    </label>
+                    <div class="error">
+                        <div repeat.for="errorInfo of InfoTrackPasswordErrors">
+                            ${errorInfo.error.message}
+                        </div>
+                    </div>
+                </div>
+
+                <p>&nbsp;</p>
+                <div validation-errors.bind="AcceptedTermsAndConditionsErrors">
+                    <input id="acceptedTermsAndConditions"
+                        checked.bind="infoTrackCredentialsForOrg.AcceptedTermsAndConditions & validate" class=""
+                        type="checkbox" />
+                    <label for="acceptedTermsAndConditions" class="checkboxlabel">
+                        <span class="mandatory">*</span>
+                        I accept the <a href="https://support.konekta.com.au/support/solutions/articles/6000229543-terms-conditions" target="_blank">${appInfoService.appName} Terms
+                            &amp;
+                            Conditions</a>.
+                    </label>
+
+                    <div class="error">
+                        <div repeat.for="errorInfo of AcceptedTermsAndConditionsErrors">
+                            ${errorInfo.error.message}
+                        </div>
+                    </div>
+                </div>
+
+                <p>&nbsp;</p>
+                <button disabled.bind="validationController.errors.length > 0" class="btn btn-primary" type="submit"
+                    click.delegate="enable()">Enable</button>
+                <p>&nbsp;</p>
+            </form>
+        </ibox>
+
+</template>

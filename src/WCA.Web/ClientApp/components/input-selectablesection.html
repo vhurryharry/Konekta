@@ -1,0 +1,12 @@
+<template bindable="inputId, items, selectedItem, label, buttonLabel, addSection">
+  <div class="form-group">
+      <label class="control-label col-sm-2" for="${inputId}Select">${label}</label>
+      <div class="col-sm-3">
+        <select id="${inputId}Select" value.bind="selectedItem" class="form-control">
+          <option repeat.for="item of items" model.bind="item">${item.name}</option>
+        </select>
+      </div>
+      ${parent}
+      <button click.trigger="addSection()" class="btn">${buttonLabel}</button>
+  </div>
+</template>

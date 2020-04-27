@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExceptionResponse xmlns="http://api.pexa.net.au/schema/2/">
+  <ExceptionList>
+    <Code>400001</Code>
+    <Message>The message has failed schema validation</Message>
+  </ExceptionList>
+  <ExceptionList>
+    <Code>OB1409.002</Code>
+    <Message>The workgroup cannot be found</Message>
+  </ExceptionList>
+</ExceptionResponse>

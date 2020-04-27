@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns="http://api.pexa.net.au/schema/1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.pexa.net.au/schema/1/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.30">
+	<xs:include schemaLocation="api_simple_types.xsd"/>
+	<xs:include schemaLocation="api_categories.xsd"/>
+	<xs:include schemaLocation="api_common_structures.xsd"/>
+	<xs:complexType name="settlementUploadRequestType">
+		<xs:sequence>
+			<xs:element name="SubscriberId" type="identifierType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="WorkspaceId" type="identifierType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Role" type="roleCategoryType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Schedule" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="LineItem" minOccurs="1" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Type" type="financialLineItemTypeCategoryType" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="Category" type="financialLineItemCategoryType" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="CustomCategory" type="textType" minOccurs="0" maxOccurs="1"/>
+									<xs:element name="AccountDetails" minOccurs="1" maxOccurs="1">
+										<xs:complexType>
+											<xs:choice>
+												<xs:element name="Source" minOccurs="1" maxOccurs="1">
+													<xs:complexType>
+														<xs:choice>
+															<xs:element name="DefaultAccount" type="yesCategoryType" minOccurs="1" maxOccurs="1"/>
+															<xs:element name="PreverifiedAccount" type="textMandatoryType"/>
+														</xs:choice>
+													</xs:complexType>
+												</xs:element>
+												<xs:element name="Destination" minOccurs="1" maxOccurs="1">
+													<xs:complexType>
+														<xs:choice>
+															<xs:element name="PreverifiedAccount" type="textMandatoryType"/>
+															<xs:element name="OfficeAccount" type="textMandatoryType"/>							
+															<xs:element name="Account" minOccurs="1" maxOccurs="1">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="AccountName" type="textMandatoryType" minOccurs="1" maxOccurs="1"/>
+																		<xs:element name="AccountBsb" type="textType" minOccurs="1" maxOccurs="1"/>
+																		<xs:element name="AccountNumber" type="textMandatoryType" minOccurs="1" maxOccurs="1"/>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+															<xs:element name="BPay" minOccurs="1" maxOccurs="1">
+																<xs:complexType>
+																	<xs:sequence>
+																		<xs:element name="BillerCode" type="textType" minOccurs="1" maxOccurs="1"/>
+																		<xs:element name="Reference" type="textMandatoryType" minOccurs="1" maxOccurs="1"/>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+														</xs:choice>
+													</xs:complexType>
+												</xs:element>
+											</xs:choice>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="AssociatedSubscriber" type="textType" minOccurs="0"/>
+									<xs:element name="TransactionDescription" type="textType" minOccurs="0" maxOccurs="1"/>
+									<xs:element name="Value" type="amountType" minOccurs="1" maxOccurs="1"/>
+									<xs:element name="ClientName" type="textType" minOccurs="0"/>
+									<xs:element name="Verified" type="yesNoCategoryType" minOccurs="0" maxOccurs="1"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="settlementUploadResponseType">
+		<xs:sequence>
+			<xs:element name="Warning" type="warningResponseType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

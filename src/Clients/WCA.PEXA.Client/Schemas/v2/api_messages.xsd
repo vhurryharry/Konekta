@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns="http://api.pexa.net.au/schema/2/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.pexa.net.au/schema/2/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.5">
+	<xs:include schemaLocation="api_retrieve_notifications_structure.xsd"/>
+	<xs:include schemaLocation="api_search_pexa_subscriber_structure.xsd"/>
+	<xs:include schemaLocation="api_initiate_workspace_creation_structure.xsd"/>
+	<xs:include schemaLocation="api_retrieve_workspaces_structures.xsd"/>
+	<xs:include schemaLocation="api_initiate_workspace_creation_title_information_structure.xsd"/>
+	<xs:include schemaLocation="api_title_activity_check_structure.xsd"/>
+	<!-- Supporting elements -->
+	<xs:element name="ExceptionResponse" type="exceptionResponseType"/>
+	<!-- API Request Endpoints -->
+	<xs:element name="WorkspaceCreationRequest" type="workspaceCreationRequestType"/>	
+	<!-- API Response Endpoints -->
+	<xs:element name="WorkspaceCreationResponse" type="workspaceCreationResponseType"/>
+	<xs:element name="RetrieveNotificationsResponse" type="retrieveNotificationsResponseType"/>
+	<xs:element name="SubscriberSearchResponse" type="subscriberSearchResponseType"/>
+	<xs:element name="WorkspaceRetrievalResponse" type="workspaceListRetrievalResponseType"/>
+	<xs:element name="WorkspaceCreationTitleInformationResponse" type="workspaceCreationTitleInformationResponseType"/>
+	<xs:element name="TitleInformationResponse" type="titleInformationResponseType"/>
+	<xs:element name="TitleActivityResponse" type="titleActivityResponseType"/>
+	<!-- API Response Endpoints -->
+	<!-- API Endpoints End -->
+</xs:schema>

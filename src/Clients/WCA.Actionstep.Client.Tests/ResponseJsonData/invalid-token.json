@@ -1,0 +1,5 @@
+﻿{
+	"error": "invalid_token",
+	"error_description": "The access token provided in invalid (2)",
+	"error_uri": "http:\/\/tools.ietf.org\/html\/rfc6749#section-7"
+}

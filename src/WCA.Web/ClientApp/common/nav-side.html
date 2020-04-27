@@ -1,0 +1,11 @@
+<template bindable="navigation">
+    <require from="common/nav-side-second.html"></require>
+    <ul class="nav metismenu" id="side-menu">
+        <li repeat.for="row of navigation" class="${row.isActive ? 'active' : ''}">
+            <a data-toggle="collapse" data-target="#bs-example-navbar-collapse-1.in" href="${row.href}">
+                ${row.title}
+            </a>
+            <nav-side-second if.bind="row.navigation" navigation.bind="row.navigation"></nav-side-second>
+        </li>
+    </ul>
+</template>

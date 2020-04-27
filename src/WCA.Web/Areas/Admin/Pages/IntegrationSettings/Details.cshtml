@@ -1,0 +1,61 @@
+﻿@page
+@model WCA.Web.Areas.Admin.Pages.IntegrationSettings.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>IntegrationSetting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.ActionstepOrg)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.ActionstepOrg.Key)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.User)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.User.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.SortOrder)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.SortOrder)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.HideIntegration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.HideIntegration)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.Integration)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.Integration.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.DateCreatedUtc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.DateCreatedUtc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationSetting.LastUpdatedUtc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationSetting.LastUpdatedUtc)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.IntegrationSetting.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

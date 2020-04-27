@@ -1,0 +1,46 @@
+﻿@page
+@model IntegrationTestsModel
+@{
+    ViewData["Title"] = "Integration Tests";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" asp-page-handler="RunActionstepTests" class="form-horizontal">
+            <h2>Integration Tests</h2>
+            <div class="form-group">
+                <label asp-for="ActionstepInput.OrgKey" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10"><input asp-for="ActionstepInput.OrgKey" class="form-control" /></div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ActionstepInput.MatterId" class="col-sm-2 control-label"></label>
+                <div class="col-sm-10"><input asp-for="ActionstepInput.MatterId" class="form-control" /></div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-primary" type="submit">Run Actionstep Tests</button>
+                </div>
+            </div>
+        </form>
+
+        @if (Model.ActionstepResult != null && Model.ActionstepResult.HasRun)
+        {
+            @if (Model.ActionstepResult.TestsSuccessful)
+            {
+                <p>Test Successful</p>
+            }
+            else
+            {
+                <p>Test unsuccessful</p>
+                <ul>
+                    @foreach (var error in Model.ActionstepResult.Errors)
+                    {
+                        <li>@error</li>
+                    }
+                </ul>
+            }
+        }
+    </div>
+</div>

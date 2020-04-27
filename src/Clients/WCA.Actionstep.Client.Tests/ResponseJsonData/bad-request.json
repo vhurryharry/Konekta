@@ -1,0 +1,22 @@
+﻿{
+  "errors": {
+    "id": "9f442143ea9e6e737d71f6dc87171b54a855790c",
+    "links": {
+      "about": null
+    },
+    "status": 400,
+    "code": "AS-1302",
+    "title": "Invalid JSON Message",
+    "detail": "Unable to decode the JSON message",
+    "source": {
+      "pointer": null,
+      "parameter": null
+    },
+    "meta": {
+      "json": "",
+      "json_last_error": 4,
+      "json_last_error_msg": "Syntax error"
+    },
+    "rls": null
+  }
+}

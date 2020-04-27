@@ -1,0 +1,23 @@
+﻿@page
+@model ErrorModel
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<link rel="stylesheet" href="~/css/fullpage.css" asp-append-version="true" />
+
+<div class="container">
+    <div class="row vcenter">
+        <div class="col-md-6 no-float">
+            <div class="middle-box text-center animated fadeInDown">
+                <h2>We're sorry, something went wrong.</h2>
+
+                <div class="error-desc">
+                    <p>You may wish to <a href="javascript:window.history.back();">go back </a> to the previous page you were looking at.</p>
+                    <p>If you continue to see this message, you can <a href="@Model.SupportUrl/support/tickets/new" target="_blank">log a support ticket</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

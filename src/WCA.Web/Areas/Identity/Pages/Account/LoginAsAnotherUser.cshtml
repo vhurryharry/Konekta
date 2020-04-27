@@ -1,0 +1,29 @@
+﻿@page
+@model LoginAsAnotherUserModel
+
+@{
+    ViewData["Title"] = "Log in as another user";
+}
+
+<p>This page allows you to log in as another user</p>
+
+<section>
+    <form asp-route-returnurl="@Model.ReturnUrl" method="post" class="form-horizontal">
+        <div>
+            <h4>Log in as:</h4>
+            <div class="form-group">
+                <label asp-for="Input.Email" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-default">Log in</button>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

@@ -1,0 +1,274 @@
+{
+    "links": {
+        "datacollectionrecordvalues.action": {
+            "href": "https://api.actionsteplabs.com.actionstep.com/api/rest/actions/{datacollectionrecordvalues.action}",
+            "type": "actions"
+        },
+        "datacollectionrecordvalues.dataCollectionField": {
+            "href": "https://api.actionsteplabs.com.actionstep.com/api/rest/datacollectionfields/{datacollectionrecordvalues.dataCollectionField}",
+            "type": "datacollectionfields"
+        },
+        "datacollectionrecordvalues.dataCollectionRecord": {
+            "href": "https://api.actionsteplabs.com.actionstep.com/api/rest/datacollectionrecords/{datacollectionrecordvalues.dataCollectionRecord}",
+            "type": "datacollectionrecords"
+        },
+        "datacollectionrecordvalues.dataCollection": {
+            "href": "https://api.actionsteplabs.com.actionstep.com/api/rest/datacollections/{datacollectionrecordvalues.dataCollection}",
+            "type": "datacollections"
+        },
+        "datacollectionfields.dataCollection": {
+            "href": "https://api.actionsteplabs.com.actionstep.com/api/rest/datacollections/{datacollectionfields.dataCollection}",
+            "type": "datacollections"
+        },
+        "datacollections.actionType": {
+            "href": "https://api.actionsteplabs.com.actionstep.com/api/rest/actiontypes/{datacollections.actionType}",
+            "type": "actiontypes"
+        }
+    },
+    "datacollectionrecordvalues": [
+        {
+            "id": "16--lotno--164",
+            "stringValue": "437",
+            "links": {
+                "action": "7",
+                "dataCollectionField": "16--lotno",
+                "dataCollectionRecord": "164",
+                "dataCollection": "16"
+            }
+        },
+        {
+            "id": "16--planno--164",
+            "stringValue": "112380",
+            "links": {
+                "action": "7",
+                "dataCollectionField": "16--planno",
+                "dataCollectionRecord": "164",
+                "dataCollection": "16"
+            }
+        },
+        {
+            "id": "16--plantype--164",
+            "stringValue": "SP",
+            "links": {
+                "action": "7",
+                "dataCollectionField": "16--plantype",
+                "dataCollectionRecord": "164",
+                "dataCollection": "16"
+            }
+        },
+        {
+            "id": "16--titleref--164",
+            "stringValue": "50248019",
+            "links": {
+                "action": "7",
+                "dataCollectionField": "16--titleref",
+                "dataCollectionRecord": "164",
+                "dataCollection": "16"
+            }
+        },
+        {
+            "id": "18--purprice--6",
+            "stringValue": "1200000",
+            "links": {
+                "action": "7",
+                "dataCollectionField": "18--purprice",
+                "dataCollectionRecord": "6",
+                "dataCollection": "18"
+            }
+        },
+      {
+        "id": "18--smttime--6",
+        "stringValue": "1:00 pm",
+        "links": {
+          "action": "7",
+          "dataCollectionField": "18--smttime",
+          "dataCollectionRecord": "6",
+          "dataCollection": "18"
+        }
+      },
+        {
+            "id": "19--smtdateonly--8",
+            "stringValue": "2018-02-27",
+            "links": {
+                "action": "7",
+                "dataCollectionField": "19--smtdateonly",
+                "dataCollectionRecord": "8",
+                "dataCollection": "19"
+            }
+        }
+    ],
+    "linked": {
+        "datacollectionfields": [
+            {
+                "id": "16--lotno",
+                "name": "lotno",
+                "dataType": "Str255",
+                "label": "Lot Number",
+                "formOrder": 50,
+                "listOrder": 50,
+                "required": "F",
+                "description": null,
+                "customHtmlBelow": null,
+                "customHtmlAbove": null,
+                "links": {
+                    "dataCollection": "16"
+                }
+            },
+            {
+                "id": "16--planno",
+                "name": "planno",
+                "dataType": "Str255",
+                "label": "Plan Number",
+                "formOrder": 70,
+                "listOrder": 70,
+                "required": "F",
+                "description": null,
+                "customHtmlBelow": null,
+                "customHtmlAbove": null,
+                "links": {
+                    "dataCollection": "16"
+                }
+            },
+            {
+                "id": "16--plantype",
+                "name": "plantype",
+                "dataType": "DropDown",
+                "label": "Plan Type",
+                "formOrder": 60,
+                "listOrder": 60,
+                "required": "F",
+                "description": null,
+                "customHtmlBelow": null,
+                "customHtmlAbove": null,
+                "links": {
+                    "dataCollection": "16"
+                }
+            },
+            {
+                "id": "16--titleref",
+                "name": "titleref",
+                "dataType": "Str255",
+                "label": "Title Reference",
+                "formOrder": 40,
+                "listOrder": 40,
+                "required": "F",
+                "description": null,
+                "customHtmlBelow": null,
+                "customHtmlAbove": null,
+                "links": {
+                    "dataCollection": "16"
+                }
+            },
+            {
+                "id": "18--purprice",
+                "name": "purprice",
+                "dataType": "Money",
+                "label": "Purchase Price",
+                "formOrder": 10,
+                "listOrder": 10,
+                "required": "F",
+                "description": null,
+                "customHtmlBelow": null,
+                "customHtmlAbove": null,
+                "links": {
+                    "dataCollection": "18"
+                }
+            },
+            {
+                "id": "18--smttime",
+                "name": "smttime",
+                "dataType": "Str255",
+                "label": "Settlement Booking Time",
+                "formOrder": 105,
+                "listOrder": 105,
+                "required": "F",
+                "description": null,
+                "customHtmlBelow": null,
+                "customHtmlAbove": null,
+                "links": {
+                    "dataCollection": "18"
+                }
+            },
+            {
+                "id": "19--smtdateonly",
+                "name": "smtdateonly",
+                "dataType": "DateNM",
+                "label": "Settlement date",
+                "formOrder": 150,
+                "listOrder": 150,
+                "required": "F",
+                "description": null,
+                "customHtmlBelow": null,
+                "customHtmlAbove": null,
+                "links": {
+                    "dataCollection": "19"
+                }
+            }
+        ],
+        "datacollections": [
+            {
+                "id": 16,
+                "name": "property",
+                "description": "Property",
+                "multipleRecords": "F",
+                "order": 30,
+                "label": "Property",
+                "alwaysShowDescriptions": "T",
+                "links": {
+                    "actionType": "6"
+                }
+            },
+            {
+                "id": 18,
+                "name": "convdet",
+                "description": "Conveyancing Details",
+                "multipleRecords": "F",
+                "order": 20,
+                "label": "Details",
+                "alwaysShowDescriptions": "F",
+                "links": {
+                    "actionType": "6"
+                }
+            },
+            {
+                "id": 19,
+                "name": "keydates",
+                "description": "Key Dates",
+                "multipleRecords": "F",
+                "order": 40,
+                "label": "Key Dates",
+                "alwaysShowDescriptions": "F",
+                "links": {
+                    "actionType": "6"
+                }
+            }
+        ]
+    },
+    "meta": {
+        "paging": {
+            "datacollectionrecordvalues": {
+                "recordCount": 7,
+                "pageCount": 1,
+                "page": 1,
+                "pageSize": 50,
+                "prevPage": null,
+                "nextPage": null
+            }
+        },
+        "debug": {
+            "requestTime": "0.089258",
+            "mem": "2.66mb",
+            "server": "app-059686ccdfed76972.api.actionsteplabs.com",
+            "cb": "beta",
+            "time": "2018-09-17 15:46:23 +0930 (Australia/Adelaide)",
+            "appload": "0.00, 0.01, 0.05",
+            "app": "0.014420",
+            "db": "0.074838",
+            "dbc": "0.005169",
+            "qc": "66",
+            "uqc": "38",
+            "fc": "1,193",
+            "rl": null
+        }
+    }
+}

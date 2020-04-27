@@ -1,0 +1,32 @@
+﻿@page
+@model WCA.Web.Pages.WCAModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+@section Head {
+    <base href="/wca/">
+}
+
+@section Scripts {
+    <script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript" src="/dist/runtime.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="/dist/vendors~app.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="/dist/app.js" asp-append-version="true"></script>
+}
+
+<app aurelia-app="boot">
+    <div class="row text-center" style="height: 100%; padding-top:15%">
+        <h1>@Model.AppName is Loading...</h1>
+        <img src="@Model.LoadingLogo" alt="@Model.AppName is loading..." width="200px">
+    </div>
+</app>
+
+<script>
+    window.fwSettings={
+    'widget_id':6000000031
+    };
+    !function(){if("function"!=typeof window.FreshworksWidget){var n=function(){n.q.push(arguments)};n.q=[],window.FreshworksWidget=n}}()
+</script>
+<script type='text/javascript' src='https://widget.freshworks.com/widgets/6000000031.js' async defer></script>

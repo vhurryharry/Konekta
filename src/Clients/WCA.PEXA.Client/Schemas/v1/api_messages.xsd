@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://api.pexa.net.au/schema/1/" targetNamespace="http://api.pexa.net.au/schema/1/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.32">
+	<xs:include schemaLocation="api_retrieve_workspace_summary_structure.xsd"/>
+	<xs:include schemaLocation="api_initiate_workspace_update_structure.xsd"/>
+	<xs:include schemaLocation="api_respond_to_invitation_received_structure.xsd"/>
+	<xs:include schemaLocation="api_upload_financial_settlement_line_item_structure.xsd"/>
+	<xs:include schemaLocation="api_create_discharge_of_mortgage_structure.xsd"/>
+	<xs:include schemaLocation="api_retrieve_lodged_pexa_workspace_documents_structure.xsd"/>
+	<xs:include schemaLocation="api_retrieve_workspaces_structures.xsd"/>
+	<xs:include schemaLocation="api_retrieve_settlement_statement_structure.xsd"/>
+	<xs:include schemaLocation="api_retrieve_workgroups_structure.xsd"/>
+	<xs:include schemaLocation="api_retrieve_user_profile_structure.xsd"/>
+	<xs:include schemaLocation="api_retrieve_outstanding_invitations_structure.xsd"/>
+	<xs:include schemaLocation="api_land_title_reference_verification_structure.xsd"/>
+	<xs:include schemaLocation="api_retrieve_settlement_availability_structure.xsd"/>
+	<xs:include schemaLocation="api_maintain_settlement_date_and_time_structure.xsd"/>
+	<xs:include schemaLocation="api_create_workspace_invitation_structure.xsd"/>
+	<xs:include schemaLocation="api_create_project_participation_structure.xsd"/>
+	<xs:include schemaLocation="api_manage_default_workspace_data_structure.xsd"/>
+	<xs:include schemaLocation="api_manage_project_data_structure.xsd"/>
+	<xs:include schemaLocation="api_manage_transfer_duty_structure.xsd"/>	
+	<!-- Supporting elements -->
+	<xs:element name="ExceptionResponse" type="exceptionResponseType"/>
+	<!-- API Request Endpoints -->
+	<xs:element name="RespondInvitationRequest" type="respondInvitationsRequestType"/>
+	<xs:element name="WorkspaceUpdateRequest" type="workspaceUpdateRequestType"/>
+	<xs:element name="CreateDischargeOfMortgageRequest" type="createDischargeOfMortgageRequestType"/>
+	<xs:element name="SettlementUploadRequest" type="settlementUploadRequestType"/>
+	<xs:element name="MaintainSettlementDateAndTimeRequest" type="maintainSettlementDateAndTimeRequestType"/>
+	<xs:element name="CreateWorkspaceInvitationRequest" type="createWorkspaceInvitationRequestType"/>
+	<xs:element name="ManageWorkspaceDataRequest" type="manageWorkspaceDataRequestType"/>
+	<xs:element name="ManageProjectDataRequest" type="manageProjectDataRequestType"/>
+	<xs:element name="ManageTransferDutyRequest" type="manageTransferDutyRequestType"/>	
+	<!-- API Response Endpoints -->
+	<xs:element name="WorkspaceUpdateResponse" type="workspaceUpdateResponseType"/>
+	<xs:element name="WorkspaceSummaryResponse" type="workspaceSummaryResponseType"/>
+	<xs:element name="CreateDischargeOfMortgageResponse" type="createDischargeOfMortgageResponseType"/>
+	<xs:element name="WorkspaceDocumentRetrieval" type="workspaceDocumentRetrievalResponseType"/>
+	<xs:element name="WorkspaceRetrievalResponse" type="workspaceListRetrievalResponseType"/>
+	<xs:element name="SettlementStatementRetrieval" type="settlementStatementRetrievalResponseType"/>
+	<xs:element name="WorkgroupRetrievalResponse" type="workgroupListRetrievalResponseType"/>
+	<xs:element name="UserProfileRetrievalResponse" type="userProfileRetrievalResponseType"/>
+	<xs:element name="InvitationRetrievalResponse" type="invitationRetrievalResponseType"/>
+	<xs:element name="LandTitleReferenceVerificationResponse" type="landTitleReferenceVerificationResponseType"/>
+	<xs:element name="SettlementUploadResponse" type="settlementUploadResponseType"/>
+	<xs:element name="SettlementAvailabilityResponse" type="retrieveSettlementAvailabilityResponseType"/>
+	<xs:element name="CreateWorkspaceInvitationResponse" type="createWorkspaceInvitationResponseType"/>
+	<xs:element name="CreateProjectParticipationRequest" type="createProjectParticipationRequestType"/>
+	<!-- API Endpoints End -->
+</xs:schema>

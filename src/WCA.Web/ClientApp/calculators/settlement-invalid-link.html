@@ -1,0 +1,143 @@
+<template>
+
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>Settlement Calculator</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="/">${appInfoService.appName}</a>
+                </li>
+                <li class="active">
+                    <strong>Settlement Calculator</strong>
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <i class="fa fa-exclamation"></i> <span class="m-l-xs">Incorrect link</span>
+                    </div>
+                    <div class="panel-body p-v-xs">
+                        <p class="text-danger">
+                            You have attempted to access the
+                            <strong>Settlement Calculator</strong>
+                            from an invalid location.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h2>Help! What do I do now?</h2>
+                    </div>
+                    <div class="ibox-content">
+                        <p>
+                            Please access the <strong>Settlement Calculator</strong> from the
+                            <strong>Integrations</strong> Tab
+                            within your matter then click on <strong>Settlement Calculator</strong>
+                        </p>
+
+                        <div class="text-center">
+                            <img src="/images/actionstep-integrations-tab.png" width="90%"
+                                alt="Actionstep - ${appInfoService.appName} Integrations Tab" />
+                            <p class="caption">New 'Smart' InfoTrack Integration</p>
+                        </div>
+
+                        <p>
+                            This <strong>Integrations</strong> tab also provides you access to a <strong>new</strong>
+                            method to order InfoTrack searches.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h2>But I don't have the Integrations tab?</h2>
+                    </div>
+                    <div class="ibox-content">
+
+                        <p>
+                            Please
+                            <a href="${appInfoService.supportUrl}/support/tickets/new" target="_blank">
+                                log a support ticket
+                            </a>
+                            and our team will set this up for you.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <i class="fa fa-info"></i> <span class="m-l-xs"><em>New</em> InfoTrack Integration Available
+                            Now</span>
+                    </div>
+                    <div class="ibox-content">
+                        <p>
+                            This new integration automatically prepopulates InfoTrack with
+                            <strong>over 90 fields</strong> from your matter data, saving double-entry and eliminating
+                            typos.
+                        </p>
+                        <p>
+                            <a
+                                href="${appInfoService.supportUrl}/solution/articles/6000200120-ordering-infotrack-searches-via-the-workcloud-conveyancing-app">
+                                Learn more
+                            </a>
+                        </p>
+                        <p>
+                            <a
+                                href="${appInfoService.supportUrl}/solution/articles/6000217510-add-your-infotrack-username-and-password">
+                                Set up now
+                            </a>
+                        </p>
+
+                        <div class="text-center">
+                            <a href="">
+                                <img src="/images/InfoTrackLogo_216x80.png" alt="InfoTrack Logo"
+                                    style="max-width: 180px; width:100%" />
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <i class="fa fa-info"></i> <span class="m-l-xs">PEXA Coming Soon</span>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            Soon you will be able to create a PEXA workspace using the
+                            information already stored in your Actionstep matter.
+                        </p>
+                        <p>
+                            You can
+                            <a
+                                href="${appInfoService.supportUrl}/support/solutions/articles/6000222358-pexa-integration-coming-soon">
+                                learn more about the coming PEXA Integration with ${appInfoService.appName} Conveyancing
+                                here.
+                            </a>
+                        </p>
+
+                        <div class="text-center">
+                            <a href="https://www.pexa.com.au/">
+                                <img src="/images/pexa-logo.svg" alt="PEXA Logo" style="max-width: 180px; width:100%" />
+                            </a>
+                            <p class="caption">PEXA Integration Coming Soon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

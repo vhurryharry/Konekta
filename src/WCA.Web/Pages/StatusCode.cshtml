@@ -1,0 +1,20 @@
+﻿@page "{statusCode}"
+@model WCA.Web.Pages.StatusCodeModel
+
+<link rel="stylesheet" href="~/css/fullpage.css" asp-append-version="true" />
+
+<div class="container">
+    <div class="row vcenter">
+        <div class="col-md-6 no-float">
+            <div class="middle-box text-center animated fadeInDown">
+                <h1>@Model.StatusCode</h1>
+                <h2>@Model.StatusTitle</h2>
+
+                <div class="error-desc">
+                    @Model.StatusMessage<br />
+                    You may wish to <a href="javascript:window.history.back();">go back </a> to the previous page you were looking at.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

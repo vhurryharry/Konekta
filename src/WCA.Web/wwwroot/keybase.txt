@@ -1,0 +1,75 @@
+﻿==================================================================
+https://keybase.io/konekta
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://app.konekta.com.au
+  * I am konekta (https://keybase.io/konekta) on keybase.
+  * I have a public key with fingerprint DB0E D9FC 12FE BFAD 6E03  50B7 C72C A0C8 AC18 8755
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120755c4003c4d6ed33cf32d025f1eb85c2516a0c15d600c1137b0732b380f386270a",
+      "fingerprint": "db0ed9fc12febfad6e0350b7c72ca0c8ac188755",
+      "host": "keybase.io",
+      "key_id": "c72ca0c8ac188755",
+      "kid": "01011eff7d43f86b0b104fe6f4eb38ba322773144f4b20638722100fda66bffc881e0a",
+      "uid": "c754f5fde50e67e4fd3a8a55a1630a19",
+      "username": "konekta"
+    },
+    "service": {
+      "hostname": "app.konekta.com.au",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1573608074,
+  "expire_in": 157680000,
+  "prev": "5aac06f6615153efcde688b06f2510ed1fca1878287a5a32ef80b18c3ecd370c",
+  "seqno": 6,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.3
+Comment: https://keybase.io/crypto
+
+yMNwAnicbVJrUJRVGF4IbUBlNJShcGfwGyBcic53/1jdwBnISzSpsxo3277LOfBx
+2V12P5AdhgxEl+1CGBY7LlGhMGl4F8SKGSBIpo3QMtMaJIsmu6FJBSRSZxn81/nz
+znnP8zzv877v6V/ygC4s6ELiO4PtUe7tQf7eplLdTn/2SxWEZFNchLGCKIRzARYp
+0KlZClWFMBKApADPsjIDAC0zCgcVmpYRTSmAYhEJJYGVKZbkRCCTrMIBHEialwBP
+UxItAEQLHMUDkUgkkGrNgw67Q7VqWFaRAFSSkUxSCEpIxLqAZoHEyzwlYy1BlElB
+wHUxMd/mDDCwOUl0wiTVhnP4Ypmz9z/4+74BSUKEeIWhkcBJQCIBgyCHGIiNSSJN
+UTxPkwyDGIkCHC3wFEUCgBSR4ySEZEEg4Zzv0vk6LINYpEAWQI6HDFJoURBZViQ5
+GohkcgDohA6rWAwDXm1WWKiJRGUigZNlqgwDcw00Mg8Q7fakeVCSbCtOEkuxgN1h
+02yyrQi/52ua3WkM8DWXPUDYBSXLvJRFUq0KHiZmlEGHU7VZCSOJkbKmBrRJlqc5
+IACeSSRguV11QItqnUtzAsAnUAeWYUlWFGXAIY4jWZKlIZIVyAmChFN4oXg7JJJF
+UuAFSuBFFs8LIgEPUZBpKCs0D2Qi0FyJ1UYYOWxTzMOSTjXPKmqlDkhU9vXmhuiC
+wnQLFwQHPpkuLHTp/a8XnL5U92LL2eIdLdMpyT1S852uR/2pi2JuWWsurv/tM6E8
+/kzsSElnWgUVWzAa/Nja4Phvoh40uK6VbLpVdyD530U/hfdNdXwQXfvl98ef3jN0
+WtxuXvcx9UxjTch37xv9rf4vfD7fj+tTE96e2O2Ju3ex1q+yiHl+v29ll+nkNdPC
+nF2+mPjf9Tr3P7/oG14dDzOvBofN3UcsIUR71e2x3esqmb5l5tn45rrxuKOumg/H
+voZ3x+7m1Zo8q6nLh3Je1nLMnZNriqp+yBjtvzrhad92yXTMMhO7NWvLjVxtOGVl
++nB3pFfOuFxQ6R04MRZZ/dbGxaHpw8MzvUHREeaKetfmuKmW5bozd2ae03tPdVbC
+kY2/nrY31l/tmM0fdO+pFibyt+Q0xcxm7PWsOOjZJ+Zan/KFxrpaFef+tqInss59
+OhlV7lkRVBU2pN9cy2ij5nzfmzd7/ko4nGaIa3jDkRoz2FXE/711qK53+Ojt5kPX
+L/V5nfXd0+bwtrSEI5MjJ27+UWXYZDggnzo4EP1tmvmRs5k3yiNE9+PCBUNP10fH
+ubY0d3HTwurMT1L2HuNaLfteuTJlcGjQM7ZKStjZGnJyelVbNxiveshcrP/TNNXv
+jVjQ+vOTJum1F7IaF5ec/+p6b8P51zuuuJ9dszw78j3PuXufF3r739UX2LPDYzYs
+G1iyAdZkb3t4dkfm2v8A5b7ClA==
+=sV7C
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/konekta
+
+==================================================================

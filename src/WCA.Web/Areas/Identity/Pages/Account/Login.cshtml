@@ -1,0 +1,29 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<p><a href=@Model.AppUrl>@Model.AppName</a> requires a valid Actionstep account.</p>
+
+<p>Please click the button below to use your Actionstep username and password to log in to @Model.AppName.</p>
+
+<br />
+
+<section>
+    <form asp-page="./ExternalLogin" asp-route-returnurl="@Model.ReturnUrl" method="post" class="form-horizontal">
+        <div>
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+            <p class="text-danger">@Model.ErrorMessage</p>
+            }
+            <p>
+                <button type="submit" class="btn btn-default login-actionstep-button" name="provider" value="Actionstep" title="Log in using your Actionstep account">
+                    <span>Log in with</span>
+                    <img style="padding-left:10px" src="~/images/actionstep-logo.png" width="130" alt="Actionstep" />
+                </button>
+            </p>
+        </div>
+    </form>
+</section>

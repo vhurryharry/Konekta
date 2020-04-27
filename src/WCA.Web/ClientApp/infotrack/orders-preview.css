@@ -1,0 +1,64 @@
+﻿.footable-row-detail-inner {
+    width: 100%;
+}
+
+.modal-content {
+    min-width: 968px;
+}
+
+.panel {
+    margin: 0px 20px 0px 20px;
+}
+
+.footable {
+    margin-top: -10px;
+}
+
+.row-addons {
+    margin-left: 10px;
+}
+
+.panel-body {
+    padding: 20px;
+}
+
+.collapse-toggle {
+    float: right;
+}
+
+    .collapse-toggle a {
+        text-decoration: underline;
+    }
+
+button {
+    width: 130px;
+}
+
+.loading-records {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.pagination-container {
+    text-align: center;
+}
+
+
+.clickable {
+    color: #337ab7;
+}
+
+    .clickable:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+.fa-check-circle {
+    color: #8bc442;
+}
+
+.fa-times-circle {
+    color: #f15a29;
+}

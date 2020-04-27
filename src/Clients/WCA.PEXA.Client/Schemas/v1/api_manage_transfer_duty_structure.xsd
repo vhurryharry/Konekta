@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns="http://api.pexa.net.au/schema/1/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.pexa.net.au/schema/1/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.31">
+	<xs:include schemaLocation="api_simple_types.xsd"/>
+	<xs:include schemaLocation="api_categories.xsd"/>
+	<xs:include schemaLocation="api_common_structures.xsd"/>
+	<xs:complexType name="manageTransferDutyRequestType">
+		<xs:sequence>
+			<xs:element name="SubscriberId" type="identifierType" minOccurs="0"/>
+			<xs:element name="WorkspaceId" type="identifierType"/>
+			<xs:element name="Role" type="workspaceRoleCategoryType"/>
+			<xs:element name="TransferDutyDetails" type="transferDutyDetailType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="transferDutyDetailType">
+		<xs:sequence>
+			<xs:element name="DutyData" type="dutyDataDetailType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>	
+	<xs:complexType name="dutyDataDetailType">
+		<xs:sequence>	
+			<xs:element name="DocumentId" type="identifierType" minOccurs="0"/>
+			<xs:element name="RevenueOfficeTransactionId" type="textType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>	
+</xs:schema>

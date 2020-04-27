@@ -1,0 +1,19 @@
+<template>
+    <require from="./actionstep-matter-info.css"></require>
+
+    <div if.bind="matterInfo" class="row wrapper white-bg border-bottom">
+        <div id="top-bar-info">
+            <p class="matter-info">Actionstep Org Key: <strong>${matterInfo.actionstepOrg}</strong></p>
+            <p class="matter-info">
+                Matter: <strong>${matterInfo.matterName}</strong> &nbsp;ID:
+                        <strong>${matterInfo.matterId}</strong></span>
+            </p>
+        </div>
+    </div>
+
+    <div if.bind="!matterInfo" class="row wrapper white-bg border-bottom">
+        <div id="top-bar-info">
+            <p class="matter-info"><b>No Actionstep matter is selected</b></p>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,95 @@
+.create-pexa-workspace {
+    background-color: white;
+    margin: 0px auto !important;
+    max-width: 1020px;
+}
+
+.create-pexa-content {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0 !important;
+    line-height: 20px;
+}
+
+.create-pexa-step {
+    padding-top: 40px;
+}
+
+.create-pexa-content h4 {
+    line-height: 20px;
+}
+
+.pexa-data-list {
+    width: 100%;
+    font-size: 14px;
+    text-align: left;
+    line-height: 25px;
+}
+
+.has-bottom-border {
+    border-bottom: 1px solid lightgray;
+}
+
+.pexa-data-list td {
+    padding: 5px 0px;
+}
+
+td.pexa-name-list {
+    padding: 0;
+}
+
+.pexa-name-list div {
+    padding: 3px 0;
+}
+
+.pexa-data-key {
+    color: black;
+}
+
+.create-pexa-tip {
+    margin: 15px 0 15px 0;
+}
+
+.validate-land-title-result {
+    width: 800px;
+    font-size: large;
+}
+
+.validate-pexa-workspace {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+.validate-pexa-info-group {
+    padding: 10px;
+}
+
+.validate-pexa-participant {
+    padding: 3px;
+}
+
+.invite-participant-item {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 800px;
+    margin: 10px !important;
+}
+
+.invite-participant-field {
+    padding: 10px;
+    margin-left: 0px !important;
+    border-bottom: 1px dotted lightgray;
+    border-top: 1px dotted lightgray;
+}
+
+.select-participant {
+    padding: 15px 10px 20px 10px;
+    border-top: none;
+}
+
+.remove-button {
+    float: right;
+    background-color: lightgray;
+}

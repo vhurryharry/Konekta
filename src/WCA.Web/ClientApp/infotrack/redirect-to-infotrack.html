@@ -1,0 +1,43 @@
+﻿<template>
+    <require from="../components/ibox"></require>
+
+    <div class="wrapper wrapper-content vertical-container">
+        <ibox collapsable.bind="false">
+            <h5 slot="title"><i class='fa fa-home'></i> Info Track</h5>
+            <div slot="content">
+                <div class="text-center article-title">
+                    <h1>
+                        Passing your matter details to InfoTrack...
+                    </h1>
+                    <div style="display:table; width:90%; margin:20px auto;" show.bind="!errorState">
+                        <div style="display:table-row;">
+                            <div style="display:table-cell; width:33%;"></div>
+                            <div style="display:table-cell; width:33%;">
+                                <img src="/images/arc-arrow.svg" alt=""
+                                    style="max-width:300px; width:100%; height: auto;" />
+                            </div>
+                            <div style="display:table-cell; width:33%;"></div>
+                        </div>
+                        <div style="display:table-row;">
+                            <div style="display:table-cell; text-align:right; width:33%;">
+                                <img src="/images/ActionStep logo_400x77.png" alt="Actionstep"
+                                    style="max-width:400px; width:100%; height: auto;" />
+                            </div>
+                            <div style="display:table-cell; text-align: center; width:33%;">
+                                <img src="${appInfoService.appLoadingImage}" alt="Loading" height="60">
+                            </div>
+                            <div style="display:table-cell; text-align: left; width:33%;">
+                                <img src="/images/InfoTrackLogo_216x80.png" alt="InfoTrack"
+                                    style="max-width:216px; width:100%; height: auto;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display:table; width:90%; margin:20px auto;" show.bind="errorState">
+                        <h3 innerhtml.bind="errorMessage"></h3>
+                    </div>
+                </div>
+            </div>
+        </ibox>
+    </div>
+</template>

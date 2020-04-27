@@ -1,0 +1,60 @@
+﻿@page
+@model EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>GlobalXMatterMapping</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="GlobalXMatterMapping.ActionstepOrgKey" />
+            <input type="hidden" asp-for="GlobalXMatterMapping.GlobalXMatterId" />
+            <div class="form-group">
+                <label asp-for="GlobalXMatterMapping.ActionstepOrgKey" class="control-label"></label>
+                <input asp-for="GlobalXMatterMapping.ActionstepOrgKey" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="GlobalXMatterMapping.GlobalXMatterId" class="control-label"></label>
+                <input asp-for="GlobalXMatterMapping.GlobalXMatterId" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="GlobalXMatterMapping.ActionstepMatterId" class="control-label"></label>
+                <input asp-for="GlobalXMatterMapping.ActionstepMatterId" class="form-control" />
+                <span asp-validation-for="GlobalXMatterMapping.ActionstepMatterId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GlobalXMatterMapping.CreatedBy" class="control-label"></label>
+                <input asp-for="GlobalXMatterMapping.CreatedBy" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="GlobalXMatterMapping.DateCreatedUtc" class="control-label"></label>
+                <input asp-for="GlobalXMatterMapping.DateCreatedUtc" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="GlobalXMatterMapping.UpdatedBy" class="control-label"></label>
+                <input asp-for="GlobalXMatterMapping.UpdatedBy" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="GlobalXMatterMapping.LastUpdatedUtc" class="control-label"></label>
+                <input asp-for="GlobalXMatterMapping.LastUpdatedUtc" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

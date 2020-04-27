@@ -1,0 +1,74 @@
+﻿.info-track-wrapper {
+    max-width: 680px;
+}
+
+#infoTrackConnectForm {
+    padding: 20px;
+    max-width: 600px;
+}
+
+.group {
+    background: white;
+    margin-bottom: 30px;
+}
+
+.group label {
+    position: relative;
+    color: black;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+    display: block;
+}
+
+label {
+    font-weight: 300;
+}
+
+.field {
+    background: transparent;
+    border: 0;
+    color: #31325F;
+    outline: none;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: text;
+    width: 65%;
+    height: 40px;
+    float: right;
+}
+
+.field::-webkit-input-placeholder {
+    color: #CFD7E0;
+}
+
+.field::-moz-placeholder {
+    color: #CFD7E0;
+}
+
+.field:-ms-input-placeholder {
+    color: #CFD7E0;
+}
+
+.mandatory {
+    color: #E4584C;
+}
+
+.error {
+    float: right;
+    text-align: right;
+    position: relative;
+    color: #E4584C;
+}
+
+.error li {
+    list-style: none;
+}
+
+select.field {
+    cursor: pointer;
+}
+
+input.field {
+    border-bottom: 1px solid #8898AA;
+}

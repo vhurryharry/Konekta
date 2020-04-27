@@ -1,0 +1,61 @@
+{
+  "name": "client-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/file-saver": "2.0.1",
+    "@types/history": "4.7.5",
+    "@types/invariant": "2.2.31",
+    "@types/jest": "25.1.4",
+    "@types/node": "12.11.7",
+    "@types/react": "16.9.25",
+    "@types/react-dom": "16.9.5",
+    "@types/react-redux": "7.1.7",
+    "@types/react-router-dom": "5.1.3",
+    "@uifabric/react-cards": "0.109.43",
+    "immutable": "4.0.0-rc.12",
+    "connected-react-router": "6.8.0",
+    "file-saver": "2.0.2",
+    "history": "4.10.1",
+    "jsonwebtoken": "8.5.1",
+    "office-ui-fabric-react": "7.105.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-redux": "7.2.0",
+    "react-router-dom": "5.1.2",
+    "react-scripts": "3.4.1",
+    "redux": "4.0.5",
+    "redux-saga": "1.1.3",
+    "typescript": "3.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom --watchAll=false --coverage",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!office-ui-fabric-react).+\\.js$"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

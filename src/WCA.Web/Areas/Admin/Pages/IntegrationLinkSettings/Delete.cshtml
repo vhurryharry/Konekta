@@ -1,0 +1,64 @@
+﻿@page
+@model WCA.Web.Areas.Admin.Pages.IntegrationLinkSettings.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>IntegrationLinkSetting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationLinkSetting.ActionstepOrg)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationLinkSetting.ActionstepOrg.Key)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationLinkSetting.User)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationLinkSetting.User.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationLinkSetting.SortOrder)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationLinkSetting.SortOrder)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationLinkSetting.HideIntegrationLink)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationLinkSetting.HideIntegrationLink)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationLinkSetting.IntegrationLink)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationLinkSetting.IntegrationLink.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationLinkSetting.DateCreatedUtc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationLinkSetting.DateCreatedUtc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IntegrationLinkSetting.LastUpdatedUtc)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IntegrationLinkSetting.LastUpdatedUtc)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="IntegrationLinkSetting.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

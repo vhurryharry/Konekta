@@ -1,0 +1,5 @@
+<template>
+    <select value.bind="selected" name="status" class="select2_demo_2 form-control" multiple="multiple" style="width: 200px;" >
+        <option repeat.for="option of options" value.bind="option.value">${option.label}</option>
+    </select>
+</template>

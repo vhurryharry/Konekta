@@ -1,0 +1,90 @@
+.fade-in-add {
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+#changes-made.fade-in {
+    opacity: 1;
+}
+
+
+form.signup {
+    width: 700px;
+    margin: 20px auto;
+}
+
+.group {
+    background: white;
+    box-shadow: 0 7px 14px 0 rgba(49,49,93,0.10), 0 3px 6px 0 rgba(0,0,0,0.08);
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.group label {
+    position: relative;
+    color: #8898AA;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 40px;
+    display: block;
+}
+
+label {
+    font-weight: 300;
+}
+
+.group label:not(:last-child) {
+    border-bottom: 1px solid #F0F5FA;
+}
+
+.group label > span {
+    width: 30%;
+    text-align: right;
+    float: left;
+}
+
+label.checkboxlabel {
+    display: inline;
+}
+
+.field {
+    background: transparent;
+    border: 0;
+    color: #31325F;
+    outline: none;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: text;
+    width: 70%;
+    height: 40px;
+    float: right;
+}
+
+    .field::-webkit-input-placeholder {
+        color: #CFD7E0;
+    }
+
+    .field::-moz-placeholder {
+        color: #CFD7E0;
+    }
+
+    .field:-ms-input-placeholder {
+        color: #CFD7E0;
+    }
+
+.mandatory,
+.error {
+    color: #E4584C;
+}
+    .error li {
+        list-style: none;
+    }
+
+
+.signup-section {
+    text-align: center;
+    opacity: 0.6;
+    font-size: 40px;
+    color: grey;
+    margin-top: -5px;
+}

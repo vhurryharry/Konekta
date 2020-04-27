@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Logan Ginger (private) -->
+<xs:schema xmlns="http://api.pexa.net.au/schema/2/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.pexa.net.au/schema/2/" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.5">
+	<xs:include schemaLocation="api_simple_types.xsd"/>
+	<xs:include schemaLocation="api_categories.xsd"/>
+	<xs:include schemaLocation="api_common_structures.xsd"/>
+	<xs:complexType name="titleActivityResponseType">
+		<xs:sequence>
+			<xs:element name="TitleActivityStartTime" type="textType" minOccurs="1" maxOccurs="1" />
+			<xs:element name="TitleActivityEndTime" type="textType" minOccurs="1" maxOccurs="1" />
+			<xs:element name="TitleActivityIndicator" type="textType" minOccurs="1" maxOccurs="1" />
+			<xs:element name="LastPositiveTitleActivity" type="textType" minOccurs="0" maxOccurs="1" />
+			<xs:element name="DocumentReference" type="notificationDocumentReferenceDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

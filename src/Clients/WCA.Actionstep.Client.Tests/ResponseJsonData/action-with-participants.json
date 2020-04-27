@@ -1,0 +1,162 @@
+{
+  "links": {
+    "actions.assignedTo": {
+      "href": "https:\/\/ap-southeast-2.actionstepstaging.com.actionstep.com\/api\/rest\/participants\/{actions.assignedTo}",
+      "type": "participants"
+    },
+    "actions.division": {
+      "href": "https:\/\/ap-southeast-2.actionstepstaging.com.actionstep.com\/api\/rest\/divisions\/{actions.division}",
+      "type": "divisions"
+    },
+    "actions.actionType": {
+      "href": "https:\/\/ap-southeast-2.actionstepstaging.com.actionstep.com\/api\/rest\/actiontypes\/{actions.actionType}",
+      "type": "actiontypes"
+    },
+    "actions.primaryParticipants": {
+      "href": "https:\/\/ap-southeast-2.actionstepstaging.com.actionstep.com\/api\/rest\/participants\/{actions.primaryParticipants}",
+      "type": "participants"
+    },
+    "actions.step": {
+      "href": "https:\/\/ap-southeast-2.actionstepstaging.com.actionstep.com\/api\/rest\/steps\/{actions.step}",
+      "type": "steps"
+    },
+    "actions.billSettings": {
+      "href": "https:\/\/ap-southeast-2.actionstepstaging.com.actionstep.com\/api\/rest\/actionbillsettings\/{actions.billSettings}",
+      "type": "actionbillsettings"
+    },
+    "actions.relatedActions": {
+      "href": "https:\/\/ap-southeast-2.actionstepstaging.com.actionstep.com\/api\/rest\/actions\/{actions.relatedActions}",
+      "type": "actions"
+    },
+    "participants.physicalCountry": {
+      "href": "https:\/\/ap-southeast-2.actionstepstaging.com.actionstep.com\/api\/rest\/countries\/{participants.physicalCountry}",
+      "type": "countries"
+    },
+    "participants.mailingCountry": {
+      "href": "https:\/\/ap-southeast-2.actionstepstaging.com.actionstep.com\/api\/rest\/countries\/{participants.mailingCountry}",
+      "type": "countries"
+    },
+    "participants.division": {
+      "href": "https:\/\/ap-southeast-2.actionstepstaging.com.actionstep.com\/api\/rest\/divisions\/{participants.division}",
+      "type": "divisions"
+    }
+  },
+  "actions": {
+    "id": 1,
+    "name": "Daniel Test Matter 01",
+    "reference": null,
+    "priority": 0,
+    "status": "Active",
+    "statusTimestamp": "2018-10-10T13:10:51+10:30",
+    "isBillableOverride": null,
+    "createdTimestamp": "2018-10-10",
+    "modifiedTimestamp": "2019-04-12T17:13:43+09:30",
+    "isDeleted": "F",
+    "deletedBy": null,
+    "deletedTimestamp": null,
+    "isFavorite": "F",
+    "overrideBillingStatus": null,
+    "lastAccessTimestamp": "2019-04-20T23:18:39+09:30",
+    "links": {
+      "assignedTo": "10",
+      "division": "1",
+      "actionType": "7",
+      "primaryParticipants": [
+        "10"
+      ],
+      "step": "7--0",
+      "billSettings": "1",
+      "relatedActions": null
+    }
+  },
+  "linked": {
+    "participants": [
+      {
+        "id": 10,
+        "displayName": "Smon, Daniel",
+        "isCompany": "F",
+        "companyName": null,
+        "salutation": null,
+        "firstName": "Daniel",
+        "middleName": null,
+        "lastName": "Smon",
+        "suffix": null,
+        "preferredName": null,
+        "physicalAddressLine1": null,
+        "physicalAddressLine2": null,
+        "physicalCity": null,
+        "physicalStateProvince": null,
+        "physicalPostCode": null,
+        "mailingAddressLine1": null,
+        "mailingAddressLine2": null,
+        "mailingCity": null,
+        "mailingStateProvince": null,
+        "mailingPostCode": null,
+        "phone1Label": "Business",
+        "phone1Country": 61,
+        "phone1Area": null,
+        "phone1Number": null,
+        "phone1Notes": null,
+        "phone2Label": "Mobile",
+        "phone2Country": 61,
+        "phone2Area": null,
+        "phone2Number": null,
+        "phone2Notes": null,
+        "phone3Label": "Home",
+        "phone3Country": 61,
+        "phone3Area": null,
+        "phone3Number": null,
+        "phone3Notes": null,
+        "phone4Label": "Other",
+        "phone4Country": 61,
+        "phone4Area": null,
+        "phone4Number": null,
+        "phone4Notes": null,
+        "fax": null,
+        "sms": null,
+        "email": "daniel@workcloud.com.au",
+        "website": null,
+        "occupation": null,
+        "taxNumber": null,
+        "birthTimestamp": null,
+        "deathTimestamp": null,
+        "maritalStatus": null,
+        "gender": null,
+        "modifiedTimestamp": "2018-10-15T14:27:10+10:30",
+        "createdTimestamp": "2018-10-05T08:25:40+09:30",
+        "links": {
+          "physicalCountry": "AU",
+          "mailingCountry": "AU",
+          "division": "1"
+        }
+      }
+    ]
+  },
+  "meta": {
+    "paging": {
+      "actions": {
+        "recordCount": 1,
+        "pageCount": 1,
+        "page": 1,
+        "pageSize": 50,
+        "prevPage": null,
+        "nextPage": null
+      }
+    },
+    "debug": {
+      "requestTime": "0.084626",
+      "mem": "2.43mb",
+      "server": "app-0ec4df1d24325a620.ap-southeast-2.actionstepstaging.com",
+      "cb": "T17550-20097-0",
+      "time": "2019-04-20 23:18:42 +0930 (Australia\/Adelaide)",
+      "appload": "0.19, 0.28, 0.23",
+      "app": "0.018509",
+      "db": "0.066117",
+      "dbc": "0.008811",
+      "qc": "61",
+      "uqc": "33",
+      "fc": "1,494",
+      "rl": null
+    }
+  }
+}

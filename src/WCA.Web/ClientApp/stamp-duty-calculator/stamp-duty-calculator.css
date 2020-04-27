@@ -1,0 +1,12 @@
+#changes-made {
+    opacity: 0;
+}
+
+.fade-in-add {
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+#changes-made.fade-in {
+    opacity: 1;
+}

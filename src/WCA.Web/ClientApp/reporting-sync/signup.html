@@ -1,0 +1,197 @@
+<template>
+    <require from="./signup.css"></require>
+    <require from="../components/ibox"></require>
+
+    <div class="wrapper wrapper-content animated fadeInRight vertical-container">
+        <ibox collapsable.bind="true" imagesource.bind="actionsteplogo" id="actionstepMatterInfo" ibox.ref="ibox1">
+            <div class="row" slot="content">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <form class="signup">
+                            <h1>Sign up for ${appInfoService.appName} Reporting Synchronisation Service.</h1>
+                            <p>Please complete the fields below to sign-up for our reporting synchronisation service.
+                            </p>
+
+                            <div class="group">
+                                <label>
+                                    <span><span class="mandatory">*</span> Service Contact First Name</span>
+                                    <input id="firstname" value.bind="serviceContactFirstname" class="field"
+                                        type="text" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span><span class="mandatory">*</span> Service Contact Last Name</span>
+                                    <input id="lastname" value.bind="serviceContactLastname" class="field"
+                                        type="text" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span><span class="mandatory">*</span> Service Contact Email</span>
+                                    <input id="email" value.bind="serviceContactEmail" class="field" type="email"
+                                        placeholder="your.name@yourcompany.com.au" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span>Service Contact Phone</span>
+                                    <input class="field" value.bind="serviceContactPhone" placeholder="(02) 9999 1111"
+                                        type="tel" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span><span class="mandatory">*</span> Billing frequency</span>
+                                    <select value.bind="billingFrequency" class="field">
+                                        <option value="">-- Please Select --</option>
+                                        <option>Monthly, at AU$125/month (inc. GST)</option>
+                                        <option>Quarterly, at AU$375/3 months (inc. GST)</option>
+                                        <option>Annually, at AU$1,500/year (inc. GST)</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span><span class="mandatory">*</span> Billing Contact First name</span>
+                                    <input id="firstname" value.bind="billingContactFirstname" class="field"
+                                        type="text" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span><span class="mandatory">*</span> Billing Contact Last name</span>
+                                    <input id="lastname" value.bind="billingContactLastname" class="field"
+                                        type="text" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span><span class="mandatory">*</span> Billing Contact Email</span>
+                                    <input id="email" value.bind="billingContactEmail" class="field" type="email"
+                                        placeholder="your.name@yourcompany.com.au" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span>Billing Contact Phone</span>
+                                    <input class="field" value.bind="billingContactPhone" placeholder="(02) 9999 1111"
+                                        type="tel" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span><span class="mandatory">*</span> Company</span>
+                                    <input id="company" value.bind="company" class="field" type="text" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span>ABN</span>
+                                    <input id="abn" value.bind="abn" class="field" type="text"
+                                        placeholder="12 345 678 901" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span>Address line 1</span>
+                                    <input id="addressLine1" value.bind="addressLine1" class="field"
+                                        placeholder="1 New Street" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span>Address line 2</span>
+                                    <input id="addressLine2" value.bind="addressLine2" class="field" placeholder="" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span>City</span>
+                                    <input id="addressCity" value.bind="addressCity" class="field"
+                                        placeholder="Brisbane" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span>State</span>
+                                    <input id="addressState" value.bind="addressState" class="field"
+                                        placeholder="QLD" />
+                                </label>
+                            </div>
+                            <div class="group">
+                                <label>
+                                    <span>Postcode</span>
+                                    <input id="addressPostcode" value.bind="addressPostcode" class="field"
+                                        placeholder="4000" />
+                                </label>
+                            </div>
+                            <div class="group" show.bind="showCreditCardFields">
+                                <label>
+                                    <span>Cardholder name</span>
+                                    <input id="cardholderName" value.bind="cardholderName" class="field"
+                                        placeholder="Cardholder name" />
+                                </label>
+                            </div>
+                            <div class="group" show.bind="showCreditCardFields">
+                                <label>
+                                    <span><span class="mandatory">*</span> Card</span>
+                                    <div id="card-element" class="field"></div>
+                                </label>
+                            </div>
+
+                            <div if.bind="billingFrequency">
+                                <p>&nbsp;</p>
+                                <p>You have selected
+                                    to be billed ${billingFrequency}. Your credit
+                                    card will be automatically charged based on this
+                                    schedule.</p>
+                                <div>
+                                    <input id="acceptedFees" checked.bind="acceptedFees" class="" type="checkbox" />
+                                    <label for="acceptedFees" class="checkboxlabel">
+                                        <span class="mandatory">*</span>
+                                        I acknowledge that the charges will
+                                        be ${billingFrequency}, and that I
+                                        am responsible for any fees that
+                                        result from disputed charges.
+                                    </label>
+                                </div>
+
+                                <p>&nbsp;</p>
+                                <div>
+                                    <input id="acceptedTermsAndConditions" checked.bind="acceptedTermsAndConditions"
+                                        class="" type="checkbox" />
+                                    <label for="acceptedTermsAndConditions" class="checkboxlabel"><span
+                                            class="mandatory">*</span> I accept the <a href="https://support.konekta.com.au/support/solutions/articles/6000229543-terms-conditions"
+                                            target="_blank">${appInfoService.appName} Terms &amp;
+                                            Conditions</a>.</label>
+                                </div>
+
+                                <p>&nbsp;</p>
+                                <button class="btn btn-primary" disabled.bind="loading" type="submit"
+                                    click.delegate="signup()">${loading ? "Loading" : "Signup"}</button>
+                                <p>&nbsp;</p>
+                            </div>
+
+                            <div class="outcome">
+                                <div class="error" role="alert">
+                                    <ul>
+                                        <li class="error" repeat.for="error of errors">${error}</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <p>&nbsp;</p>
+
+                            <p class="pull-right">Payments <a href="https://www.stripe.com"><img
+                                        src="/images/powered_by_stripe.png" alt="Powered by stripe logo"></a></p>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </ibox>
+    </div>
+</template>

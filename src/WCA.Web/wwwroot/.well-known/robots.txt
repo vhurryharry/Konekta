@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+
+# Content is disallowed because this is a single page web application designed
+# to be used by authenticated users only.
+Disallow: /

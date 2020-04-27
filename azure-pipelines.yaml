@@ -1,0 +1,78 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+# leaving off branch name for now as the build appears on the page and is
+# visible to the user  $(SourceBranchName)
+name: $(Date:yyyyMMdd)$(Rev:.r)
+
+trigger:
+- master
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+# Not needed for local build agent
+# - task: UseDotNet@2
+#   inputs:
+#     version: '3.0.100-preview4-011223'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet restore (custom)'
+  inputs:
+    command: custom
+    # Required to get custom nuget.config to work
+    custom: restore
+    arguments: '--configfile ./NuGet.config --verbosity minimal'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  inputs:
+    arguments: '--configuration $(buildConfiguration) --no-restore'
+    configuration: $(buildConfiguration)
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish - WCA.Web'
+  inputs:
+    command: publish
+    arguments: '--configuration $(buildConfiguration) --output $(build.artifactstagingdirectory) --no-restore --no-build'
+    projects: ./src/WCA.Web/WCA.Web.csproj
+    zipAfterPublish: true
+    modifyOutputPath: true
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet test'
+  inputs:
+    command: test
+    arguments: '--configuration $(buildConfiguration) --no-restore --no-build'
+    configuration: $(buildConfiguration)
+    nobuild: true
+    publishTestResults: true
+
+- task: Npm@1
+  displayName: 'npm run unit-test'
+  inputs:
+    command: 'custom'
+    workingDir: './src/WCA.Web'
+    customCommand: 'run unit-test'
+
+# - task: Npm@1
+#   displayName: 'npm run test'
+#   inputs:
+#     command: 'custom'
+#     workingDir: './src/WCA.Web/client-app'
+#     customCommand: 'run test'
+
+- task: ArchiveFiles@2
+  displayName: 'zip WCA.AzureFunctions'
+  inputs:
+    rootFolderOrFile: './src/WCA.AzureFunctions/bin/Release/netcoreapp3.1/'
+    includeRootFolder: false
+    archiveFile: '$(Build.ArtifactStagingDirectory)/WCA.AzureFunctions.zip'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
