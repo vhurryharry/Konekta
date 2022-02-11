@@ -126,7 +126,7 @@
     "ignore-loader": "^0.1.2",
     "isomorphic-fetch": "3.0.0",
     "jquery": "^3.5.1",
-    "jquery-ui": "^1.12.1",
+    "jquery-ui": "^1.13.0",
     "numeral": "2.0.6",
     "office-ui-fabric-react": "^7.155.3",
     "query-string": "^6.13.8",
